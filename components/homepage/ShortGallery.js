@@ -49,7 +49,7 @@ const ShortGallery = () => {
               return <img key={index} src={item} alt="" />;
             })}
         </Carousel>
-        <Link href="/gallery">
+        <Link href="/zdjecia">
           <p className="linkToGallery">
             {plLanguage ? "Zobacz galerie zdjęć" : "View photo gallery"}
           </p>

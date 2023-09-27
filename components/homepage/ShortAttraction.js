@@ -40,7 +40,7 @@ const ShortFaqRegulations = () => {
               where you can eat well and have a good time.
             </p>
           )}
-          <Link href="/attractions">
+          <Link href="/okoliczne-atrakcje">
             <button className="link">
               {plLanguage
                 ? "zobacz polecane atrakcje"

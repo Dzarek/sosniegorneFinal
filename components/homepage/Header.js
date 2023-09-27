@@ -54,7 +54,7 @@ const Header = () => {
             ? "Wybierz termin i dokonaj rezerwacji!"
             : "Choose date and make a reservation!"}
         </p>
-        <Link href="/bookingHouse">
+        <Link href="/rezerwacja">
           <a className="bookingLink">
             {plLanguage ? "Rezerwacja" : "Reservation"}
           </a>
