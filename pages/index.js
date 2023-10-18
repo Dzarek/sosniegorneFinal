@@ -10,12 +10,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>
-          Całoroczne domki z jacuzzi do wynajęcia | Sośnie Górne Resort & SPA
-        </title>
+        <title>Domki z jacuzzi do wynajęcia | Sośnie Górne Resort & SPA</title>
         <meta
           name="description"
-          content="Domki z jacuzzi do wynajęcia. Nowoczesne, komfortowe i całoroczne domki do wynajęcia. Domki z prywatnym jacuzzi, tarasem, grillem oraz darmowym WiFi – Sprawdź."
+          content="Domki z jacuzzi do wynajęcia. Nowoczesne, komfortowe i całoroczne domki do wynajęcia. Domki z prywatnym jacuzzi, tarasem, grillem – Sprawdź."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

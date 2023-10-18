@@ -19,6 +19,11 @@ const AboutUs = () => {
       <img src={homeUndraw1} alt="" data-aos="fade-left" />
       <section>
         <h2>{plLanguage ? "O nas" : "About Us"}</h2>
+        <h1 className="aboutUsSubtitle">
+          {plLanguage
+            ? "Domki z jacuzzi do wynajęcia."
+            : "Houses with jacuzzi for rent."}
+        </h1>
         {plLanguage ? (
           <p>
             Sośnie Górne Resort &amp; Spa to jest to czego szukasz aby pobyć z
@@ -75,13 +80,18 @@ const Wrapper = styled.div`
     margin-right: 5vw;
     z-index: 1;
     h2 {
-      margin-bottom: 8vh;
+      margin-bottom: 5vh;
       color: var(--secondaryColor);
       text-transform: uppercase;
       font-size: 3rem;
       letter-spacing: 5px;
       font-family: var(--titleFont);
       text-align: center;
+    }
+    .aboutUsSubtitle {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 3vh;
     }
     p {
       width: 100%;
@@ -99,6 +109,10 @@ const Wrapper = styled.div`
         margin-top: 5vh;
         font-size: 2rem;
         letter-spacing: 3px;
+      }
+      .aboutUsSubtitle {
+        font-size: 1.3rem;
+        margin-bottom: 2vh;
       }
       p {
         font-size: 1.1rem;

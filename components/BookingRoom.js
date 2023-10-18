@@ -1,17 +1,19 @@
 import styled from "styled-components";
 import { useGlobalContext } from "./context";
 import { useRouter } from "next/router";
-import { useState } from "react";
-import { IoClose } from "react-icons/io5";
+// import { useState } from "react";
+// import { IoClose } from "react-icons/io5";
 import { MdPhoneAndroid, MdEmail, MdFacebook } from "react-icons/md";
 import { AiFillInstagram } from "react-icons/ai";
+
+import Link from "next/link";
 
 const logo = "/images/logo.png";
 const bookingBg = "/images/home/mobileAboutBg.png";
 
 const BookingRoom = () => {
   const { plLanguage, offset, windowHeight } = useGlobalContext();
-  const [showBooking, setShowBooking] = useState(false);
+  // const [showBooking, setShowBooking] = useState(false);
 
   const router = useRouter();
 
@@ -25,60 +27,62 @@ const BookingRoom = () => {
               ? ""
               : "none"
           }
-          style={showBooking ? { width: "100vw" } : { width: "18vw" }}
+          // style={showBooking ? { width: "100vw" } : { width: "18vw" }}
+          style={{ width: "18vw" }}
         >
           <div className="logoContainer">
             <img src={logo} alt="" />
           </div>
           <div className="bookRoom">
-            {showBooking ? (
+            {/* {showBooking ? (
               <h3>{plLanguage ? "Rezerwacja" : "Reservation"}</h3>
-            ) : (
-              <div className="smallContainer">
-                <h3 className="smallh3">
-                  {plLanguage ? "Rezerwacja" : "Reservation"}
-                </h3>
-                <p>
-                  {plLanguage
-                    ? "Wybierz termin i dokonaj rezerwacji!"
-                    : "Choose date and make a reservation!"}
-                </p>
-                <button onClick={() => setShowBooking(true)}>
-                  {plLanguage ? "Rezerwuj teraz" : "Book now"}
-                </button>
-                <div className="socialMediaWrapper">
-                  <a href="tel:+48793373246">
-                    <MdPhoneAndroid /> <span>+48 793 373 246</span>
-                  </a>
-                  <a href="mailto:rezerwacja@sosniegorne.pl">
-                    <MdEmail />{" "}
-                    <span style={{ display: "flex", flexWrap: "wrap" }}>
-                      rezerwacja
-                      <div>@</div>
-                      sosniegorne.pl
-                    </span>
-                  </a>
+            ) : ( */}
+            <div className="smallContainer">
+              <h3 className="smallh3">
+                {plLanguage ? "Rezerwacja" : "Reservation"}
+              </h3>
+              <p>
+                {plLanguage
+                  ? "Wybierz termin i dokonaj rezerwacji!"
+                  : "Choose date and make a reservation!"}
+              </p>
+              {/* <button onClick={() => setShowBooking(true)}> */}
+              <Link href="/rezerwacja">
+                <button>{plLanguage ? "Rezerwuj teraz" : "Book now"}</button>
+              </Link>
+              <div className="socialMediaWrapper">
+                <a href="tel:+48793373246">
+                  <MdPhoneAndroid /> <span>+48 793 373 246</span>
+                </a>
+                <a href="mailto:rezerwacja@sosniegorne.pl">
+                  <MdEmail />{" "}
+                  <span style={{ display: "flex", flexWrap: "wrap" }}>
+                    rezerwacja
+                    <div>@</div>
+                    sosniegorne.pl
+                  </span>
+                </a>
 
-                  <div className="fbInWrapper">
-                    <a
-                      href="https://www.facebook.com/SosnieGorne/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <MdFacebook />
-                    </a>
-                    <a
-                      href="https://www.instagram.com/sosniegorne/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <AiFillInstagram />
-                    </a>
-                  </div>
+                <div className="fbInWrapper">
+                  <a
+                    href="https://www.facebook.com/SosnieGorne/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MdFacebook />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/sosniegorne/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <AiFillInstagram />
+                  </a>
                 </div>
               </div>
-            )}
-            {showBooking && (
+            </div>
+            {/* )} */}
+            {/* {showBooking && (
               <div className="bookForm">
                 <button
                   className="closeBtn"
@@ -92,7 +96,7 @@ const BookingRoom = () => {
                   src="https://roomadmin.pl/widget/reservation-v2/start?fh=11e1aab88aeea64dba1592e5ec4ca8ba8059e69c&style=%7B%22color_accent%22%3A%22%23253a4d%22%2C%22color_bg%22%3A%22transparent%22%2C%22color_panel_header%22%3A%22%23ffffff%22%2C%22color_panel_body%22%3A%22%23fdfdfd%22%2C%22rounded_corners%22%3Afalse%7D&filter=%7B%7D"
                 ></iframe>
               </div>
-            )}
+            )} */}
           </div>
           <img src={bookingBg} alt="" className="bookingBg" />
         </Wrapper>

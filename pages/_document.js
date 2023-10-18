@@ -5,7 +5,7 @@ import Script from "next/script";
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="pl">
         <Head>
           <Script
             strategy="afterInteractive"

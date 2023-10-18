@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useGlobalContext } from "./context";
+import { useRouter } from "next/router";
 
 import {
   MdPhoneAndroid,
@@ -14,87 +15,107 @@ const logo = "/images/logo2.png";
 
 const Footer = () => {
   const { plLanguage } = useGlobalContext();
-
+  const router = useRouter();
   return (
     <Wrapper>
-      <div className="content">
-        <div className="bankDetails">
-          {plLanguage ? (
-            <p className="cytat">
-              Wszystko to czego szukasz, aby pobyć z dala od domu, a
-              jednocześnie poczuć się jak w domu. Cisza, spokój i otoczenie
-              wspaniałej przyrody pozwolą Tobie i Twoim bliskim odpocząć od
-              codziennej rutyny.
-            </p>
-          ) : (
-            <p className="cytat">
-              Everything you are looking for to stay away from home and at the
-              same time feel at home. Peace and quiet and surrounded by
-              wonderful nature they will allow you and your loved ones to take a
-              break from the daily routine.
-            </p>
-          )}
-        </div>
-        <img src={logo} alt="logo" className="logoFooter" />
-        <div className="socialMediaWrapper">
-          <a href="tel:+48793373246">
-            <MdPhoneAndroid /> <span>+48 793 373 246</span>
-          </a>
-          <a href="mailto:rezerwacja@sosniegorne.pl">
-            <MdEmail /> <span>rezerwacja@sosniegorne.pl</span>
-          </a>
-          <h4>
-            <MdLocationOn />
-            <span>
-              Sośnie Górne 37 <br />
-              33-330 Grybów
-            </span>
-          </h4>
-          <div className="fbInWrapper">
-            <a
-              href="https://www.facebook.com/SosnieGorne/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <MdFacebook />
+      <div
+        className={
+          router.pathname == "/rezerwacja" ? "fullFooter" : "smallFooter"
+        }
+      >
+        <div className="content">
+          <div className="bankDetails">
+            {plLanguage ? (
+              <p className="cytat">
+                Wszystko to czego szukasz, aby pobyć z dala od domu, a
+                jednocześnie poczuć się jak w domu. Cisza, spokój i otoczenie
+                wspaniałej przyrody pozwolą Tobie i Twoim bliskim odpocząć od
+                codziennej rutyny.
+              </p>
+            ) : (
+              <p className="cytat">
+                Everything you are looking for to stay away from home and at the
+                same time feel at home. Peace and quiet and surrounded by
+                wonderful nature they will allow you and your loved ones to take
+                a break from the daily routine.
+              </p>
+            )}
+          </div>
+          <img src={logo} alt="logo" className="logoFooter" />
+          <div className="socialMediaWrapper">
+            <a href="tel:+48793373246">
+              <MdPhoneAndroid /> <span>+48 793 373 246</span>
             </a>
-            <a
-              href="https://www.instagram.com/sosniegorne/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <AiFillInstagram />
+            <a href="mailto:rezerwacja@sosniegorne.pl">
+              <MdEmail /> <span>rezerwacja@sosniegorne.pl</span>
             </a>
+            <h4>
+              <MdLocationOn />
+              <span>
+                Sośnie Górne 37 <br />
+                33-330 Grybów
+              </span>
+            </h4>
+            <div className="fbInWrapper">
+              <a
+                href="https://www.facebook.com/SosnieGorne/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MdFacebook />
+              </a>
+              <a
+                href="https://www.instagram.com/sosniegorne/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AiFillInstagram />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <p className="allRights">
-        <div className="line"></div>
-        &copy; {new Date().getFullYear()} Firma Usługowa Jerzy Góra.{" "}
-        {plLanguage ? "Wszelkie prawa zastrzeżone." : "All rights reserved"}
-      </p>
-      <span className="logoJarek">
-        <p>{plLanguage ? "projekt i wykonanie" : "made by"}</p>
-        <a href="https://www.jarekjanas.com">
-          <img src={logoJarek} alt="logo Jarosław Janas" />
-        </a>{" "}
-      </span>
+        <p className="allRights">
+          <div className="line"></div>
+          &copy; {new Date().getFullYear()} Firma Usługowa Jerzy Góra.{" "}
+          {plLanguage ? "Wszelkie prawa zastrzeżone." : "All rights reserved"}
+        </p>
+        <span className="logoJarek">
+          <p>{plLanguage ? "projekt i wykonanie" : "made by"}</p>
+          <a href="https://www.jarekjanas.com">
+            <img src={logoJarek} alt="logo Jarosław Janas" />
+          </a>{" "}
+        </span>
+      </div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.footer`
-  width: 82vw;
-  margin-left: 18vw;
-  padding: 5vh 7vw;
-  background: var(--footerBgColor);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  color: white;
+  .smallFooter {
+    width: 82vw;
+    margin-left: 18vw;
+    padding: 5vh 7vw;
+    background: var(--footerBgColor);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+  }
+  .fullFooter {
+    width: 100vw;
+    margin-left: 0vw;
+    padding: 5vh 7vw;
+    background: var(--footerBgColor);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+  }
   @media screen and (max-width: 800px) {
     padding: 5vh 3vw 12vh;
     width: 100vw;
