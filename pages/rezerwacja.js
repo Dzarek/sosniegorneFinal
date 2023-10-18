@@ -2,8 +2,8 @@ import Head from "next/head";
 import styled from "styled-components";
 import { useGlobalContext } from "../components/context";
 import { useState } from "react";
-import Carousel from "@brainhubeu/react-carousel";
-import "@brainhubeu/react-carousel/lib/style.css";
+import { IoClose } from "react-icons/io5";
+import ReservationInfoMobile from "../components/ReservationInfoMobile";
 
 const logo = "/images/logo.png";
 const bookingBg = "/images/home/mobileAboutBg.png";
@@ -11,6 +11,7 @@ const bookingBg = "/images/home/mobileAboutBg.png";
 const BookingHouse = () => {
   const { plLanguage } = useGlobalContext();
   const [active, setActive] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <>
@@ -28,94 +29,15 @@ const BookingHouse = () => {
         <link rel="shortcut icon" href="/logo192.png" />
       </Head>
       <Wrapper>
+        <button className="whyUsBtn" onClick={() => setOpenModal(true)}>
+          {plLanguage ? "Dlaczego rezerwować tutaj?" : "Why book here?"}
+        </button>
+        {openModal && <ReservationInfoMobile setOpenModal={setOpenModal} />}
         <div className="title">
           <div className="titleLineR"></div>
           <h2>{plLanguage ? "Rezerwacja" : "Reservation"}</h2>
           <div className="titleLineR"></div>
         </div>
-        {/* <div className="fourInfo"> */}
-        <Carousel
-          className="carousel"
-          infinite
-          autoPlay={1500}
-          animationSpeed={1000}
-          slidesPerPage={1}
-          draggable={false}
-        >
-          <article>
-            <img src="/images/reservation/szybko.png" alt="szybko-ikona" />
-            <div className="fourInfo-text">
-              <h4>SZYBKO</h4>
-            </div>
-          </article>
-          <article>
-            <img
-              src="/images/reservation/bezpiecznie.png"
-              alt="bezpiecznie-ikona"
-            />
-            <div className="fourInfo-text">
-              <h4>Bezpiecznie</h4>
-            </div>
-          </article>
-          <article>
-            <img src="/images/reservation/minimum.png" alt="minimum-ikona" />
-            <div className="fourInfo-text">
-              <h4>Minimum formalności</h4>
-            </div>
-          </article>
-          <article>
-            <img
-              src="/images/reservation/anulowanie.png"
-              alt="anulowanie-ikona"
-            />
-            <div className="fourInfo-text">
-              <h4>Bezpłatne anulowanie</h4>
-            </div>
-          </article>
-        </Carousel>
-        {/* </div> */}
-
-        {/* <div className="opinionContainer">
-          <h4 className="opinionTitle">Sprawdź, co piszą o nas nasi goście</h4>
-          <div className="opinion">
-            <a
-              href="https://www.airbnb.pl/rooms/847582399728857550/reviews"
-              target="_blank"
-            >
-              <img
-                src="/images/reservation/airbnb-opinie.jpg"
-                alt="Nasze opinie na Airbnb.com"
-              />
-            </a>
-            <div className="opinionLine"></div>
-            <a
-              href="https://alohacamp.com/pl/property/sosnie-gorne-resort-andamp-spa-1335"
-              target="_blank"
-            >
-              <img
-                src="/images/reservation/alohacamp-opinie.jpg"
-                alt="Nasze opinie na Alohacamp.com"
-              />
-            </a>
-            <div className="opinionLine"></div>
-            <a
-              href="https://www.booking.com/hotel/pl/sosnie-gorne-resort-spa.pl.html#tab-reviews"
-              target="_blank"
-            >
-              <img
-                src="/images/reservation/booking-opinie.jpg"
-                alt="Nasze opinie na Booking.com"
-              />
-            </a>
-            <div className="opinionLine"></div>
-            <a href="https://maps.app.goo.gl/6KJxZnjg9ZmWJ3Wp7" target="_blank">
-              <img
-                src="/images/reservation/google-opinie.jpg"
-                alt="Nasze opinie w Google Maps"
-              />
-            </a>
-          </div>
-        </div> */}
         <iframe
           id="ra-reservation-form-v2-02a8f0b22bd74852b83ee3b4b05bd29a"
           className="roomAdminMobile"
@@ -135,11 +57,11 @@ const BookingHouse = () => {
               <article>
                 <img src="/images/reservation/szybko.png" alt="szybko-ikona" />
                 <div className="fourInfo-text">
-                  <h4>SZYBKO</h4>
+                  <h4>{plLanguage ? "SZYBKO" : "FAST"}</h4>
                   <p>
-                    Domek z jacuzzi na wyłączność może być Twój w ciągu
-                    najbliższych 5 minut. Mniej więcej tyle zajmuje wypełnienie
-                    formularza rezerwacji.
+                    {plLanguage
+                      ? "Domek z jacuzzi na wyłączność może być Twój w ciągu najbliższych 5 minut. Mniej więcej tyle zajmuje wypełnienie formularza rezerwacji."
+                      : "House with an exclusive jacuzzi can be yours in the next 5 minutes. This is approximately how long it takes to complete the reservation form."}
                   </p>
                 </div>
               </article>
@@ -149,11 +71,13 @@ const BookingHouse = () => {
                   alt="minimum-ikona"
                 />
                 <div className="fourInfo-text">
-                  <h4>Minimum formalności</h4>
+                  <h4>
+                    {plLanguage ? "Minimum formalności" : "Minimum formalities"}
+                  </h4>
                   <p>
-                    Wystarczą tylko podstawowe informacje: imię, nazwisko, numer
-                    telefonu i adres e-mail. Nie musisz zakładać żadnego konta,
-                    ani podawać danych karty kredytowej.
+                    {plLanguage
+                      ? "Wystarczą tylko podstawowe informacje: imię, nazwisko, numer telefonu i adres e-mail. Nie musisz zakładać żadnego konta, ani podawać danych karty kredytowej."
+                      : "All you need is basic information: name, surname, number telephone and e-mail address. You don't need to create any account, or provide credit card details."}
                   </p>
                 </div>
               </article>
@@ -166,11 +90,11 @@ const BookingHouse = () => {
                   alt="bezpiecznie-ikona"
                 />
                 <div className="fourInfo-text">
-                  <h4>Bezpiecznie</h4>
+                  <h4>{plLanguage ? "Bezpiecznie" : "Safe"}</h4>
                   <p>
-                    Proces płatności obsługuje Przelewy24, a nasza strona
-                    wykorzystuje certyfikat SSL dzięki któremu Twoje dane są
-                    bezpieczne przez cały czas pobytu na naszej stronie.
+                    {plLanguage
+                      ? "Proces płatności obsługuje Przelewy24, a nasza strona wykorzystuje certyfikat SSL dzięki któremu Twoje dane są bezpieczne przez cały czas pobytu na naszej stronie."
+                      : "The payment process is handled by Przelewy24 and our website uses an SSL certificate thanks to which your data is secured safe throughout your stay on our website."}
                   </p>
                 </div>
               </article>
@@ -180,11 +104,13 @@ const BookingHouse = () => {
                   alt="anulowanie-ikona"
                 />
                 <div className="fourInfo-text">
-                  <h4>Bezpłatne anulowanie</h4>
+                  <h4>
+                    {plLanguage ? "Bezpłatne anulowanie" : "Free cancellation"}
+                  </h4>
                   <p>
-                    Nagła zmiana planów? Twoja rezerwacja jest bezpieczna!
-                    Zadzwoń i poinformuj nas o sytuacji do 48h przed przyjazdem.
-                    Bezpłatnie zmienimy termin na inny!
+                    {plLanguage
+                      ? "Nagła zmiana planów? Twoja rezerwacja jest bezpieczna! Zadzwoń i poinformuj nas o sytuacji do 48h przed przyjazdem. Bezpłatnie zmienimy termin na inny!"
+                      : "Change of plans? Your reservation is safe! Call and inform us about the situation up to 48 hours before arrival. We will change the date to another one free of charge!"}
                   </p>
                 </div>
               </article>
@@ -201,9 +127,15 @@ const BookingHouse = () => {
                 src="https://roomadmin.pl/widget/reservation-v2/start?fh=11e1aab88aeea64dba1592e5ec4ca8ba8059e69c&style=%7B%22color_accent%22%3A%22%23253a4d%22%2C%22color_bg%22%3A%22transparent%22%2C%22color_panel_header%22%3A%22%23ffffff%22%2C%22color_panel_body%22%3A%22%23fdfdfd%22%2C%22rounded_corners%22%3Afalse%7D&filter=%7B%7D"
               ></iframe>
               <p>
-                Rezerwując na naszej stronie masz gwarancję najniższej ceny.
+                {plLanguage
+                  ? "Rezerwując na naszej stronie masz gwarancję najniższej ceny."
+                  : "When you book on our website, you are guaranteed the lowest price."}
               </p>
-              <span>Problem z formularzem? Zadzwoń tel. 793 373 246</span>
+              <span>
+                {plLanguage
+                  ? "Problem z formularzem? Zadzwoń tel. 793 373 246"
+                  : "Problem with the form? Call +48 793 373 246"}
+              </span>
             </div>
           </div>
           <img
@@ -213,7 +145,9 @@ const BookingHouse = () => {
           />
           <div className="opinionContainer">
             <h4 className="opinionTitle">
-              Sprawdź, co piszą o nas nasi goście
+              {plLanguage
+                ? "Sprawdź, co piszą o nas nasi goście!"
+                : "What our guests say about us?"}
             </h4>
             <div className="opinion">
               <a
@@ -265,21 +199,34 @@ const BookingHouse = () => {
 
 const Wrapper = styled.div`
   width: 100vw;
-  /* height: 100vh;
-  height: 100dvh; */
+  height: 100vh;
+  height: 100dvh;
   background-color: #fff;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 99;
   background-image: url(${logo});
   background-size: 50%;
   background-repeat: no-repeat;
-  background-position: center 90%;
-  /* background-attachment: fixed; */
+  background-position: center 80%;
+  background-attachment: fixed;
   @media screen and (min-width: 801px) {
     display: none;
+  }
+  .whyUsBtn {
+    position: absolute;
+    top: 2vh;
+    right: 2vw;
+    background-color: var(--secondaryColor);
+    padding: 7px 10px;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    font-family: var(--textFont);
+    font-weight: 400;
+    font-size: 0.9rem;
   }
   .title {
     justify-content: space-between;
@@ -309,25 +256,7 @@ const Wrapper = styled.div`
       }
     }
   }
-  .carousel {
-    margin: 0vh auto 5vh;
-    article {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      img {
-        width: 70px;
-      }
-      h4 {
-        margin-top: 2vh;
-        text-transform: uppercase;
-        font-size: 1.2rem;
-        text-align: center;
-        font-family: var(--navFont);
-      }
-    }
-  }
+
   .logoContainer {
     display: flex;
     align-items: center;
@@ -358,8 +287,8 @@ const Wrapper = styled.div`
 
   .roomAdminMobile {
     width: 100.5vw;
-    min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 79vh;
+    min-height: 79dvh;
     border: 0;
     padding: 0vh;
   }

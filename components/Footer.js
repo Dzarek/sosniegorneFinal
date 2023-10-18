@@ -117,9 +117,19 @@ const Wrapper = styled.footer`
     color: white;
   }
   @media screen and (max-width: 800px) {
-    padding: 5vh 3vw 12vh;
-    width: 100vw;
-    margin-left: 0vw;
+    /* padding: 5vh 3vw 12vh; */
+    /* width: 100vw; */
+    /* margin-left: 0vw; */
+    .smallFooter {
+      padding: 5vh 3vw 12vh;
+      width: 100vw;
+      margin-left: 0vw;
+    }
+    .fullFooter {
+      padding: 5vh 3vw 12vh;
+      width: 100vw;
+      margin-left: 0vw;
+    }
   }
   .content {
     display: flex;
