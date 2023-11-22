@@ -55,6 +55,11 @@ const Navbar = () => {
               {plLanguage ? "cennik" : "pricing"}
             </p>
           </Link>
+          <Link href="/rezerwacja">
+            <p className={router.pathname == "/rezerwacja" ? "activeNav" : ""}>
+              {plLanguage ? "rezerwacja" : "reservation"}
+            </p>
+          </Link>
           <Link href="/zdjecia">
             <p className={router.pathname == "/zdjecia" ? "activeNav" : ""}>
               {plLanguage ? "galeria" : "gallery"}
@@ -69,14 +74,14 @@ const Navbar = () => {
               {plLanguage ? "okoliczne atrakcje" : "nearby attractions"}
             </p>
           </Link>
-          <Link href="/faq">
+          {/* <Link href="/faq">
             <p className={router.pathname == "/faq" ? "activeNav" : ""}>faq</p>
           </Link>
           <Link href="/regulamin">
             <p className={router.pathname == "/regulamin" ? "activeNav" : ""}>
               {plLanguage ? "regulamin" : "regulations"}
             </p>
-          </Link>
+          </Link> */}
           <Link href="/kontakt">
             <p className={router.pathname == "/kontakt" ? "activeNav" : ""}>
               {plLanguage ? "kontakt" : "contact"}
@@ -175,7 +180,7 @@ const Navbar = () => {
               {plLanguage ? "okoliczne atrakcje" : "nearby attractions"}
             </a>
           </Link>
-          <Link href="/faq">
+          {/* <Link href="/faq">
             <a
               className={router.pathname == "/faq" ? "active" : ""}
               onClick={() => setShowMenu(false)}
@@ -192,7 +197,7 @@ const Navbar = () => {
               <HiExclamation />
               {plLanguage ? "regulamin" : "regulations"}
             </a>
-          </Link>
+          </Link> */}
           <Link href="/kontakt">
             <a
               className={router.pathname == "/kontakt" ? "active" : ""}
@@ -396,7 +401,7 @@ const Wrapper2 = styled.div`
     height: 100vh;
     height: 100dvh;
     width: 100vw;
-    padding-top: 5vh;
+    padding-top: 10vh;
     top: 0;
     left: 0;
     display: flex;
@@ -412,7 +417,7 @@ const Wrapper2 = styled.div`
     h5,
     a {
       width: 100vw;
-      margin-top: 1vh;
+      margin-top: 2vh;
       padding: 7px 0;
       font-weight: 500;
       display: flex;

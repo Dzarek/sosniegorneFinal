@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useGlobalContext } from "./context";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import { FaCircle } from "react-icons/fa";
 
 import {
   MdPhoneAndroid,
@@ -25,24 +27,65 @@ const Footer = () => {
       >
         <div className="content">
           <div className="bankDetails">
+            <img src={logo} alt="logo" className="logoFooter" />
             {plLanguage ? (
               <p className="cytat">
-                Wszystko to czego szukasz, aby pobyć z dala od domu, a
-                jednocześnie poczuć się jak w domu. Cisza, spokój i otoczenie
-                wspaniałej przyrody pozwolą Tobie i Twoim bliskim odpocząć od
-                codziennej rutyny.
+                Sośnie Górne Resort & SPA oferuje Ci wszystko czego
+                potrzebujesz, aby móc cieszyć się zasłużonym odpoczynkiem. Nasze
+                domki z jacuzzi położone są w cichej i spokojnej okolicy,
+                otoczone wspaniałą naturą. To idealne miejsce na wypoczynek dla
+                Ciebie i Twoich bliskich.
               </p>
             ) : (
               <p className="cytat">
-                Everything you are looking for to stay away from home and at the
-                same time feel at home. Peace and quiet and surrounded by
-                wonderful nature they will allow you and your loved ones to take
-                a break from the daily routine.
+                Sośnie Górne Resort & SPA offers you everything you need to
+                enjoy your well-deserved rest. Our cottages with jacuzzi are
+                located in a quiet and peaceful area, surrounded by wonderful
+                nature. It's the perfect place to relax for You and your family.
               </p>
             )}
           </div>
-          <img src={logo} alt="logo" className="logoFooter" />
+          <div className="usefulLinks">
+            <h5 className="footerColTitle">
+              {plLanguage ? "Przydatne linki:" : "Useful links:"}
+            </h5>
+            <ul>
+              <li>
+                <FaCircle />
+                <Link href="/faq">
+                  {plLanguage
+                    ? "Często zadawane pytania (FAQ)"
+                    : "Frequently Asked Questions"}
+                </Link>
+              </li>
+              <li>
+                <FaCircle />
+                <Link href="/regulamin">
+                  {plLanguage
+                    ? "Regulamin rezerwacji i pobytu"
+                    : "Reservation and stay regulations"}
+                </Link>
+              </li>
+              <li>
+                <FaCircle />
+                <Link href="/rezerwacja">
+                  {plLanguage ? "Rezerwacja online" : "Book now"}
+                </Link>
+              </li>
+              <li>
+                <FaCircle />
+                <Link href="/domki">{plLanguage ? "Domki" : "Houses"}</Link>
+              </li>
+              <li>
+                <FaCircle />
+                <Link href="/cennik">{plLanguage ? "Cennik" : "Pricing"}</Link>
+              </li>
+            </ul>
+          </div>
           <div className="socialMediaWrapper">
+            <h5 className="footerColTitle">
+              {plLanguage ? "Szybki kontakt:" : "Contact:"}
+            </h5>
             <a href="tel:+48793373246">
               <MdPhoneAndroid /> <span>+48 793 373 246</span>
             </a>
@@ -51,10 +94,7 @@ const Footer = () => {
             </a>
             <h4>
               <MdLocationOn />
-              <span>
-                Sośnie Górne 37 <br />
-                33-330 Grybów
-              </span>
+              <span>Sośnie Górne 37, 33-330 Grybów</span>
             </h4>
             <div className="fbInWrapper">
               <a
@@ -77,7 +117,7 @@ const Footer = () => {
 
         <p className="allRights">
           <div className="line"></div>
-          &copy; {new Date().getFullYear()} Firma Usługowa Jerzy Góra.{" "}
+          &copy; {new Date().getFullYear()} Sośnie Górne Resort & SPA.{" "}
           {plLanguage ? "Wszelkie prawa zastrzeżone." : "All rights reserved"}
         </p>
         <span className="logoJarek">
@@ -95,7 +135,7 @@ const Wrapper = styled.footer`
   .smallFooter {
     width: 82vw;
     margin-left: 18vw;
-    padding: 5vh 7vw;
+    padding: 5vh 3vw;
     background: var(--footerBgColor);
     position: relative;
     display: flex;
@@ -107,7 +147,7 @@ const Wrapper = styled.footer`
   .fullFooter {
     width: 100vw;
     margin-left: 0vw;
-    padding: 5vh 7vw;
+    padding: 5vh 3vw;
     background: var(--footerBgColor);
     position: relative;
     display: flex;
@@ -117,9 +157,6 @@ const Wrapper = styled.footer`
     color: white;
   }
   @media screen and (max-width: 800px) {
-    /* padding: 5vh 3vw 12vh; */
-    /* width: 100vw; */
-    /* margin-left: 0vw; */
     .smallFooter {
       padding: 5vh 3vw 12vh;
       width: 100vw;
@@ -133,41 +170,26 @@ const Wrapper = styled.footer`
   }
   .content {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     width: 100%;
     position: relative;
     @media screen and (max-width: 800px) {
       flex-direction: column;
     }
-    .logoFooter {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: 15vh;
-      filter: saturate(0);
-      @media screen and (max-width: 800px) {
-        position: static;
-        transform: translate(0);
-        align-self: center;
-        margin: 5vh auto 2vh;
-        order: 1;
-        height: 18vh;
-      }
-    }
   }
   .allRights {
-    margin-top: 3vh;
-    font-family: var(--navFont);
-    font-size: 1rem;
+    margin-top: 5vh;
+    font-family: var(--textFont);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 12pt;
     font-weight: 400;
     text-align: center;
     .line {
-      width: 70%;
+      width: 90%;
       background: var(--thirdColor);
       height: 2px;
-      margin: 0 auto 2vh;
+      margin: 0 auto 3vh;
     }
     @media screen and (max-width: 800px) {
       width: 90%;
@@ -176,27 +198,76 @@ const Wrapper = styled.footer`
       }
     }
   }
+  .footerColTitle {
+    color: white;
+    text-transform: none;
+    font-size: 14pt;
+    font-weight: 600;
+    margin-bottom: 3vh;
+    @media screen and (max-width: 800px) {
+      width: 95%;
+      text-align: center;
+      margin-bottom: 5vh;
+    }
+  }
+  .usefulLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 30%;
+    margin-top: 3vh;
+    margin-left: 7%;
+
+    ul {
+      list-style: none;
+      li {
+        line-height: 24pt;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        svg {
+          font-size: 8pt;
+          margin-right: 10px;
+        }
+        a {
+          color: rgba(255, 255, 255, 0.4);
+          font-size: 14pt;
+          text-decoration: none;
+          transition: 0.5s;
+          :hover {
+            color: rgba(255, 255, 255, 1);
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 800px) {
+      width: 95%;
+      margin: 5vh auto;
+      order: 1;
+      ul {
+        margin-left: 7%;
+      }
+    }
+  }
 
   .socialMediaWrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: 30%;
     margin-top: 3vh;
-    margin-bottom: -3vh;
+
     a,
     h4 {
-      font-size: 1rem;
-      margin-bottom: 2vh;
-      font-weight: 500;
+      margin-bottom: 3vh;
       text-decoration: none;
       color: white;
       display: flex;
       align-items: center;
       transition: 0.5s;
       font-family: var(--headerFont);
-      letter-spacing: 2px;
       align-self: flex-start;
       @media screen and (max-width: 800px) {
         margin-left: 3vw;
@@ -210,6 +281,20 @@ const Wrapper = styled.footer`
         color: var(--thirdColor);
         margin-right: 15px;
         font-size: 1.8rem;
+      }
+    }
+    h4 {
+      font-size: 12pt;
+      font-weight: 400;
+    }
+    a {
+      :nth-of-type(1) {
+        font-size: 16pt;
+        font-weight: 600;
+      }
+      :nth-of-type(2) {
+        font-size: 14pt;
+        font-weight: 600;
       }
     }
     @media screen and (max-width: 800px) {
@@ -262,14 +347,26 @@ const Wrapper = styled.footer`
       order: 3;
     }
     .cytat {
-      font-style: italic;
-      line-height: 1.7;
-      font-size: 0.95rem;
+      line-height: 20pt;
+      font-size: 12pt;
       align-self: center;
       text-align: center;
-      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.4);
       @media screen and (max-width: 800px) {
         font-size: 1rem;
+      }
+    }
+    .logoFooter {
+      height: 15vh;
+      filter: saturate(0);
+      margin-bottom: 1vh;
+      @media screen and (max-width: 800px) {
+        position: static;
+        transform: translate(0);
+        align-self: center;
+        margin: 5vh auto 2vh;
+        order: 1;
+        height: 18vh;
       }
     }
   }
