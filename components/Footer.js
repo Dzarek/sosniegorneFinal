@@ -246,7 +246,7 @@ const Wrapper = styled.footer`
       margin: 5vh auto;
       order: 1;
       ul {
-        margin-left: 7%;
+        margin-left: 5%;
       }
     }
   }

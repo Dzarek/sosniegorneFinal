@@ -7,6 +7,9 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pl">
         <Head>
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="apple-touch-icon" href="/logo192.png" />
+          <meta name="theme-color" content="#253a4d" />
           <Script
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
