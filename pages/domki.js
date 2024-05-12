@@ -182,21 +182,21 @@ const Houses = ({ data: udogodnienia }) => {
         {plLanguage ? (
           <p className="mainText">
             W <span> Sośnie Górne - Resort & Spa </span> do dyspozycji gości
-            mamy 3 nowoczesne domki 70 m<sup>2</sup> przystosowane dla max 6
-            osób każdy. Domki są identycznie zbudowane i posiadają: dwie
-            przytulne sypialnie, komfortowy salon z aneksem kuchennym, stylową
-            łazienkę oraz taras z wanna spa, placem zabaw i grilem. <br />{" "}
-            Budynki są w pełni klimatyzowane, zarówno do chłodzenia jak i
-            ogrzewania. W domkach zainstalowane zostały szybkie połączenia
-            internetu bezprzewodowego WIFI. Dla komfortu gości w salonie
-            znajduje się 50″ TV z technologią SMART, a osoby potrzebujące
-            miejsca do pracy znajdą swój kącik z biurkiem. <br /> Do każdego
-            domku przynależą 2 miejsca parkingowe.{" "}
+            mamy 4 nowoczesne, w pełni ogrodzone domki 70 m<sup>2</sup>{" "}
+            przystosowane dla max 6 osób każdy. Domki są identycznie zbudowane i
+            posiadają: dwie przytulne sypialnie, komfortowy salon z aneksem
+            kuchennym, stylową łazienkę oraz taras z wanna spa, placem zabaw i
+            grilem. <br /> Budynki są w pełni klimatyzowane, zarówno do
+            chłodzenia jak i ogrzewania. W domkach zainstalowane zostały szybkie
+            połączenia internetu bezprzewodowego WIFI. Dla komfortu gości w
+            salonie znajduje się 50″ TV z technologią SMART, a osoby
+            potrzebujące miejsca do pracy znajdą swój kącik z biurkiem. <br />{" "}
+            Do każdego domku przynależą 2 miejsca parkingowe.{" "}
           </p>
         ) : (
           <p className="mainText">
-            In <span> Sośnie Górne - Resort & Spa </span> we have 3 modern
-            cottages 70 m<sup>2</sup>
+            In <span> Sośnie Górne - Resort & Spa </span> we have 4 modern,
+            fully fenced cottages 70 m<sup>2</sup>
             adapted for a maximum of 6 people each. The houses are identically
             built and have: two cozy bedrooms, a comfortable living room with a
             kitchen, a stylish bathroom and a terrace with a spa tub, playground
