@@ -182,21 +182,40 @@ const Houses = ({ data: udogodnienia }) => {
         {plLanguage ? (
           <p className="mainText">
             W <span> Sośnie Górne - Resort & Spa </span> do dyspozycji gości
-            mamy 4 nowoczesne, w pełni ogrodzone domki 70 m<sup>2</sup>{" "}
-            przystosowane dla max 6 osób każdy. Domki są identycznie zbudowane i
-            posiadają: dwie przytulne sypialnie, komfortowy salon z aneksem
-            kuchennym, stylową łazienkę oraz taras z wanna spa, placem zabaw i
-            grilem. <br /> Budynki są w pełni klimatyzowane, zarówno do
-            chłodzenia jak i ogrzewania. W domkach zainstalowane zostały szybkie
-            połączenia internetu bezprzewodowego WIFI. Dla komfortu gości w
-            salonie znajduje się 50″ TV z technologią SMART, a osoby
-            potrzebujące miejsca do pracy znajdą swój kącik z biurkiem. <br />{" "}
-            Do każdego domku przynależą 2 miejsca parkingowe.{" "}
+            mamy <span> 4</span> nowoczesne, w pełni ogrodzone domki{" "}
+            <span>
+              {" "}
+              70 m<sup>2</sup>
+            </span>{" "}
+            przystosowane dla max <span> 6</span> osób każdy. Domki są
+            identycznie zbudowane i posiadają: dwie przytulne sypialnie,
+            komfortowy salon z aneksem kuchennym, stylową łazienkę oraz taras z
+            wanna spa, placem zabaw i grilem. <br />
+            Budynki są w pełni klimatyzowane, zarówno do chłodzenia jak i
+            ogrzewania. W domkach zainstalowane zostały szybkie połączenia
+            internetu bezprzewodowego WIFI. Dla komfortu gości w salonie
+            znajduje się 50″ TV z technologią SMART, a osoby potrzebujące
+            miejsca do pracy znajdą swój kącik z biurkiem. <br /> Do każdego
+            domku przynależą 2 miejsca parkingowe.
+            <div className="plot">
+              <div className="verticalLine" data-aos="zoom-in"></div>
+              <div className="horizontalLine" data-aos="zoom-in-right"></div>
+              <p className="plotInfo">
+                Powierzchnia każdej działki to aż{" "}
+                <span>
+                  800 m<sup>2</sup>
+                </span>
+              </p>
+            </div>
           </p>
         ) : (
           <p className="mainText">
-            In <span> Sośnie Górne - Resort & Spa </span> we have 4 modern,
-            fully fenced cottages 70 m<sup>2</sup>
+            In <span> Sośnie Górne - Resort & Spa </span> we have{" "}
+            <span> 4</span> modern, fully fenced cottages{" "}
+            <span>
+              {" "}
+              70 m<sup>2</sup>
+            </span>
             adapted for a maximum of 6 people each. The houses are identically
             built and have: two cozy bedrooms, a comfortable living room with a
             kitchen, a stylish bathroom and a terrace with a spa tub, playground
@@ -205,6 +224,16 @@ const Houses = ({ data: udogodnienia }) => {
             with SMART technology in the living room. For those who need a place
             to work, there will be a place with a desk. <br /> Each house has 2
             parking spaces.
+            <div className="plot">
+              <div className="verticalLine" data-aos="zoom-in"></div>
+              <div className="horizontalLine" data-aos="zoom-in-right"></div>
+              <p className="plotInfo">
+                The area of each plot is around{" "}
+                <span>
+                  800 m<sup>2</sup>
+                </span>
+              </p>
+            </div>
           </p>
         )}
         <div className="container">
@@ -449,7 +478,39 @@ const Wrapper = styled.div`
     }
     span {
       color: var(--secondaryColor2);
-      font-weight: 500;
+      font-weight: 700;
+    }
+    .plot {
+      position: relative;
+      margin: 5vh auto 0;
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      @media screen and (max-width: 800px) {
+        width: 100%;
+        margin: 2vh auto 0;
+      }
+      .horizontalLine {
+        width: 100%;
+        height: 3px;
+        background-color: var(--thirdColor);
+      }
+      .verticalLine {
+        width: 3px;
+        height: 100px;
+        background-color: var(--thirdColor);
+      }
+      .plotInfo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        font-style: italic;
+        @media screen and (max-width: 800px) {
+          font-size: 1rem;
+        }
+      }
     }
   }
   .containerTitle {
