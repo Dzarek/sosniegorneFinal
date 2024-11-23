@@ -143,7 +143,7 @@ const BookingHouse = () => {
             alt=""
             className="rezerwacjaImg"
           />
-          <div className="opinionContainer">
+          {/* <div className="opinionContainer">
             <h4 className="opinionTitle">
               {plLanguage
                 ? "Sprawdź, co piszą o nas nasi goście!"
@@ -190,7 +190,7 @@ const BookingHouse = () => {
                 />
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       </Wrapper2>
     </>

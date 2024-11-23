@@ -60,6 +60,23 @@ const Header = () => {
           </a>
         </Link>
       </Wrapper2>
+      <Wrapper3>
+        <section>
+          <img src="/images/reservation/monety.png" alt="monety-ikona" />
+          <p>Najlepsza cena</p>
+        </section>
+        <section>
+          <img src="/images/reservation/szybko.png" alt="szybko-ikona" />
+          <p>Szybko</p>
+        </section>
+        <section>
+          <img
+            src="/images/reservation/bezpiecznie.png"
+            alt="bezpiecznie-ikona"
+          />
+          <p>Bezpiecznie</p>
+        </section>
+      </Wrapper3>
     </>
   );
 };
@@ -246,6 +263,8 @@ const Wrapper = styled.div`
 `;
 const Wrapper2 = styled.div`
   width: 100vw;
+  /* height: 30vh;
+  height: 30dvh; */
   height: 30vh;
   height: 30dvh;
   position: absolute;
@@ -278,6 +297,36 @@ const Wrapper2 = styled.div`
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
+  }
+`;
+
+const Wrapper3 = styled.div`
+  @media screen and (min-width: 801px) {
+    display: none;
+  }
+  width: 100vw;
+  padding: 0vh 3vw 8vh;
+  margin: 0vh auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    img {
+      height: 40px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-weight: 600;
+      text-align: center;
+      font-size: 0.9rem;
+    }
   }
 `;
 

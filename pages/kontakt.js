@@ -132,7 +132,7 @@ const KontaktPage = () => {
         </div>
         <iframe
           data-aos="fade-left"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5169.709317896717!2d20.969411409797846!3d49.6193446591197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473dc291f6a50641%3A0xb78e43143fac86f!2zU2_Fm25pZSBHw7NybmUgMzcsIDMzLTMzMCBHcnliw7N3!5e0!3m2!1spl!2spl!4v1678404593646!5m2!1spl!2spl"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2584.8362712281128!2d20.971555799999997!3d49.6196913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473dc377faafd0ab%3A0x953126b01b313d69!2zU2_Fm25pZSBHw7NybmUgUmVzb3J0ICYgU3Bh!5e0!3m2!1spl!2spl!4v1732366466658!5m2!1spl!2spl"
           className="map"
           title="mapa"
           allowfullscreen=""

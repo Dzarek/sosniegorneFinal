@@ -50,7 +50,7 @@ const AboutUs = () => {
           )}
         </section>
       </Wrapper>
-      <Wrapper2>
+      {/* <Wrapper2>
         <h4 className="opinionTitle">
           {plLanguage
             ? "Sprawdź, co piszą o nas nasi goście!"
@@ -100,7 +100,7 @@ const AboutUs = () => {
             />
           </a>
         </Carousel>
-      </Wrapper2>
+      </Wrapper2> */}
     </>
   );
 };
