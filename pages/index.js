@@ -5,6 +5,7 @@ import AboutUs from "../components/homepage/AboutUs";
 import ShortHouses from "../components/homepage/ShortHouses";
 import ShortGallery from "../components/homepage/ShortGallery";
 import ShortAttraction from "../components/homepage/ShortAttraction";
+import KPO from "../components/homepage/KPO";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
         <ShortHouses />
         <ShortGallery />
         <ShortAttraction />
+        <KPO />
       </div>
     </>
   );
