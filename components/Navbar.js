@@ -45,21 +45,22 @@ const Navbar = () => {
               {plLanguage ? "strona główna" : "home page"}
             </p>
           </Link>
-          <Link href="/domki">
-            <p className={router.pathname == "/domki" ? "activeNav" : ""}>
-              {plLanguage ? "domki" : "houses"}
-            </p>
-          </Link>
-          <Link href="/cennik">
-            <p className={router.pathname == "/cennik" ? "activeNav" : ""}>
-              {plLanguage ? "cennik" : "pricing"}
-            </p>
-          </Link>
           <Link href="/rezerwacja">
             <p className={router.pathname == "/rezerwacja" ? "activeNav" : ""}>
               {plLanguage ? "rezerwacja" : "reservation"}
             </p>
           </Link>
+          <Link href="/domki">
+            <p className={router.pathname == "/domki" ? "activeNav" : ""}>
+              {plLanguage ? "domki" : "houses"}
+            </p>
+          </Link>
+          <Link href="/rowery">
+            <p className={router.pathname == "/rowery" ? "activeNav" : ""}>
+              {plLanguage ? "rowery" : "pricing"}
+            </p>
+          </Link>
+
           <Link href="/zdjecia">
             <p className={router.pathname == "/zdjecia" ? "activeNav" : ""}>
               {plLanguage ? "galeria" : "gallery"}
@@ -151,13 +152,13 @@ const Navbar = () => {
               {plLanguage ? "Domki" : "Houses"}
             </a>
           </Link>
-          <Link href="/cennik">
+          <Link href="/rowery">
             <a
-              className={router.pathname == "/cennik" ? "active" : ""}
+              className={router.pathname == "/rowery" ? "active" : ""}
               onClick={() => setShowMenu(false)}
             >
               <GiReceiveMoney />
-              {plLanguage ? "cennik" : "pricing"}
+              {plLanguage ? "rowery" : "pricing"}
             </a>
           </Link>
           <Link href="/zdjecia">

@@ -182,7 +182,7 @@ const Houses = ({ data: udogodnienia }) => {
         {plLanguage ? (
           <p className="mainText">
             W <span> Sośnie Górne - Resort & Spa </span> do dyspozycji gości
-            mamy <span> 4</span> nowoczesne, w pełni ogrodzone domki{" "}
+            mamy <span> 5</span> nowoczesnych, w pełni ogrodzonych domków{" "}
             <span>
               {" "}
               70 m<sup>2</sup>
@@ -190,7 +190,8 @@ const Houses = ({ data: udogodnienia }) => {
             przystosowane dla max <span> 6</span> osób każdy. Domki są
             identycznie zbudowane i posiadają: dwie przytulne sypialnie,
             komfortowy salon z aneksem kuchennym, stylową łazienkę oraz taras z
-            wanna spa, placem zabaw i grilem. <br />
+            wanna spa, placem zabaw i grilem. Jeden domek dodatkowo posiada
+            saune. <br />
             Budynki są w pełni klimatyzowane, zarówno do chłodzenia jak i
             ogrzewania. W domkach zainstalowane zostały szybkie połączenia
             internetu bezprzewodowego WIFI. Dla komfortu gości w salonie
@@ -211,7 +212,7 @@ const Houses = ({ data: udogodnienia }) => {
         ) : (
           <p className="mainText">
             In <span> Sośnie Górne - Resort & Spa </span> we have{" "}
-            <span> 4</span> modern, fully fenced cottages{" "}
+            <span> 5</span> modern, fully fenced cottages{" "}
             <span>
               {" "}
               70 m<sup>2</sup>
@@ -219,11 +220,11 @@ const Houses = ({ data: udogodnienia }) => {
             adapted for a maximum of 6 people each. The houses are identically
             built and have: two cozy bedrooms, a comfortable living room with a
             kitchen, a stylish bathroom and a terrace with a spa tub, playground
-            and grill. <br /> The buildings are full air conditioned for cooling
-            and heating. For the comfort of guests, there is a WIFI and 50″ TV
-            with SMART technology in the living room. For those who need a place
-            to work, there will be a place with a desk. <br /> Each house has 2
-            parking spaces.
+            and grill. One house also has a sauna. <br /> The buildings are full
+            air conditioned for cooling and heating. For the comfort of guests,
+            there is a WIFI and 50″ TV with SMART technology in the living room.
+            For those who need a place to work, there will be a place with a
+            desk. <br /> Each house has 2 parking spaces.
             <div className="plot">
               <div className="verticalLine" data-aos="zoom-in"></div>
               <div className="horizontalLine" data-aos="zoom-in-right"></div>

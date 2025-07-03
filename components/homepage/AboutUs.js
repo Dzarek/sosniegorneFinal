@@ -188,6 +188,7 @@ const Wrapper = styled.div`
     object-fit: cover;
     margin-right: 5vw;
     box-shadow: -2px 2px 5px 0px var(--secondaryColor);
+    filter: saturate(0.6);
     @media screen and (max-width: 800px) {
       display: none;
     }

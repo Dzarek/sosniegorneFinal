@@ -33,19 +33,19 @@ const ShortHouses = () => {
       </div>
       {plLanguage ? (
         <p>
-          Do dyspozycji gości mamy 4 nowoczesne, w pełni ogrodzone domki 70 m
-          <sup>2</sup> przystosowane dla max 6 osób każdy. Domki są identycznie
+          Do dyspozycji gości mamy 5 nowoczesnych, w pełni ogrodzonych domków 70
+          m<sup>2</sup> przystosowane dla max 6 osób każdy. Domki są identycznie
           zbudowane i posiadają: dwie przytulne sypialnie, komfortowy salon z
           aneksem kuchennym, stylową łazienkę oraz taras z wanna spa, placem
-          zabaw i grilem.
+          zabaw i grilem. Jeden domek dodatkowo posiada saune.
         </p>
       ) : (
         <p>
-          We have 4 modern, fully fenced cottages 70 m<sup>2</sup>
+          We have 5 modern, fully fenced cottages 70 m<sup>2</sup>
           adapted for a maximum of 6 people each. The houses are identically
           built and have: two cozy bedrooms, a comfortable living room with a
           kitchen, a stylish bathroom and a terrace with a spa tub, playground
-          and grill.
+          and grill. One house also has a sauna.
         </p>
       )}
       <div className="iconContent">

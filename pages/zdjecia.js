@@ -9,9 +9,10 @@ import "aos/dist/aos.css";
 import Head from "next/head";
 import { useEffect } from "react";
 import { useGlobalContext } from "../components/context";
-// import { gallery } from "../data";
+import { gallery } from "../data";
 
-const Gallery = ({ data }) => {
+// const Gallery = ({ data }) => {
+const Gallery = () => {
   const { plLanguage } = useGlobalContext();
 
   useEffect(() => {
@@ -53,14 +54,14 @@ const Gallery = ({ data }) => {
               className="my-masonry-grid"
               columnClassName="my-masonry-grid_column"
             >
-              {data.map((item, index) => {
+              {gallery.map((item, index) => {
                 return (
                   <img
                     data-aos="fade-down"
                     className="oneImg"
                     key={index}
                     src={item}
-                    alt=""
+                    alt={index + 1}
                   />
                 );
               })}

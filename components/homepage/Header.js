@@ -9,6 +9,7 @@ const headerBg3 = "/images/header/04-2.jpg";
 const headerBg4 = "/images/header/04-3.jpg";
 const headerBg5 = "/images/header/w-01.jpg";
 const headerBg6 = "/images/header/w-03.jpg";
+const headerBg7 = "/images/header/w-04.jpg";
 
 const logo = "/images/logo.png";
 
@@ -192,15 +193,15 @@ const Wrapper = styled.div`
             background-image: url(${headerBg3});
           }
           75% {
-            background-image: url(${headerBg4});
+            background-image: url(${headerBg7});
             transform: scale(1.1);
           }
           97% {
-            background-image: url(${headerBg4});
+            background-image: url(${headerBg7});
             transform: scale(1);
           }
           100% {
-            background-image: url(${headerBg4});
+            background-image: url(${headerBg7});
           }
         }
       }
