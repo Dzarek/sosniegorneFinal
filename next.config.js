@@ -1,17 +1,9 @@
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   reactStrictMode: true,
-//   swcMinify: true,
-//   trailingSlash: true,
-// };
-
-// module.exports = nextConfig;
-
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
   compiler: {
+    styledComponents: true,
     removeConsole: process.env.NODE_ENV !== "development",
   },
 };
