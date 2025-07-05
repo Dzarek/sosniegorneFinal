@@ -4,16 +4,16 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import {
   FaUniversalAccess,
-  FaRegLightbulb,
   FaTextHeight,
   FaLink,
   FaPauseCircle,
   FaImage,
 } from "react-icons/fa";
+import { MdContrast } from "react-icons/md";
+import { MdNightlightRound } from "react-icons/md";
 import { HiOutlineSpeakerWave } from "react-icons/hi2";
 import { MdOutlineFormatLineSpacing } from "react-icons/md";
 import { TbLetterCaseUpper } from "react-icons/tb";
-import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
 
 export default function AccessibilityWidget() {
   const [open, setOpen] = useState(false);
@@ -76,7 +76,7 @@ export default function AccessibilityWidget() {
               active={contrast}
               onClick={() => setContrast(!contrast)}
             >
-              <FaRegLightbulb />
+              <MdContrast />
               Kontrast +
             </Button>
             {reading ? (
@@ -101,7 +101,7 @@ export default function AccessibilityWidget() {
               active={darkMode}
               onClick={() => setDarkMode(!darkMode)}
             >
-              <GiPerspectiveDiceSixFacesRandom />
+              <MdNightlightRound />
               Tryb nocny
             </Button>
             <Button
@@ -166,6 +166,10 @@ const Container = styled.div`
   bottom: 1.5vh;
   right: 1vw;
   z-index: 999999999;
+  @media screen and (max-width: 800px) {
+    bottom: 1.5vh;
+    right: 2vw;
+  }
 `;
 
 const FloatingButton = styled.button`
@@ -184,11 +188,15 @@ const FloatingButton = styled.button`
   &:hover {
     background-color: var(--secondaryColor2);
   }
+  @media screen and (max-width: 800px) {
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 const Panel = styled.div`
   position: absolute;
-  bottom: 70px;
+  bottom: 9vh;
   right: 0;
   width: 320px;
   background: white;
@@ -196,24 +204,30 @@ const Panel = styled.div`
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   padding: 16px;
+  @media screen and (max-width: 800px) {
+    bottom: 9vh;
+    right: calc(100% - 20px);
+  }
 `;
 
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-weight: bold;
   margin-bottom: 12px;
 
   h3 {
     font-size: 16px;
     margin: 0;
+    color: var(--secondaryColor3);
   }
 `;
 
 const Close = styled.button`
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 30px;
   cursor: pointer;
 `;
 
@@ -240,8 +254,10 @@ const Button = styled.button`
     margin-bottom: 4px;
   }
 
-  &:hover {
-    background-color: #dbeafe;
+  @media screen and (min-width: 801px) {
+    &:hover {
+      background-color: #dbeafe;
+    }
   }
 
   &:disabled {

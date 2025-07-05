@@ -257,14 +257,14 @@ const Navbar = () => {
             </a>
           </div>
         </div>
-        <button
+        {/* <button
           className={offset > 200 ? "upBtn" : "upBtn upBtnNone"}
           onClick={() => {
             scroll.scrollToTop();
           }}
         >
           <BsFillArrowUpSquareFill />
-        </button>
+        </button> */}
       </Wrapper2>
     </>
   );
@@ -320,7 +320,7 @@ const Wrapper = styled.div`
 
   nav {
     width: 82vw;
-    height: 10vh;
+    height: 9.8vh;
     position: fixed;
     top: 0vh;
     left: 18vw;
@@ -330,6 +330,7 @@ const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     background: #fff;
+    border-bottom: 0.2vh solid white;
     @media screen and (max-width: 1440px) {
       padding-right: 1vw;
     }
@@ -516,9 +517,9 @@ const Wrapper2 = styled.div`
   }
   .upBtn {
     position: fixed;
-    bottom: 3vh;
-    bottom: 3dvh;
-    right: 3vw;
+    bottom: 1vh;
+    bottom: 1dvh;
+    right: 15vw;
     font-size: 2rem;
     background: transparent;
     border: none;

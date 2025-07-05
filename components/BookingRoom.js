@@ -107,7 +107,8 @@ const BookingRoom = () => {
 
 const Wrapper = styled.div`
   min-height: 100vh;
-  width: 18vw;
+  width: 17.9vw;
+  border-right: 0.1vw solid white;
   position: fixed;
   top: 0;
   left: 0;

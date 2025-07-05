@@ -252,7 +252,7 @@ body.a11y-contrast *:not(.a11y-widget *):not(.a11y-widget) {
   background-color: #000 !important;
   color: #ffff00 !important;
 }
-.mainImgContrast,
+body.a11y-contrast .mainImgContrast,
 body.a11y-contrast img:not(.a11y-widget img),
 body.a11y-contrast svg:not(.a11y-widget svg) {
   filter: saturate(0.2);
@@ -286,9 +286,9 @@ body.a11y-links nav *:not(.a11y-widget *) {
 }
 
 /* Zatrzymanie animacji */
-body.a11y-pause *:not(.a11y-widget *),
-body.a11y-pause *::before:not(.a11y-widget *),
-body.a11y-pause *::after:not(.a11y-widget *) {
+body.a11y-pause *,
+body.a11y-pause *::before,
+body.a11y-pause *::after {
   animation: none !important;
   transition: none !important;
 }
@@ -318,14 +318,27 @@ body.a11y-spacing span:not(.a11y-widget *) {
 }
 
 /* Tryb nocny */
-body.a11y-dark *:not(.a11y-widget *) {
-  background-color: #2b2b2b !important;
-  color: #e3d8c3 !important; /* jasna sepia */
+
+body.a11y-dark::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: brightness(0.7);
+  pointer-events: none;
+  z-index: 999999;
 }
+
 .activeWidget {
   background-color: var(--secondaryColor);
   color: white;
 }
 .activeWidget:hover {
   color: #222;
+}
+@media screen and (max-width: 800px) {
+  .activeWidget:hover {
+    background-color: var(--secondaryColor);
+    color: white;
+  }
 }

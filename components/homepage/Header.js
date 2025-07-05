@@ -42,7 +42,7 @@ const Header = () => {
             </a>
           </div>
           <div className="mainImgContainer">
-            <div className="mainImg" alt=""></div>
+            <div className="mainImg mainImgContrast" alt=""></div>
           </div>
           <div className="logoContainer">
             <img src={logo} alt="" />
