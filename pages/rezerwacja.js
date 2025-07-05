@@ -2,7 +2,8 @@ import Head from "next/head";
 import styled from "styled-components";
 import { useGlobalContext } from "../components/context";
 import { useState } from "react";
-import { IoClose } from "react-icons/io5";
+import { FaArrowUp } from "react-icons/fa";
+
 import ReservationInfoMobile from "../components/ReservationInfoMobile";
 
 const logo = "/images/logo.png";
@@ -119,13 +120,21 @@ const BookingHouse = () => {
           <div className="bookRoom">
             <div className="bookForm">
               <h3>{plLanguage ? "Rezerwacja" : "Reservation"}</h3>
+
               <iframe
                 onMouseOver={() => setActive(true)}
-                onMouseLeave={() => setActive(false)}
+                // onMouseLeave={() => setActive(false)}
                 id="ra-reservation-form-v2-02a8f0b22bd74852b83ee3b4b05bd29a"
                 className={active ? "roomAdmin roomAdminActive" : "roomAdmin"}
                 src="https://roomadmin.pl/widget/reservation-v2/start?fh=11e1aab88aeea64dba1592e5ec4ca8ba8059e69c&style=%7B%22color_accent%22%3A%22%23253a4d%22%2C%22color_bg%22%3A%22transparent%22%2C%22color_panel_header%22%3A%22%23ffffff%22%2C%22color_panel_body%22%3A%22%23fdfdfd%22%2C%22rounded_corners%22%3Afalse%7D&filter=%7B%7D"
               ></iframe>
+              {active && (
+                <div className="iframeIconActive">
+                  <FaArrowUp />
+                  <h4>wybierz daty i liczbę gości</h4>
+                  <FaArrowUp />
+                </div>
+              )}
               <p>
                 {plLanguage
                   ? "Rezerwując na naszej stronie masz gwarancję najniższej ceny."
@@ -435,11 +444,14 @@ const Wrapper2 = styled.div`
     background: var(--secondaryColor);
     padding: 20px;
     font-family: var(--navFont);
+    position: relative;
     .roomAdmin {
       width: 80vw;
       border: none;
       margin-bottom: 5vh;
-      animation: adminActive2 0.7s ease forwards;
+      z-index: 1;
+      /* animation: adminActive2 2.7s ease forwards; */
+      /* height: 80vh; */
     }
     .roomAdminActive {
       animation: adminActive 0.7s ease forwards;
@@ -449,12 +461,12 @@ const Wrapper2 = styled.div`
         height: 20vh;
       }
       100% {
-        height: 70vh;
+        height: 80vh;
       }
     }
     @keyframes adminActive2 {
       0% {
-        height: 70vh;
+        height: 80vh;
       }
       100% {
         height: 20vh;
@@ -473,10 +485,11 @@ const Wrapper2 = styled.div`
     p {
       color: white;
       font-weight: 600;
-      margin: -3vh auto 2vh;
+      margin: 2vh auto 1vh;
     }
     span {
       color: #aaafb5;
+      margin: 1vh auto 5vh;
     }
   }
   .rezerwacjaImg {
@@ -533,6 +546,27 @@ const Wrapper2 = styled.div`
 
     100% {
       opacity: 1;
+    }
+  }
+
+  .iframeIconActive {
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    margin-top: 52vh;
+    transform: translateX(-50%);
+    z-index: 0;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      margin: 0 20px;
+      font-size: 2rem;
+    }
+    h4 {
+      font-size: 1.2rem;
+      font-weight: 500;
     }
   }
 `;
