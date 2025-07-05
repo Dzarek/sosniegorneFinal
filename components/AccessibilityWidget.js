@@ -169,6 +169,7 @@ const Container = styled.div`
   @media screen and (max-width: 800px) {
     bottom: 1.5vh;
     right: 2vw;
+    /* left: 2vw; */
   }
 `;
 
