@@ -56,8 +56,8 @@ const Navbar = () => {
             </p>
           </Link>
           <Link href="/rowery">
-            <p className={router.pathname == "/rowery" ? "activeNav" : ""}>
-              {plLanguage ? "rowery" : "pricing"}
+            <p className={router.pathname == "/na-kolkach" ? "activeNav" : ""}>
+              {plLanguage ? "na kółkach" : "on wheels"}
             </p>
           </Link>
 
@@ -154,11 +154,11 @@ const Navbar = () => {
           </Link>
           <Link href="/rowery">
             <a
-              className={router.pathname == "/rowery" ? "active" : ""}
+              className={router.pathname == "/na-kolkach" ? "active" : ""}
               onClick={() => setShowMenu(false)}
             >
               <GiReceiveMoney />
-              {plLanguage ? "rowery" : "pricing"}
+              {plLanguage ? "na kółkach" : "on wheels"}
             </a>
           </Link>
           <Link href="/zdjecia">

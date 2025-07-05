@@ -78,7 +78,9 @@ const Footer = () => {
               </li>
               <li>
                 <FaCircle />
-                <Link href="/cennik">{plLanguage ? "Cennik" : "Pricing"}</Link>
+                <Link href="/na-kolkach">
+                  {plLanguage ? "Na Kółkach" : "On Wheels"}
+                </Link>
               </li>
             </ul>
           </div>
