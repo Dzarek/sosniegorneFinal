@@ -7,11 +7,10 @@ import { useRouter } from "next/router";
 import { BsFillArrowUpSquareFill, BsHousesFill } from "react-icons/bs";
 
 import { IoClose } from "react-icons/io5";
-import { HiHome, HiExclamation } from "react-icons/hi";
+import { HiHome } from "react-icons/hi";
 import { CgMenuGridR } from "react-icons/cg";
-import { GiReceiveMoney } from "react-icons/gi";
 import { IoMdContacts } from "react-icons/io";
-import { FaImages, FaQuestion, FaRegEye } from "react-icons/fa";
+import { FaImages, FaRegEye } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import {
   MdPhoneAndroid,
@@ -19,6 +18,7 @@ import {
   MdLocationOn,
   MdEmail,
 } from "react-icons/md";
+import { MdDirectionsBike } from "react-icons/md";
 
 const polandFlag = "/images/poland-flag.png";
 const englandFlag = "/images/england-flag.png";
@@ -55,7 +55,7 @@ const Navbar = () => {
               {plLanguage ? "domki" : "houses"}
             </p>
           </Link>
-          <Link href="/rowery">
+          <Link href="/na-kolkach">
             <p className={router.pathname == "/na-kolkach" ? "activeNav" : ""}>
               {plLanguage ? "na kółkach" : "on wheels"}
             </p>
@@ -152,12 +152,12 @@ const Navbar = () => {
               {plLanguage ? "Domki" : "Houses"}
             </a>
           </Link>
-          <Link href="/rowery">
+          <Link href="/na-kolkach">
             <a
               className={router.pathname == "/na-kolkach" ? "active" : ""}
               onClick={() => setShowMenu(false)}
             >
-              <GiReceiveMoney />
+              <MdDirectionsBike />
               {plLanguage ? "na kółkach" : "on wheels"}
             </a>
           </Link>

@@ -87,6 +87,8 @@ const Wrapper = styled.div`
     margin: 10vh auto 5vh;
     justify-content: space-between;
     @media screen and (max-width: 800px) {
+      padding: 0;
+
       margin: 5vh auto 5vh;
     }
     h2 {
