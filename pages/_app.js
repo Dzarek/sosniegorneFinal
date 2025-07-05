@@ -13,6 +13,7 @@ import Script from "next/script";
 // PIXEL;
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import AccessibilityWidget from "../components/AccessibilityWidget";
 // PIXEL;
 
 function MyApp({ Component, pageProps }) {
@@ -51,6 +52,7 @@ function MyApp({ Component, pageProps }) {
         `}
       </Script>
       <AppProvider>
+        <AccessibilityWidget />
         <Navbar />
         <BookingRoom />
         <SimpleReactLightbox>

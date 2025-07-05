@@ -24,6 +24,7 @@ html {
 
 body {
   overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .app {
@@ -242,4 +243,69 @@ html::-webkit-scrollbar-thumb:hover {
   .mobileNone {
     display: none;
   }
+}
+
+/* AccessibilityWidget */
+/* Kontrast wysokiego poziomu */
+body.a11y-contrast * {
+  background-color: #000 !important;
+  color: #ffff00 !important;
+}
+body.a11y-contrast img,
+.mainImgContrast,
+body.a11y-contrast svg {
+  filter: saturate(0.2);
+}
+
+/* Duży tekst */
+body.a11y-big-text {
+  font-size: 1.25em !important;
+}
+
+/* Podświetlone linki */
+body.a11y-links a,
+body.a11y-links button,
+body.a11y-links nav * {
+  background-color: yellow !important;
+  color: blue !important;
+  font-weight: bold !important;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Zatrzymanie animacji */
+body.a11y-pause *,
+body.a11y-pause *::before,
+body.a11y-pause *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Ukrycie obrazów */
+body.a11y-hide-images img,
+body.a11y-hide-images picture,
+body.a11y-hide-images svg {
+  display: none !important;
+}
+
+/* Czcionka przyjazna dla dyslektyków */
+@import url("https://cdn.jsdelivr.net/npm/open-dyslexic@0.1.1/open-dyslexic.css");
+
+body.a11y-dyslexia {
+  font-family: "OpenDyslexic", Arial, sans-serif !important;
+}
+
+/* Większe odstępy między wierszami */
+body.a11y-spacing p,
+body.a11y-spacing li,
+body.a11y-spacing div,
+body.a11y-spacing span {
+  line-height: 2 !important;
+}
+
+/* Tryb nocny */
+body.a11y-dark * {
+  background-color: #2b2b2b !important;
+  color: #e3d8c3 !important; /* jasna sepia */
+  /* filter: brightness(0.85) saturate(0.9); */
 }
