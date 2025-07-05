@@ -39,7 +39,7 @@ const Navbar = () => {
         <div className="logoContainer">
           <img src={logo} alt="" />
         </div>
-        <nav>
+        <nav className=".nav">
           <Link href="/">
             <p className={router.pathname == "/" ? "activeNav" : ""}>
               {plLanguage ? "strona główna" : "home page"}

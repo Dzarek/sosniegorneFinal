@@ -11,6 +11,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Changa:wght@300;400;500;600;700&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/open-dyslexic@0.1.1/open-dyslexic.css");
 
 * {
   margin: 0;
@@ -247,25 +248,36 @@ html::-webkit-scrollbar-thumb:hover {
 
 /* AccessibilityWidget */
 /* Kontrast wysokiego poziomu */
-body.a11y-contrast * {
+body.a11y-contrast *:not(.a11y-widget *):not(.a11y-widget) {
   background-color: #000 !important;
   color: #ffff00 !important;
 }
-body.a11y-contrast img,
 .mainImgContrast,
-body.a11y-contrast svg {
+body.a11y-contrast img:not(.a11y-widget img),
+body.a11y-contrast svg:not(.a11y-widget svg) {
   filter: saturate(0.2);
 }
 
 /* Duży tekst */
-body.a11y-big-text {
-  font-size: 1.25em !important;
+body.a11y-big-text nav *,
+body.a11y-big-text span:not(.a11y-widget *),
+body.a11y-big-text a:not(.a11y-widget *) {
+  font-size: 105% !important;
+}
+body.a11y-big-text p:not(nav *) {
+  font-size: 130% !important;
+}
+body.a11y-big-text h4:not(.a11y-widget *) {
+  font-size: 120% !important;
+}
+body.a11y-big-text li:not(.a11y-widget *) {
+  font-size: 120% !important;
 }
 
 /* Podświetlone linki */
-body.a11y-links a,
-body.a11y-links button,
-body.a11y-links nav * {
+body.a11y-links a:not(.a11y-widget *),
+body.a11y-links button:not(.a11y-widget *),
+body.a11y-links nav *:not(.a11y-widget *) {
   background-color: yellow !important;
   color: blue !important;
   font-weight: bold !important;
@@ -274,38 +286,46 @@ body.a11y-links nav * {
 }
 
 /* Zatrzymanie animacji */
-body.a11y-pause *,
-body.a11y-pause *::before,
-body.a11y-pause *::after {
+body.a11y-pause *:not(.a11y-widget *),
+body.a11y-pause *::before:not(.a11y-widget *),
+body.a11y-pause *::after:not(.a11y-widget *) {
   animation: none !important;
   transition: none !important;
 }
 
 /* Ukrycie obrazów */
-body.a11y-hide-images img,
-body.a11y-hide-images picture,
-body.a11y-hide-images svg {
+body.a11y-hide-images img:not(.a11y-widget img),
+body.a11y-hide-images picture:not(.a11y-widget picture),
+body.a11y-hide-images svg:not(.a11y-widget svg) {
   display: none !important;
 }
 
 /* Czcionka przyjazna dla dyslektyków */
-@import url("https://cdn.jsdelivr.net/npm/open-dyslexic@0.1.1/open-dyslexic.css");
 
-body.a11y-dyslexia {
+body.a11y-dyslexia * {
+  --navFont: "OpenDyslexic", Arial, sans-serif !important;
+  --textFont: "OpenDyslexic", Arial, sans-serif !important;
+  --titleFont: "OpenDyslexic", Arial, sans-serif !important;
   font-family: "OpenDyslexic", Arial, sans-serif !important;
 }
 
 /* Większe odstępy między wierszami */
-body.a11y-spacing p,
-body.a11y-spacing li,
-body.a11y-spacing div,
-body.a11y-spacing span {
+body.a11y-spacing p:not(.a11y-widget *),
+body.a11y-spacing li:not(.a11y-widget *),
+body.a11y-spacing div:not(.a11y-widget *),
+body.a11y-spacing span:not(.a11y-widget *) {
   line-height: 2 !important;
 }
 
 /* Tryb nocny */
-body.a11y-dark * {
+body.a11y-dark *:not(.a11y-widget *) {
   background-color: #2b2b2b !important;
   color: #e3d8c3 !important; /* jasna sepia */
-  /* filter: brightness(0.85) saturate(0.9); */
+}
+.activeWidget {
+  background-color: var(--secondaryColor);
+  color: white;
+}
+.activeWidget:hover {
+  color: #222;
 }

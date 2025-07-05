@@ -64,14 +64,18 @@ export default function AccessibilityWidget() {
       </FloatingButton>
 
       {open && (
-        <Panel>
+        <Panel className="a11y-widget">
           <Header>
             <h3>Menu Dostępności WWW</h3>
             <Close onClick={() => setOpen(false)}>×</Close>
           </Header>
 
           <Grid>
-            <Button active={contrast} onClick={() => setContrast(!contrast)}>
+            <Button
+              className={contrast ? "activeWidget" : ""}
+              active={contrast}
+              onClick={() => setContrast(!contrast)}
+            >
               <FaRegLightbulb />
               Kontrast +
             </Button>
@@ -81,6 +85,7 @@ export default function AccessibilityWidget() {
                   speechSynthesis.cancel();
                   setReading(false);
                 }}
+                className="activeWidget"
               >
                 <HiOutlineSpeakerWave />
                 Zatrzymaj czytanie
@@ -91,29 +96,40 @@ export default function AccessibilityWidget() {
                 Czytaj stronę
               </Button>
             )}
-            <Button active={darkMode} onClick={() => setDarkMode(!darkMode)}>
+            <Button
+              className={darkMode ? "activeWidget" : ""}
+              active={darkMode}
+              onClick={() => setDarkMode(!darkMode)}
+            >
               <GiPerspectiveDiceSixFacesRandom />
               Tryb nocny
             </Button>
             <Button
               active={highlightLinks}
+              className={highlightLinks ? "activeWidget" : ""}
               onClick={() => setHighlightLinks(!highlightLinks)}
             >
               <FaLink />
               Podświetlenie linków
             </Button>
-            <Button active={bigText} onClick={() => setBigText(!bigText)}>
+            <Button
+              className={bigText ? "activeWidget" : ""}
+              active={bigText}
+              onClick={() => setBigText(!bigText)}
+            >
               <FaTextHeight />
               Duży tekst
             </Button>
             <Button
               active={lineSpacing}
+              className={lineSpacing ? "activeWidget" : ""}
               onClick={() => setLineSpacing(!lineSpacing)}
             >
               <MdOutlineFormatLineSpacing />
               Odstępy tekstu
             </Button>
             <Button
+              className={pauseAnimations ? "activeWidget" : ""}
               active={pauseAnimations}
               onClick={() => setPauseAnimations(!pauseAnimations)}
             >
@@ -121,13 +137,18 @@ export default function AccessibilityWidget() {
               Zatrzymaj animacje
             </Button>
             <Button
+              className={hideImages ? "activeWidget" : ""}
               active={hideImages}
               onClick={() => setHideImages(!hideImages)}
             >
               <FaImage />
               Ukryj obrazy
             </Button>
-            <Button active={dyslexia} onClick={() => setDyslexia(!dyslexia)}>
+            <Button
+              className={dyslexia ? "activeWidget" : ""}
+              active={dyslexia}
+              onClick={() => setDyslexia(!dyslexia)}
+            >
               <TbLetterCaseUpper />
               Dysleksja
             </Button>
@@ -142,24 +163,26 @@ export default function AccessibilityWidget() {
 
 const Container = styled.div`
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 1.5vh;
+  right: 1vw;
   z-index: 999999999;
 `;
 
 const FloatingButton = styled.button`
-  width: 56px;
-  height: 56px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background-color: #2563eb;
+  background-color: var(--secondaryColor);
   color: white;
   font-size: 24px;
   border: none;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &:hover {
-    background-color: #1e40af;
+    background-color: var(--secondaryColor2);
   }
 `;
 
@@ -206,7 +229,6 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   border: none;
-  /* background-color: ${({ active }) => (active ? "#e0ecff" : "#f5f5f5")}; */
   padding: 10px;
   border-radius: 8px;
   font-size: 12px;
