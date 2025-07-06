@@ -410,7 +410,7 @@ const Wrapper2 = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    z-index: 9999999;
+    z-index: 9999999999999;
     background: #fff;
     transition: 1s;
     @media screen and (min-height: 740px) {

@@ -10,6 +10,8 @@ const headerBg4 = "/images/header/04-3.jpg";
 const headerBg5 = "/images/header/w-01.jpg";
 const headerBg6 = "/images/header/w-03.jpg";
 const headerBg7 = "/images/header/w-04.jpg";
+const headerBg8 = "/images/header/01-1mobile.jpg";
+const headerBg9 = "/images/header/m-2.jpg";
 
 const logo = "/images/logo.png";
 
@@ -156,7 +158,7 @@ const Wrapper = styled.div`
           background-size: cover;
           background-image: url(${headerBg1});
           background-position: center 50%;
-          animation: mobileImgMove 28s linear infinite;
+          animation: mobileImgMove 35s linear infinite;
         }
         @keyframes mobileImgMove {
           0% {
@@ -165,36 +167,36 @@ const Wrapper = styled.div`
           }
           22% {
             background-image: url(${headerBg6});
-            transform: scale(1.1);
+            transform: scale(1.05);
           }
           24% {
             background-image: url(${headerBg6});
           }
           25% {
-            background-image: url(${headerBg1});
-            transform: scale(1.1);
+            background-image: url(${headerBg8});
+            transform: scale(1.05);
           }
           47% {
-            background-image: url(${headerBg1});
+            background-image: url(${headerBg8});
             transform: scale(1);
           }
           49% {
-            background-image: url(${headerBg1});
+            background-image: url(${headerBg8});
           }
           50% {
-            background-image: url(${headerBg3});
+            background-image: url(${headerBg9});
             transform: scale(1);
           }
           72% {
-            background-image: url(${headerBg3});
-            transform: scale(1.1);
+            background-image: url(${headerBg9});
+            transform: scale(1.05);
           }
           74% {
-            background-image: url(${headerBg3});
+            background-image: url(${headerBg9});
           }
           75% {
             background-image: url(${headerBg7});
-            transform: scale(1.1);
+            transform: scale(1.05);
           }
           97% {
             background-image: url(${headerBg7});
