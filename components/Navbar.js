@@ -24,9 +24,10 @@ const polandFlag = "/images/poland-flag.png";
 const englandFlag = "/images/england-flag.png";
 
 const logo = "/images/logo.png";
+const logo2 = "/images/logo2.png";
 
 const Navbar = () => {
-  const { plLanguage, setPlLanguage, offset, windowHeight } =
+  const { plLanguage, setPlLanguage, offset, windowHeight, logoInvert } =
     useGlobalContext();
 
   const [showMenu, setShowMenu] = useState(false);
@@ -37,7 +38,7 @@ const Navbar = () => {
     <>
       <Wrapper>
         <div className="logoContainer">
-          <img src={logo} alt="" />
+          <img src={logoInvert ? logo2 : logo} alt="" />
         </div>
         <nav className=".nav">
           <Link href="/">
@@ -133,7 +134,7 @@ const Navbar = () => {
           >
             <IoClose />
           </button>
-          <img src={logo} alt="logo" className="logo" />
+          <img src={logoInvert ? logo2 : logo} alt="logo" className="logo" />
           <Link href="/">
             <a
               className={router.pathname == "/" ? "active" : ""}

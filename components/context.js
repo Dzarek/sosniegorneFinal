@@ -6,6 +6,7 @@ const AppProvider = ({ children }) => {
   const [plLanguage, setPlLanguage] = useState(true);
   const [offset, setOffset] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
+  const [logoInvert, setLogoInvert] = useState(false);
 
   useEffect(() => {
     fetch("http://ip-api.com/json")
@@ -36,6 +37,8 @@ const AppProvider = ({ children }) => {
         setOffset,
         windowHeight,
         setWindowHeight,
+        logoInvert,
+        setLogoInvert,
       }}
     >
       {children}

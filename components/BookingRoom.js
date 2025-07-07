@@ -9,10 +9,11 @@ import { AiFillInstagram } from "react-icons/ai";
 import Link from "next/link";
 
 const logo = "/images/logo.png";
+const logo2 = "/images/logo2.png";
 const bookingBg = "/images/home/mobileAboutBg.png";
 
 const BookingRoom = () => {
-  const { plLanguage, offset, windowHeight } = useGlobalContext();
+  const { plLanguage, offset, windowHeight, logoInvert } = useGlobalContext();
   // const [showBooking, setShowBooking] = useState(false);
 
   const router = useRouter();
@@ -31,7 +32,7 @@ const BookingRoom = () => {
           style={{ width: "18vw" }}
         >
           <div className="logoContainer">
-            <img src={logo} alt="" />
+            <img src={logoInvert ? logo2 : logo} alt="" />
           </div>
           <div className="bookRoom">
             {/* {showBooking ? (

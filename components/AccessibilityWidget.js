@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useGlobalContext } from "./context";
+
 import styled from "styled-components";
 import {
   FaUniversalAccess,
@@ -26,6 +28,8 @@ export default function AccessibilityWidget() {
   const [lineSpacing, setLineSpacing] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [reading, setReading] = useState(false);
+
+  const { plLanguage, setLogoInvert, logoInvert } = useGlobalContext();
 
   useEffect(() => {
     document.body.classList.toggle("a11y-contrast", contrast);
@@ -66,7 +70,9 @@ export default function AccessibilityWidget() {
       {open && (
         <Panel className="a11y-widget">
           <Header>
-            <h3>Menu Dostępności WWW</h3>
+            <h3>
+              {plLanguage ? "Menu Dostępności WWW" : "Web Accessibility Menu"}
+            </h3>
             <Close onClick={() => setOpen(false)}>×</Close>
           </Header>
 
@@ -74,10 +80,13 @@ export default function AccessibilityWidget() {
             <Button
               className={contrast ? "activeWidget" : ""}
               active={contrast}
-              onClick={() => setContrast(!contrast)}
+              onClick={() => {
+                setLogoInvert(!logoInvert);
+                setContrast(!contrast);
+              }}
             >
               <MdContrast />
-              Kontrast +
+              {plLanguage ? "Kontrast +" : "Contrast +"}
             </Button>
             {reading ? (
               <Button
@@ -88,12 +97,12 @@ export default function AccessibilityWidget() {
                 className="activeWidget"
               >
                 <HiOutlineSpeakerWave />
-                Zatrzymaj czytanie
+                {plLanguage ? "Zatrzymaj czytanie" : "Stop reading"}
               </Button>
             ) : (
               <Button onClick={handleRead}>
                 <HiOutlineSpeakerWave />
-                Czytaj stronę
+                {plLanguage ? "Czytaj stronę" : "Read the page"}
               </Button>
             )}
             <Button
@@ -102,7 +111,7 @@ export default function AccessibilityWidget() {
               onClick={() => setDarkMode(!darkMode)}
             >
               <MdNightlightRound />
-              Tryb nocny
+              {plLanguage ? "Tryb nocny" : "Dark mode"}
             </Button>
             <Button
               active={highlightLinks}
@@ -110,7 +119,7 @@ export default function AccessibilityWidget() {
               onClick={() => setHighlightLinks(!highlightLinks)}
             >
               <FaLink />
-              Podświetlenie linków
+              {plLanguage ? "Podświetlenie linków" : "Link highlighting"}
             </Button>
             <Button
               className={bigText ? "activeWidget" : ""}
@@ -118,7 +127,7 @@ export default function AccessibilityWidget() {
               onClick={() => setBigText(!bigText)}
             >
               <FaTextHeight />
-              Duży tekst
+              {plLanguage ? "Duży tekst" : "Large text"}
             </Button>
             <Button
               active={lineSpacing}
@@ -126,7 +135,7 @@ export default function AccessibilityWidget() {
               onClick={() => setLineSpacing(!lineSpacing)}
             >
               <MdOutlineFormatLineSpacing />
-              Odstępy tekstu
+              {plLanguage ? "Odstępy tekstu" : "Text spacing"}
             </Button>
             <Button
               className={pauseAnimations ? "activeWidget" : ""}
@@ -134,7 +143,7 @@ export default function AccessibilityWidget() {
               onClick={() => setPauseAnimations(!pauseAnimations)}
             >
               <FaPauseCircle />
-              Zatrzymaj animacje
+              {plLanguage ? "Zatrzymaj animacje" : "Stop animations"}
             </Button>
             <Button
               className={hideImages ? "activeWidget" : ""}
@@ -142,7 +151,7 @@ export default function AccessibilityWidget() {
               onClick={() => setHideImages(!hideImages)}
             >
               <FaImage />
-              Ukryj obrazy
+              {plLanguage ? "Ukryj obrazy" : "Hide images"}
             </Button>
             <Button
               className={dyslexia ? "activeWidget" : ""}
@@ -150,7 +159,7 @@ export default function AccessibilityWidget() {
               onClick={() => setDyslexia(!dyslexia)}
             >
               <TbLetterCaseUpper />
-              Dysleksja
+              {plLanguage ? "Dysleksja" : "Dyslexia"}
             </Button>
           </Grid>
         </Panel>
