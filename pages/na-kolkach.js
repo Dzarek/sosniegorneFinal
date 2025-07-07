@@ -114,11 +114,20 @@ const Bikes = () => {
             </div>
           </div>
         </section>
-        <h3>
+        <h3 className="desktop">
           {plLanguage
             ? "Zainteresowany? Zadzwoń tel. 793 373 246"
             : "Interested? Just give us a call at +48 793 373 246"}
         </h3>
+        {plLanguage ? (
+          <h3 className="mobile">
+            Zainteresowany? Zadzwoń tel. <br /> 793 373 246
+          </h3>
+        ) : (
+          <h3 className="mobile">
+            Interested? Just give us a call at <br /> +48 793 373 246
+          </h3>
+        )}
       </Wrapper>
     </>
   );
@@ -227,7 +236,7 @@ const Wrapper = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 5% 2%;
+      padding: 3% 2%;
       align-items: center;
       width: 30%;
       height: 40vh;
@@ -238,12 +247,16 @@ const Wrapper = styled.div`
       box-shadow: 15px 15px 30px #bebebe, -15px -15px 30px #ffffff;
       transition: 0.5s;
       transform: rotate(5deg);
+
       @media screen and (max-width: 800px) {
         width: 100%;
         height: 50vh;
         margin-bottom: 5vh;
         padding: 15% 7%;
         transform: rotate(2deg);
+      }
+      @media screen and (min-height: 700px) {
+        height: 40vh;
       }
       h4 {
         text-transform: uppercase;
@@ -282,8 +295,20 @@ const Wrapper = styled.div`
     font-size: 1.6rem;
     font-weight: 500;
     width: 80%;
+    line-height: 120%;
     @media screen and (max-width: 800px) {
       font-size: 1.2rem;
+    }
+  }
+  .desktop {
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+  }
+  .mobile {
+    line-height: 150%;
+    @media screen and (min-width: 801px) {
+      display: none;
     }
   }
 `;
