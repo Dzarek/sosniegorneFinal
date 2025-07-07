@@ -249,6 +249,12 @@ const Wrapper = styled.div`
         text-transform: uppercase;
         font-size: 1rem;
         color: var(--secondaryColor2);
+        @media screen and (max-width: 1600px) {
+          font-size: 0.9rem;
+        }
+        @media screen and (max-width: 800px) {
+          font-size: 0.95rem;
+        }
       }
       /* svg {
         font-size: 7rem;
