@@ -81,18 +81,17 @@ const Bikes = () => {
             {/* <MdDirectionsBike /> */}
             <img src={rowerImg} alt="rower" className="bikeImg" />
             <div className="prices">
-              <p>100.00 PLN/h</p>
-              <p>200.00 PLN/d</p>
+              <p className="priceNumber">50.00</p>
+              <p>PLN/{plLanguage ? "dzień" : "day"}</p>
             </div>
           </div>
           <div className="oneVehicle">
             <h4>{plLanguage ? "hulajnoga elektryczna" : "electric scooter"}</h4>
             {/* <MdOutlineElectricScooter /> */}
             <img src={hulajnogaImg} alt="hulajnoga" />
-
             <div className="prices">
-              <p>100.00 PLN/h</p>
-              <p>200.00 PLN/d</p>
+              <p className="priceNumber">70.00</p>
+              <p>PLN/{plLanguage ? "dzień" : "day"}</p>
             </div>
           </div>
           <div className="oneVehicle">
@@ -109,8 +108,8 @@ const Bikes = () => {
             <img src={wozekImg} alt="wóźek dla os. niepełnosprawnych" />
 
             <div className="prices">
-              <p>100.00 PLN/h</p>
-              <p>200.00 PLN/d</p>
+              <p className="priceNumber">100.00</p>
+              <p>PLN/{plLanguage ? "dzień" : "day"}</p>
             </div>
           </div>
         </section>
@@ -283,6 +282,11 @@ const Wrapper = styled.div`
         font-weight: 500;
         font-size: 1.1rem;
         line-height: 120%;
+      }
+      .priceNumber {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 3px;
       }
       :hover {
         transform: rotate(0deg);
