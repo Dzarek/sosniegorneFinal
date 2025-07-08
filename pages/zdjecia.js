@@ -3,17 +3,23 @@ import path from "path";
 
 import styled from "styled-components";
 import Masonry from "react-masonry-css";
-import { SRLWrapper } from "simple-react-lightbox";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Head from "next/head";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useGlobalContext } from "../components/context";
 import { gallery } from "../data";
+
+import Lightbox from "yet-another-react-lightbox";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 // const Gallery = ({ data }) => {
 const Gallery = () => {
   const { plLanguage } = useGlobalContext();
+  const [index, setIndex] = useState(-1);
 
   useEffect(() => {
     Aos.init({ duration: 1000, disable: "false" });
@@ -25,6 +31,10 @@ const Gallery = () => {
     900: 2,
     500: 1,
   };
+
+  const galleryArray = gallery.map((item) => {
+    return { src: item };
+  });
 
   return (
     <>
@@ -48,25 +58,31 @@ const Gallery = () => {
           <div className="titleLine"></div>
         </div>
         <div className="galleryContent">
-          <SRLWrapper>
-            <Masonry
-              breakpointCols={breakpointColumnsObj}
-              className="my-masonry-grid"
-              columnClassName="my-masonry-grid_column"
-            >
-              {gallery.map((item, index) => {
-                return (
-                  <img
-                    data-aos="fade-down"
-                    className="oneImg"
-                    key={index}
-                    src={item}
-                    alt={index + 1}
-                  />
-                );
-              })}
-            </Masonry>
-          </SRLWrapper>
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+          >
+            {gallery.map((item, index) => {
+              return (
+                <img
+                  data-aos="fade-down"
+                  className="oneImg"
+                  key={index}
+                  src={item}
+                  alt={index + 1}
+                  onClick={() => setIndex(index)}
+                />
+              );
+            })}
+          </Masonry>
+          <Lightbox
+            index={index}
+            open={index >= 0}
+            close={() => setIndex(-1)}
+            slides={galleryArray}
+            plugins={[Thumbnails, Fullscreen]}
+          />
         </div>
       </Wrapper>
     </>

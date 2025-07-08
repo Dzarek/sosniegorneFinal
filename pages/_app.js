@@ -1,5 +1,4 @@
 import "../styles/globals.css";
-import SimpleReactLightbox from "simple-react-lightbox";
 import { useState } from "react";
 import { AppProvider } from "../components/context";
 import Navbar from "../components/Navbar";
@@ -55,9 +54,7 @@ function MyApp({ Component, pageProps }) {
         <AccessibilityWidget />
         <Navbar />
         <BookingRoom />
-        <SimpleReactLightbox>
-          <Component {...pageProps} />
-        </SimpleReactLightbox>
+        <Component {...pageProps} />
         <Footer />
         <CookieAccept setVisibleCookie={setVisibleCookie} />
         {visibleCookie && <Cookie setVisibleCookie={setVisibleCookie} />}
