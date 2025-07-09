@@ -65,13 +65,13 @@ export const gallery = [
 
   "/images/gallery/sauna1.jpg",
   "/images/gallery/sauna2.jpg",
-  "/images/gallery/sauna3.jpg",
+  // "/images/gallery/sauna3.jpg",
   "/images/gallery/sauna4.jpg",
-  "/images/gallery/sauna5.jpg",
-  "/images/gallery/sauna6.jpg",
-  "/images/gallery/sauna7.jpg",
+  // "/images/gallery/sauna5.jpg",
+  // "/images/gallery/sauna6.jpg",
+  // "/images/gallery/sauna7.jpg",
 
-  "/images/gallery/all1.jpg",
+  // "/images/gallery/all1.jpg",
   "/images/gallery/all2.jpg",
   "/images/gallery/all3.jpg",
   "/images/gallery/all4.jpg",
