@@ -1,5 +1,5 @@
-import fsPromises from "fs/promises";
-import path from "path";
+// import fsPromises from "fs/promises";
+// import path from "path";
 
 import styled from "styled-components";
 import Masonry from "react-masonry-css";
@@ -170,27 +170,27 @@ const Wrapper = styled.div`
   }
 `;
 
-export async function getStaticProps() {
-  let data;
-  const filePath = path.join(process.cwd(), "data.json");
-  const jsonData = await fsPromises.readFile(filePath);
-  const localData = JSON.parse(jsonData);
+// export async function getStaticProps() {
+//   let data;
+//   const filePath = path.join(process.cwd(), "data.json");
+//   const jsonData = await fsPromises.readFile(filePath);
+//   const localData = JSON.parse(jsonData);
 
-  try {
-    const res = await fetch(
-      "https://sosniegornedata-fee8c-default-rtdb.europe-west1.firebasedatabase.app/gallery.json"
-    );
-    data = await res.json();
-  } catch (error) {
-    data = localData.gallery;
-  }
+//   try {
+//     const res = await fetch(
+//       "https://sosniegornedata-fee8c-default-rtdb.europe-west1.firebasedatabase.app/gallery.json"
+//     );
+//     data = await res.json();
+//   } catch (error) {
+//     data = localData.gallery;
+//   }
 
-  return {
-    props: {
-      data,
-    },
-    revalidate: 60,
-  };
-}
+//   return {
+//     props: {
+//       data,
+//     },
+//     revalidate: 60,
+//   };
+// }
 
 export default Gallery;
