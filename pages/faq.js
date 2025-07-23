@@ -38,6 +38,7 @@ const Faq = ({ data: questions }) => {
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="shortcut icon" href="/logo192.png" />
+        <meta property="og:image" content="/logo192.png" />
       </Head>
       <Wrapper className="mainPage">
         <div className="title">

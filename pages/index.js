@@ -20,6 +20,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="shortcut icon" href="/logo192.png" />
+        <meta
+          property="og:title"
+          content="Domki z jacuzzi do wynajęcia | Sośnie Górne Resort & SPA"
+        />
+        <meta
+          property="og:description"
+          content="Nowoczesne, komfortowe domki z prywatnym jacuzzi – Zarezerwuj już dziś!"
+        />
+        <meta property="og:image" content="/logo192.png" />
+        <meta property="og:url" content="https://sosniegorne.pl/" />
+        <meta property="og:type" content="website" />
       </Head>
       <div>
         <Header />
