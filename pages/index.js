@@ -28,7 +28,10 @@ export default function Home() {
           property="og:description"
           content="Nowoczesne, komfortowe domki z prywatnym jacuzzi – Zarezerwuj już dziś!"
         />
-        <meta property="og:image" content="/logo192.png" />
+        <meta
+          property="og:image"
+          content="https://sosniegorne.pl/logo192.png"
+        />
         <meta property="og:url" content="https://sosniegorne.pl/" />
         <meta property="og:type" content="website" />
       </Head>
