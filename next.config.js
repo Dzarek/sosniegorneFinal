@@ -6,6 +6,21 @@ const nextConfig = {
     styledComponents: true,
     removeConsole: process.env.NODE_ENV !== "development",
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "sosniegorne.pl",
+          },
+        ],
+        destination: "https://www.sosniegorne.pl/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withPWA = require("next-pwa")({

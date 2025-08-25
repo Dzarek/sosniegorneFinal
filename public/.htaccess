@@ -1,9 +1,7 @@
 RewriteEngine on 
-RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-
+RewriteCond %{HTTP_HOST} !^www\.sosniegorne\.pl$ [NC,OR]
 RewriteCond %{HTTPS} off
-RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+RewriteRule ^ https://www.sosniegorne.pl%{REQUEST_URI} [R=301,L]
 
 
 <IfModule mod_rewrite.c>
