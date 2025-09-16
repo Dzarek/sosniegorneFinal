@@ -82,6 +82,12 @@ const Footer = () => {
                   {plLanguage ? "Na Kółkach" : "On Wheels"}
                 </Link>
               </li>
+              <li>
+                <FaCircle />
+                <Link href="/polityka-prywatnosci">
+                  {plLanguage ? "Polityka Prywatności" : "Privacy Policy"}
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="socialMediaWrapper">

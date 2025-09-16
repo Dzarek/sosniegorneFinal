@@ -1,11 +1,11 @@
 import "../styles/globals.css";
-import { useState } from "react";
+// import { useState } from "react";
 import { AppProvider } from "../components/context";
 import Navbar from "../components/Navbar";
 import BookingRoom from "../components/BookingRoom";
 import Footer from "../components/Footer";
-import CookieAccept from "../components/CookieAccept";
-import Cookie from "../components/RodoCookies";
+// import CookieAccept from "../components/CookieAccept";
+// import Cookie from "../components/RodoCookies";
 import AccessibilityWidget from "../components/AccessibilityWidget";
 
 // import Script from "next/script";
@@ -16,7 +16,7 @@ import AccessibilityWidget from "../components/AccessibilityWidget";
 // PIXEL;
 
 function MyApp({ Component, pageProps }) {
-  const [visibleCookie, setVisibleCookie] = useState(false);
+  // const [visibleCookie, setVisibleCookie] = useState(false);
 
   // PIXEL;
   // const router = useRouter();
@@ -56,8 +56,8 @@ function MyApp({ Component, pageProps }) {
         <BookingRoom />
         <Component {...pageProps} />
         <Footer />
-        <CookieAccept setVisibleCookie={setVisibleCookie} />
-        {visibleCookie && <Cookie setVisibleCookie={setVisibleCookie} />}
+        {/* <CookieAccept setVisibleCookie={setVisibleCookie} />
+        {visibleCookie && <Cookie setVisibleCookie={setVisibleCookie} />} */}
       </AppProvider>
     </div>
   );

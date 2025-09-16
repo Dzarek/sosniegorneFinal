@@ -9,19 +9,6 @@ const AppProvider = ({ children }) => {
   const [logoInvert, setLogoInvert] = useState(false);
 
   useEffect(() => {
-    fetch("http://ip-api.com/json")
-      .then((res) => res.json())
-      .then((response) => {
-        if (response.countryCode !== "PL") {
-          setPlLanguage(false);
-        }
-      })
-      .catch((err) => {
-        console.log("Request failed:", err);
-      });
-  }, []);
-
-  useEffect(() => {
     window.onscroll = () => {
       setOffset(window.pageYOffset);
     };

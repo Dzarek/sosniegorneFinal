@@ -1,13 +1,12 @@
 import { useState } from "react";
 import styled from "styled-components";
 import emailjs from "emailjs-com";
-import RodoCookies from "./RodoCookies";
+import RodoCookies from "../pages/polityka-prywatnosci";
 import { useGlobalContext } from "./context";
+import Link from "next/link";
 
 const MyForm = () => {
   const { plLanguage } = useGlobalContext();
-
-  const [visibleCookie, setVisibleCookie] = useState(false);
 
   const [status, setStatus] = useState("");
   const [name, setName] = useState("");
@@ -120,11 +119,10 @@ const MyForm = () => {
               {plLanguage
                 ? "Wyrażam zgodę na przetwarzanie danych osobowych w celu odpowiedzi na mojego e-maila"
                 : "I agree to the processing of personal data in order to reply to my e-mail"}
-              <span
-                onClick={() => setVisibleCookie(true)}
-                className="cookieLink"
-              >
-                {plLanguage ? "(Polityka Prywatności)" : "(Privacy Policy)"}.
+              <span className="cookieLink">
+                <Link href="/polityka-prywatnosci">
+                  {plLanguage ? "(Polityka Prywatności)" : "(Privacy Policy)"}
+                </Link>
               </span>
             </p>
           </label>
@@ -146,7 +144,6 @@ const MyForm = () => {
           )}
         </>
       </Wrapper>
-      {visibleCookie && <RodoCookies setVisibleCookie={setVisibleCookie} />}
     </>
   );
 };
@@ -243,11 +240,12 @@ const Wrapper = styled.form`
         }
       }
     }
-    .cookieLink {
+    .cookieLink a {
       color: var(--secondaryColor3);
       cursor: pointer;
-      margin-left: 5px;
+      /* margin-left: 5px; */
       font-weight: 600;
+      text-decoration: none;
     }
   }
   button {
