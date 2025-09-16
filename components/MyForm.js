@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 import emailjs from "emailjs-com";
-import RodoCookies from "../pages/polityka-prywatnosci";
 import { useGlobalContext } from "./context";
 import Link from "next/link";
 
