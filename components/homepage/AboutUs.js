@@ -8,6 +8,7 @@ import "@brainhubeu/react-carousel/lib/style.css";
 
 // const homeUndraw1 = "/images/home/homeUndraw5.jpg";
 const homeUndraw1 = "/images/home/w-07.jpg";
+const homeUndraw2 = "/images/gallery/out1.jpg";
 const mobileBg = "/images/home/mobileAboutBg.png";
 
 const AboutUs = () => {
@@ -19,12 +20,20 @@ const AboutUs = () => {
     <>
       <Wrapper>
         <div className="bg"></div>
-        <img
-          src={homeUndraw1}
-          alt=""
-          data-aos="fade-left"
-          className="homeImg"
-        />
+        <div className="homeImgs">
+          <img
+            src={homeUndraw2}
+            alt=""
+            data-aos="fade-left"
+            className="homeImg"
+          />
+          <img
+            src={homeUndraw1}
+            alt=""
+            data-aos="fade-right"
+            className="homeImg"
+          />
+        </div>
         <section>
           <h2>{plLanguage ? "O nas" : "About Us"}</h2>
           <h1 className="aboutUsSubtitle">
@@ -38,6 +47,12 @@ const AboutUs = () => {
               dala od domu, a jednocześnie poczuć się jak w domu. Cisza, spokój
               i otoczenie wspaniałej przyrody oraz przepiękne widoki pozwolą
               Tobie i Twoim bliskim odpocząć od codziennej rutyny.
+              <br /> <br />
+              <span className="spaSpan">
+                {" "}
+                Podgrzewana wanna SPA jest czynna cały rok 24/7 - bez
+                dodatkowych opłat.
+              </span>
             </p>
           ) : (
             <p>
@@ -46,6 +61,12 @@ const AboutUs = () => {
               quiet and surrounded by wonderful nature and beautiful views will
               allow you and your loved ones to take a break from the daily
               routine.
+              <br /> <br />
+              <span className="spaSpan">
+                {" "}
+                The heated spa tub is open 24/7 all year round - at no extra
+                charge.
+              </span>
             </p>
           )}
         </section>
@@ -182,55 +203,75 @@ const Wrapper = styled.div`
       }
     }
   }
-  .homeImg {
-    width: 28vw;
-    height: 65vh;
-    object-fit: cover;
+  .homeImgs {
+    width: 32vw;
+    height: 55vh;
     margin-right: 5vw;
-    box-shadow: -2px 2px 5px 0px var(--secondaryColor);
-    filter: saturate(0.6);
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4vh;
+    margin-bottom: 6vh;
     @media screen and (max-width: 800px) {
       display: none;
     }
   }
-`;
-
-const Wrapper2 = styled.div`
-  @media screen and (min-width: 801px) {
-    display: none;
-  }
-  background-color: white;
-  padding: 3vh 2vw;
-  width: 100vw;
-  position: relative;
-  .carousel {
-    width: 100vw;
-    margin: 2vh auto;
-    a {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      img {
-        width: 60%;
-      }
-      .imgSmall {
-        width: 90%;
-      }
-      :nth-child(2) {
-        width: 80%;
-      }
+  .homeImg {
+    /* width: 28vw; */
+    width: 48%;
+    /* height: 65vh; */
+    height: 45vh;
+    object-fit: cover;
+    /* margin-right: 5vw; */
+    box-shadow: -2px 2px 5px 0px var(--secondaryColor);
+    filter: saturate(0.8);
+    :nth-child(1) {
+      margin-top: 7vh;
     }
-    @media screen and (min-width: 801px) {
+    @media screen and (max-width: 800px) {
       display: none;
     }
   }
-  .opinionTitle {
-    margin: 3vh auto 1vh;
-    font-size: 1.1rem;
-    text-align: center;
-    width: 90vw;
+  .spaSpan {
+    color: var(--secondaryColor2);
   }
 `;
+
+// const Wrapper2 = styled.div`
+//   @media screen and (min-width: 801px) {
+//     display: none;
+//   }
+//   background-color: white;
+//   padding: 3vh 2vw;
+//   width: 100vw;
+//   position: relative;
+//   .carousel {
+//     width: 100vw;
+//     margin: 2vh auto;
+//     a {
+//       width: 100%;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       img {
+//         width: 60%;
+//       }
+//       .imgSmall {
+//         width: 90%;
+//       }
+//       :nth-child(2) {
+//         width: 80%;
+//       }
+//     }
+//     @media screen and (min-width: 801px) {
+//       display: none;
+//     }
+//   }
+//   .opinionTitle {
+//     margin: 3vh auto 1vh;
+//     font-size: 1.1rem;
+//     text-align: center;
+//     width: 90vw;
+//   }
+// `;
 
 export default AboutUs;

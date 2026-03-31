@@ -73,7 +73,16 @@ const ShortHouses = () => {
         </section>
         <section data-aos="flip-left" data-aos-delay="1000">
           <MdOutlineBathtub />
-          <h4>{plLanguage ? "wanna spa" : "spa tub"}</h4>
+          {plLanguage ? (
+            <h4>
+              wanna spa <br /> (czynna cały rok)
+            </h4>
+          ) : (
+            <h4>
+              spa tub <br />
+              (available all year)
+            </h4>
+          )}
         </section>
         <section data-aos="flip-left" data-aos-delay="1200">
           <MdOutlineWifi />

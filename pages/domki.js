@@ -20,6 +20,7 @@ import {
 import { FaShower, FaParking } from "react-icons/fa";
 import { TbAirConditioning } from "react-icons/tb";
 import { GiBarbecue, GiTreeSwing } from "react-icons/gi";
+import HousesMap from "../components/HousesMap";
 
 // const housesUndraw = "/images/houses/06-1.jpg";
 const housesUndraw = "/images/houses/w-05.jpg";
@@ -241,6 +242,7 @@ const Houses = ({ data: udogodnienia }) => {
             </div>
           </p>
         )}
+        <HousesMap plLanguage={plLanguage} />
         <div className="container">
           <h2 className="containerTitle">
             {plLanguage
@@ -470,7 +472,7 @@ const Wrapper = styled.div`
   }
   .mainText {
     padding: 5vh 10vw;
-    margin: 12vh auto;
+    margin: 12vh auto 0;
     width: 100%;
     background: #fcfcfc;
     text-align: center;
@@ -525,6 +527,7 @@ const Wrapper = styled.div`
     text-align: center;
     color: var(--secondaryColor2);
     letter-spacing: 1px;
+    width: 100%;
     @media screen and (max-width: 800px) {
       width: 90%;
       margin: 0 auto;
@@ -652,7 +655,7 @@ export async function getStaticProps() {
 
   try {
     const res = await fetch(
-      "https://sosniegornedata-fee8c-default-rtdb.europe-west1.firebasedatabase.app/udogodnienia.json"
+      "https://sosniegornedata-fee8c-default-rtdb.europe-west1.firebasedatabase.app/udogodnienia.json",
     );
     data = await res.json();
   } catch (error) {
