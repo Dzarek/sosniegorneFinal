@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Head from "next/head";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useGlobalContext } from "../components/context";
 
 import { VscDebugBreakpointLog } from "react-icons/vsc";
@@ -61,9 +61,14 @@ const houseFeatures2EN = [
 const Houses = ({ data: udogodnienia }) => {
   const { plLanguage } = useGlobalContext();
 
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
-    Aos.init({ duration: 1000, disable: "false" });
+    setMounted(true);
+    Aos.init({ duration: 1000, once: true });
   }, []);
+
+  if (!mounted) return null;
 
   return (
     <>

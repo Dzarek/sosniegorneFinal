@@ -27,14 +27,14 @@ const housesData = [
     offsetY: 70,
   },
   {
-    id: 3,
+    id: 5,
     name: "Domek 3",
-    path1:
-      "polygon(39% 27%, 36% 21%, 48% 13%, 61% 23%, 47% 33%, 45% 30%, 41% 26%)",
-    path: "ellipse(10% 11% at 48% 23%)",
-    offsetX: 0,
-    offsetY: -50,
+    path1: "polygon(75% 31%, 100% 45%, 97% 58%, 71% 49%, 68% 46%, 66% 40%)",
+    path: "ellipse(16% 15% at 84% 45%)",
+    offsetX: -80,
+    offsetY: 90,
   },
+
   {
     id: 4,
     name: "Domek 4",
@@ -44,12 +44,13 @@ const housesData = [
     offsetY: 0,
   },
   {
-    id: 5,
+    id: 3,
     name: "Domek 5",
-    path1: "polygon(75% 31%, 100% 45%, 97% 58%, 71% 49%, 68% 46%, 66% 40%)",
-    path: "ellipse(16% 15% at 84% 45%)",
-    offsetX: -80,
-    offsetY: 90,
+    path1:
+      "polygon(39% 27%, 36% 21%, 48% 13%, 61% 23%, 47% 33%, 45% 30%, 41% 26%)",
+    path: "ellipse(10% 11% at 48% 23%)",
+    offsetX: 0,
+    offsetY: -50,
   },
 ];
 
@@ -61,13 +62,13 @@ const Wrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   column-gap: 5vw;
-  align-items: flex-start; /* Zmienione z center dla lepszego układu z sidebar */
+  align-items: flex-start;
   background: #f2f2f2;
   box-sizing: border-box;
 
   @media screen and (max-width: 1000px) {
     flex-direction: column;
-    align-items: center; /* Kluczowe: centruje mapę i sidebar w kolumnie */
+    align-items: center;
     padding: 0vh 5vw;
   }
 
@@ -174,7 +175,7 @@ const HousePiece = styled.div`
 const Sidebar = styled.div`
   flex: 0 0 280px;
   width: 100%;
-  max-width: 500px; /* Aby lista nie była za szeroka na tablecie */
+  max-width: 500px;
 
   h2 {
     margin-bottom: 20px;
@@ -192,11 +193,11 @@ const HouseList = styled.ul`
   gap: 12px;
 
   @media screen and (max-width: 600px) {
-    grid-template-columns: 1fr 1fr; /* Dwie kolumny na małych telefonach */
+    grid-template-columns: 1fr 1fr;
     li:last-child {
-      grid-column: 1 / span 2; /* Zajmuje 2 kolumny */
-      width: 50%; /* Ale ograniczamy jego szerokość do połowy */
-      justify-self: center; /* I centrujemy go w tej szerokiej komórce */
+      grid-column: 1 / span 2;
+      width: 50%;
+      justify-self: center;
     }
   }
 `;
@@ -211,7 +212,7 @@ const ListItem = styled.li`
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  justify-content: center; /* Centrowanie tekstu w przycisku na mobile */
+  justify-content: center;
   font-size: 0.9rem;
 
   @media screen and (min-width: 1024px) {
@@ -226,6 +227,8 @@ const ListItem = styled.li`
     margin-right: 8px;
     flex-shrink: 0;
   }
+  -webkit-tap-highlight-color: transparent; /* Usuwa niebieskie tło przy dotknięciu */
+  touch-action: manipulation; /* Optymalizuje szybkość kliknięć na mobile */
 `;
 
 const HouseOutline = styled.svg`
@@ -320,11 +323,18 @@ const HousesMap = ({ plLanguage }) => {
             <ListItem
               key={house.id}
               isActive={activeId === house.id}
-              onClick={() =>
-                setSelectedId(selectedId === house.id ? null : house.id)
-              }
-              onMouseEnter={() => setHoveredId(house.id)}
-              onMouseLeave={() => setHoveredId(null)}
+              onClick={() => {
+                // Ustawiamy oba stany na raz, aby uniknąć "podwójnego kliknięcia" na mobile
+                setSelectedId(house.id);
+                setHoveredId(house.id);
+              }}
+              // HOVER (tylko dla desktop):
+              onMouseEnter={() => {
+                setHoveredId(house.id);
+              }}
+              onMouseLeave={() => {
+                setHoveredId(null);
+              }}
             >
               <HiHome />
               {house.name}
