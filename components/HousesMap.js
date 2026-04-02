@@ -100,17 +100,20 @@ const Wrapper = styled.div`
 
 const MapContainer = styled.div`
   position: relative;
-  flex: 1.5;
-  width: 100%;
-  max-width: 900px;
+  flex: 1 1 60%; /* Pozwala mapie rosnąć, ale bazowo zajmuje 60% szerokości */
+  min-width: 300px; /* Zapobiega całkowitemu zniknięciu */
+  max-width: 1000px; /* Nie pozwól mapie być zbyt wielką na monitorach UltraWide */
   cursor: pointer;
   border-radius: 20px;
   line-height: 0;
   background-color: white;
   overflow: hidden;
-
+  margin: 0 auto;
   @media screen and (max-width: 1000px) {
     margin-bottom: 5vh;
+  }
+  @media screen and (min-width: 3500px) {
+    max-width: 1400px;
   }
 `;
 
@@ -182,6 +185,22 @@ const Sidebar = styled.div`
     text-align: center;
     font-size: 1.3rem;
     color: #444;
+  }
+  @media screen and (min-width: 2200px) {
+    flex: 1 1 330px;
+    max-width: 500px;
+    h2 {
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+    }
+  }
+  @media screen and (min-width: 3500px) {
+    flex: 1 1 500px;
+    max-width: 500px;
+    h2 {
+      margin-bottom: 40px;
+      font-size: 2rem;
+    }
   }
 `;
 
