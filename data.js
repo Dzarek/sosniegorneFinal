@@ -18,30 +18,30 @@ import {
 } from "react-icons/md";
 
 // CENNIK
-// export const cennik = [
-//   {
-//     name: "sezon niski",
-//     nameEN: "low season",
-//     dates: ["1 styczeń - 20 czerwiec", "1 wrzesień - 22 grudzień"],
-//     datesEN: ["January 1 - June 20", "September 1 - December 22"],
-//     price1: 500,
-//     price2: 600,
-//   },
-//   {
-//     name: "sezon wysoki",
-//     nameEN: "high season",
-//     dates: [
-//       "21 czerwiec - 31 sierpień",
-//       "Sylwester, Święta Wielkanoce, Święta Bożego Narodzenia, Weekend Majowy, Boże Ciało",
-//     ],
-//     datesEN: [
-//       "June 21 - August 31",
-//       "New Year's Eve, Easter, Christmas, May Weekend, Corpus Christi",
-//     ],
-//     price1: 600,
-//     price2: 800,
-//   },
-// ];
+export const cennik = [
+  {
+    name: "sezon niski",
+    nameEN: "low season",
+    dates: ["1 styczeń - 20 czerwiec", "1 wrzesień - 22 grudzień"],
+    datesEN: ["January 1 - June 20", "September 1 - December 22"],
+    price1: 500,
+    price2: 600,
+  },
+  {
+    name: "sezon wysoki",
+    nameEN: "high season",
+    dates: [
+      "21 czerwiec - 31 sierpień",
+      "Sylwester, Święta Wielkanoce, Święta Bożego Narodzenia, Weekend Majowy, Boże Ciało",
+    ],
+    datesEN: [
+      "June 21 - August 31",
+      "New Year's Eve, Easter, Christmas, May Weekend, Corpus Christi",
+    ],
+    price1: 600,
+    price2: 800,
+  },
+];
 
 // CENNIK KONIEC
 
@@ -831,3 +831,139 @@ export const atractionsData = [
   },
 ];
 // ATRAKCJE KONIEC
+
+export const SAMPLE_REVIEWS = [
+  {
+    id: "rev-1",
+    author: "Magdalena F.",
+    text: "Serdecznie polecam. Urokliwe miejsce idealne na odpoczynek w ciszy i spokoju. Dom w pełni wyposażony, jest wszystko co potrzeba. Największa atrakcja to oczywiście jacuzzi w którym jest ciepła woda 24h. Grill, piaskownica dla dzieci, huśtawka. Duże sypialnie, wygodne łóżka. Dostaliśmy także łóżeczko dla dziecka. Właściciel uprzejmy, w każdej chwili służy pomocą. Jesteśmy bardzo zadowoleni z pobytu - polecam!",
+    textEn:
+      "I highly recommend it. A charming place, perfect for a peaceful and quiet getaway. The house is fully equipped with everything you need. The biggest attraction is, of course, the jacuzzi with 24-hour hot water. There's also a barbecue, a sandbox for children, and a swing. The bedrooms are spacious and have comfortable beds. We even got a crib for our baby. The owner is friendly and always available to help. We were very pleased with our stay – I recommend it!",
+    rating: 5,
+    maxRating: 5,
+    source: "google",
+    date: "Maj 2026",
+  },
+  {
+    id: "rev-2",
+    author: "Irek",
+    text: "Zadbane domki w cichej okolicy z pełnym wyposażeniem. Mimo kiepskiej pogody jesteśmy bardzo zadowoleni!",
+    textEn:
+      "Well-maintained cottages in a quiet neighborhood, fully equipped. Despite the poor weather, we were very pleased!",
+    rating: 5,
+    maxRating: 5,
+    source: "google",
+    date: "Maj 2026",
+  },
+  {
+    id: "rev-3",
+    author: "Adr Ian",
+    text: "Super obiekt, dużym plusem jest dostępne jaccuzi 24/7, kontakt z właścicielem wzorowy. Piękne widoki i spokój. Napewno jeszcze wrócimy! 🥰🥰polecam",
+    textEn:
+      "A great place, the 24/7 jacuzzi is a big plus, and the communication with the owner is excellent. Beautiful views and peace and quiet. We'll definitely be back! 🥰🥰 I recommend it",
+    rating: 5,
+    maxRating: 5,
+    source: "google",
+    date: "Marzec 2026",
+  },
+
+  {
+    id: "rev-4",
+    author: "Kamil",
+    text: "Komfort, spokojna okolica, wyposażenie i jacuzzi! :)",
+    textEn: "Comfort, quiet surroundings, amenities and a jacuzzi! :)",
+    rating: 10,
+    maxRating: 10,
+    source: "booking",
+    date: "Luty 2026",
+  },
+  {
+    id: "rev-5",
+    author: "Mimi",
+    text: "Gorąco polecam! Bardzo miły i pomocny gospodarz 😊 Domki są wysoko zlokalizowane, dzięki temu są piękne widoki na góry i okolice. Każdy domek gwarantuje prywatność, ciszę i spokój, miejsce parkingowe oraz jacuzzi z którego można korzystać w każdym momencie. Łóżka są bardzo wygodne. W kuchni są wszystkie sprzęty do przygotowania posiłku oraz zaparzacz do kawy. W razie czego można pojechać do restauracji w Grybowie lub w okolicy.",
+    textEn:
+      "Highly recommended! Very kind and helpful host 😊 The cottages are located high up, offering beautiful views of the mountains and surrounding area. Each cottage guarantees privacy, peace, and quiet, a parking space, and a jacuzzi that you can use at any time. The beds are very comfortable. The kitchen has all the necessary kitchenware and a coffee maker. If you need something, you can go to a restaurant in Grybów or nearby.",
+    rating: 10,
+    maxRating: 10,
+    source: "booking",
+    date: "Styczeń 2026",
+  },
+  {
+    id: "rev-6",
+    author: "Mateusz",
+    text: "Piękny domek z ogródkiem dla pupila 😊",
+    textEn: "A beautiful house with a garden for your pet 😊",
+    rating: 10,
+    maxRating: 10,
+    source: "booking",
+    date: "Styczeń 2026",
+  },
+
+  {
+    id: "rev-7",
+    author: "Paweł",
+    text: "Spędziliśmy w Sośnie Górne Resort & Spa długi weekend i jesteśmy zachwyceni pobytem. Byliśmy z żoną oraz psem i od razu doceniliśmy ogrodzony teren, który dawał poczucie bezpieczeństwa i swobodę dla naszego pupila. Domek jest nowoczesny, bardzo przytulny i w pełni wyposażony, idealny na spokojny wypoczynek blisko natury. Ogromnym atutem jest duży taras z jacuzzi oraz miejscem do relaksu i grillowania, dzięki czemu mogliśmy w pełni się cieszyć się czasem we dwoje. Cały obiekt jest zadbany, otoczony zielenią, co pozwala oderwać się od codziennego zgiełku. Na pewno wrócimy tu w przyszłości.",
+    textEn:
+      "We spent a long weekend at Sosno Górne Resort & Spa and were delighted with our stay. We visited with my wife and dog and immediately appreciated the fenced area, which provided a sense of security and freedom for our pet. The cottage is modern, very cozy, and fully equipped, perfect for a peaceful getaway close to nature. A huge plus is the large terrace with a jacuzzi and a relaxation and barbecue area, allowing us to fully enjoy our time together. The entire property is well-maintained and surrounded by greenery, allowing us to escape the hustle and bustle of everyday life. We will definitely return in the future.",
+    rating: 5,
+    maxRating: 5,
+    source: "alohacamp",
+    date: "Lipiec 2025",
+  },
+  {
+    id: "rev-8",
+    author: "Paulina",
+    text: "Domek przerósł nasze oczekiwania. Jest cudowny. Czysto, dobrze wyposażony. Jacuzzi fantastyczne. Grill na wyposażeniu. Rewelka.",
+    textEn:
+      "The cottage exceeded our expectations. It's wonderful. Clean and well-equipped. The jacuzzi is fantastic. A barbecue is provided. It's fantastic.",
+    rating: 5,
+    maxRating: 5,
+    source: "alohacamp",
+    date: "Sierpień 2025",
+  },
+  {
+    id: "rev-9",
+    author: "Justyna",
+    text: "Super spędzony czas w pięknym miejscu, polecam bardzo osobą z pieskiem bo domek jest ogrodzony, więc to idealne rozwiązanie dla osób co chcą poodpoczywać w jazzuzi.",
+    textEn:
+      "A great time spent in a beautiful place, I highly recommend it to people with a dog because the house is fenced, so it's an ideal solution for people who want to relax in jazz.",
+    rating: 5,
+    maxRating: 5,
+    source: "alohacamp",
+    date: "Sierpień 2025",
+  },
+
+  {
+    id: "rev-10",
+    author: "Oskar",
+    text: "Zdecydowanie polecam, piękne i spokojne miejsce. Chociaż raz polecam przejechać się na rowerze, który można wypożyczyć na miejscu.",
+    textEn:
+      "I definitely recommend it; it's a beautiful and peaceful place. I also recommend riding a bike at least once, which you can rent on site.",
+    rating: 5,
+    maxRating: 5,
+    source: "airbnb",
+    date: "Maj 2026",
+  },
+  {
+    id: "rev-11",
+    author: "Dominika",
+    text: "Zakwaterowanie było czyste, przytulne i dokładnie odpowiadało opisowi i zdjęciom. Przyjemna atmosfera i dobre udogodnienia. Komunikacja z gospodarzem przebiegała szybko i bezproblemowo. Lokalizacja była cicha i odpowiednia na relaks. Bardzo podobał nam się nasz pobyt i zdecydowanie polecamy zakwaterowanie.",
+    textEn:
+      "The accommodation was clean, cozy, and exactly as described and pictured. It had a pleasant atmosphere and good amenities. Communication with the host was quick and easy. The location was quiet and perfect for relaxation. We thoroughly enjoyed our stay and would definitely recommend the accommodation.",
+    rating: 5,
+    maxRating: 5,
+    source: "airbnb",
+    date: "Grudzień 2025",
+  },
+  {
+    id: "rev-12",
+    author: "Natalia",
+    text: "Przepiękne miejsce, klimatyczna, malownicza okolica. Właściciel bardzo miły i responsywny. Wszystko zgodne z opisem, śliczny domek, przestronny ogródek z tarasem i jacuzzi. Instrukcje zameldowania i użytkowania bardzo jasne i klarowne. Super baza wypadowa na stoki narciarskie. Polecam serdecznie!",
+    textEn:
+      "A beautiful place with a picturesque, atmospheric setting. The owner was very kind and responsive. Everything was as described: a beautiful cottage, a spacious garden with a terrace and a jacuzzi. The check-in and use instructions were very clear and concise. A great base for skiing. I highly recommend it!",
+    rating: 5,
+    maxRating: 5,
+    source: "airbnb",
+    date: "Luty 2025",
+  },
+];

@@ -38,6 +38,11 @@ const ShortHouses = () => {
           zbudowane i posiadają: dwie przytulne sypialnie, komfortowy salon z
           aneksem kuchennym, stylową łazienkę oraz taras z wanna spa, placem
           zabaw i grilem. Jeden domek dodatkowo posiada saune.
+          <br /> <br />
+          <span>
+            Odpocznij dłużej! Minimalna rezerwacja to <strong>2 doby </strong>
+            (długie weekendy: min. <strong>3 doby</strong>)
+          </span>
         </p>
       ) : (
         <p>
@@ -46,6 +51,11 @@ const ShortHouses = () => {
           built and have: two cozy bedrooms, a comfortable living room with a
           kitchen, a stylish bathroom and a terrace with a spa tub, playground
           and grill. One house also has a sauna.
+          <br /> <br />
+          <span>
+            Relax longer! Minimum booking is <strong>2 days </strong>(long
+            weekends: <strong>3 days</strong> minimum)
+          </span>
         </p>
       )}
       <div className="iconContent">
@@ -72,7 +82,12 @@ const ShortHouses = () => {
           <h4>{plLanguage ? "klimatyzacja" : "air conditioning"}</h4>
         </section>
         <section data-aos="flip-left" data-aos-delay="1000">
-          <MdOutlineBathtub />
+          {/* <MdOutlineBathtub /> */}
+          <img
+            src="/images/home/jacuzzi.png"
+            alt="jacuzzi"
+            className="jacuzziImg"
+          />
           {plLanguage ? (
             <h4>
               wanna spa <br /> (czynna cały rok)
@@ -146,6 +161,9 @@ const Wrapper = styled.div`
     font-size: 1.2rem;
     font-weight: 500;
     line-height: 1.5;
+    span {
+      color: var(--secondaryColor2);
+    }
   }
 
   @media screen and (max-width: 800px) {
@@ -186,6 +204,9 @@ const Wrapper = styled.div`
       svg {
         font-size: 3rem;
         color: var(--thirdColor);
+      }
+      .jacuzziImg {
+        width: 60px;
       }
       h4 {
         font-size: 0.9rem;

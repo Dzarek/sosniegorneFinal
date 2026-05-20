@@ -19,6 +19,7 @@ import {
   MdEmail,
 } from "react-icons/md";
 import { MdDirectionsBike } from "react-icons/md";
+import { GiReceiveMoney } from "react-icons/gi";
 
 const polandFlag = "/images/poland-flag.png";
 const englandFlag = "/images/england-flag.png";
@@ -54,6 +55,11 @@ const Navbar = () => {
           <Link href="/domki">
             <p className={router.pathname == "/domki" ? "activeNav" : ""}>
               {plLanguage ? "domki" : "houses"}
+            </p>
+          </Link>
+          <Link href="/cennik">
+            <p className={router.pathname == "/cennik" ? "activeNav" : ""}>
+              {plLanguage ? "cennik" : "prices"}
             </p>
           </Link>
           <Link href="/na-kolkach">
@@ -153,6 +159,16 @@ const Navbar = () => {
               {plLanguage ? "Domki" : "Houses"}
             </a>
           </Link>
+          <Link href="/cennik">
+            <a
+              className={router.pathname == "/cennik" ? "active" : ""}
+              onClick={() => setShowMenu(false)}
+            >
+              <GiReceiveMoney />
+              {plLanguage ? "cennik" : "pricing"}
+            </a>
+          </Link>
+
           <Link href="/na-kolkach">
             <a
               className={router.pathname == "/na-kolkach" ? "active" : ""}
@@ -343,7 +359,7 @@ const Wrapper = styled.div`
       text-transform: uppercase;
       font-weight: 600;
       color: var(--secondaryColor);
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       font-family: var(--navFont);
       height: 50%;
       padding: 0 1vw;
@@ -356,7 +372,7 @@ const Wrapper = styled.div`
       border: 2px solid transparent;
       @media screen and (max-width: 1440px) {
         padding: 0 0.5vw;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
       }
       :hover {
         border-bottom: 2px solid var(--secondaryColor);
@@ -426,7 +442,7 @@ const Wrapper2 = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-family: var(--textFont);
       text-transform: capitalize;
       transition: 0.4s;

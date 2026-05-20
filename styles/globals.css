@@ -38,10 +38,12 @@ body {
   /* --secondaryColor: #0f2438; */
   --secondaryColor: #253a4d;
   --thirdColor: #eecf51;
+  --thirdColor2: rgb(214, 186, 78);
   --headerTitleBg: #aeaeaeaa;
   --secondaryColor2: #245277;
   --secondaryColor3: #164973;
   --footerBgColor: #313131;
+  --opinionBgColor: #253a4d;
   --navFont: "Bitter", sans-serif;
   --textFont: "Archivo", sans-serif;
   --titleFont: "Cormorant Garamond", serif;

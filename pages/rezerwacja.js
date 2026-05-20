@@ -156,54 +156,6 @@ const BookingHouse = () => {
             alt=""
             className="rezerwacjaImg"
           />
-          {/* <div className="opinionContainer">
-            <h4 className="opinionTitle">
-              {plLanguage
-                ? "Sprawdź, co piszą o nas nasi goście!"
-                : "What our guests say about us?"}
-            </h4>
-            <div className="opinion">
-              <a
-                href="https://www.airbnb.pl/rooms/847582399728857550/reviews"
-                target="_blank"
-              >
-                <img
-                  src="/images/reservation/airbnb-opinie.jpg"
-                  alt="Nasze opinie na Airbnb.com"
-                />
-              </a>
-              <div className="opinionLine"></div>
-              <a
-                href="https://alohacamp.com/pl/property/sosnie-gorne-resort-andamp-spa-1335"
-                target="_blank"
-              >
-                <img
-                  src="/images/reservation/alohacamp-opinie.jpg"
-                  alt="Nasze opinie na Alohacamp.com"
-                />
-              </a>
-              <div className="opinionLine"></div>
-              <a
-                href="https://www.booking.com/hotel/pl/sosnie-gorne-resort-spa.pl.html#tab-reviews"
-                target="_blank"
-              >
-                <img
-                  src="/images/reservation/booking-opinie.jpg"
-                  alt="Nasze opinie na Booking.com"
-                />
-              </a>
-              <div className="opinionLine"></div>
-              <a
-                href="https://maps.app.goo.gl/6KJxZnjg9ZmWJ3Wp7"
-                target="_blank"
-              >
-                <img
-                  src="/images/reservation/google-opinie.jpg"
-                  alt="Nasze opinie w Google Maps"
-                />
-              </a>
-            </div>
-          </div> */}
         </div>
       </Wrapper2>
     </>
