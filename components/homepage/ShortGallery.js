@@ -1,39 +1,25 @@
 import styled from "styled-components";
-import Slider from "react-slick";
+import Carousel from "react-multi-carousel";
 import Link from "next/link";
 import { gallery } from "../../data";
 import { useGlobalContext } from "../context";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// Import CSS nowej biblioteki w miejsce stylów Slicka
+import "react-multi-carousel/lib/styles.css";
 
 const ShortGallery = () => {
   const { plLanguage } = useGlobalContext();
 
-  const baseSettings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 1500,
-    draggable: false,
-    swipe: false,
-    responsive: [
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-    ],
-  };
-
-  const reverseSettings = {
-    ...baseSettings,
-    rtl: true,
+  // Konfiguracja responsywności dopasowana do Twoich punktów breakpointów (900px)
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 901 },
+      items: 4,
+    },
+    tabletAndMobile: {
+      breakpoint: { max: 900, min: 0 },
+      items: 2,
+    },
   };
 
   return (
@@ -41,18 +27,37 @@ const ShortGallery = () => {
       <div className="carouselContainer">
         {/* PIERWSZY RZĄD (Standardowy) */}
         <div className="carousel-wrapper">
-          <Slider {...baseSettings}>
+          <Carousel
+            responsive={responsive}
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={1500}
+            arrows={false}
+            draggable={false}
+            swipe={false}
+            ssr={true}
+          >
             {gallery.map((item, index) => (
               <div key={index} className="slide-item">
                 <img src={item} alt="" />
               </div>
             ))}
-          </Slider>
+          </Carousel>
         </div>
 
         {/* DRUGI RZĄD (Odwrócony) */}
         <div className="carousel-wrapper">
-          <Slider {...reverseSettings}>
+          <Carousel
+            responsive={responsive}
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={1500}
+            arrows={false}
+            draggable={false}
+            swipe={false}
+            ssr={true}
+            rtl={true} // Odwrócony kierunek wbudowany w nową bibliotekę
+          >
             {gallery
               .slice(0)
               .reverse()
@@ -61,7 +66,7 @@ const ShortGallery = () => {
                   <img src={item} alt="" />
                 </div>
               ))}
-          </Slider>
+          </Carousel>
         </div>
 
         <Link href="/zdjecia" passHref legacyBehavior>

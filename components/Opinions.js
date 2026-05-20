@@ -1,10 +1,12 @@
 import { useState, useMemo } from "react";
 import styled from "styled-components";
-import Slider from "react-slick";
+import Carousel from "react-multi-carousel";
 import { useGlobalContext } from "./context";
-import { SAMPLE_REVIEWS } from "../data";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "react-multi-carousel/lib/styles.css";
+import {
+  IoIosArrowDropleftCircle,
+  IoIosArrowDroprightCircle,
+} from "react-icons/io";
 
 // Funkcja mieszająca tablicę (Algorytm Fisher-Yates)
 const shuffleArray = (array) => {
@@ -16,6 +18,22 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
+const CustomLeftArrow = ({ onClick }) => {
+  return (
+    <ArrowButton className="left" onClick={onClick} aria-label="Previous">
+      <IoIosArrowDropleftCircle />
+    </ArrowButton>
+  );
+};
+
+const CustomRightArrow = ({ onClick }) => {
+  return (
+    <ArrowButton className="right" onClick={onClick} aria-label="Next">
+      <IoIosArrowDroprightCircle />
+    </ArrowButton>
+  );
+};
+
 // Pojedyncza karta opinii
 const CardOpinion = ({ item, plLanguage }) => {
   const { author, text, rating, maxRating, source, date, textEn } = item;
@@ -23,18 +41,16 @@ const CardOpinion = ({ item, plLanguage }) => {
 
   const currentText = plLanguage ? text : textEn || text;
   const isTranslated = !plLanguage && item.textEn;
-  // Konfiguracja limitu słów
+
   const WORD_LIMIT = 25;
   const words = currentText.split(" ");
   const isLongReview = words.length > WORD_LIMIT;
 
-  // Przycinanie tekstu, jeśli nie jest rozwinięty
   const displayedText =
     isLongReview && !isExpanded
       ? words.slice(0, WORD_LIMIT).join(" ") + "..."
       : currentText;
 
-  // Renderowanie tekstowych marek w ich oryginalnym brandingu
   const renderBrandLogo = () => {
     switch (source) {
       case "google":
@@ -70,7 +86,6 @@ const CardOpinion = ({ item, plLanguage }) => {
     }
   };
 
-  // Renderowanie oceny: pełne + puste gwiazdki lub ułamek dla Booking
   const renderRating = () => {
     if (source === "booking") {
       return (
@@ -104,7 +119,6 @@ const CardOpinion = ({ item, plLanguage }) => {
         </SourceBlock>
       </CardTop>
 
-      {/* Kontener tekstu z warunkowym suwakiem */}
       <ReviewTextContainer $scrollable={isExpanded}>
         <p className="reviewText">"{displayedText}"</p>
         {isTranslated && (
@@ -131,32 +145,24 @@ const CardOpinion = ({ item, plLanguage }) => {
 const Opinions = ({ dataOpinionsDate, dataOpinions }) => {
   const { plLanguage } = useGlobalContext();
 
-  const mixedReviews = useMemo(() => shuffleArray(dataOpinions), []);
+  const mixedReviews = useMemo(
+    () => shuffleArray(dataOpinions),
+    [dataOpinions],
+  );
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    cssEase: "linear",
-    pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 1300,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1301 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1300, min: 901 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 900, min: 0 },
+      items: 1,
+    },
   };
 
   return (
@@ -168,13 +174,25 @@ const Opinions = ({ dataOpinionsDate, dataOpinions }) => {
       </h2>
 
       <div className="slider-container">
-        <Slider {...settings}>
+        <Carousel
+          responsive={responsive}
+          infinite={true}
+          autoPlay={true}
+          autoPlaySpeed={4000}
+          keyBoardControl={true}
+          pauseOnHover={true}
+          slidesToSlide={1}
+          itemClass="carousel-item-padding"
+          containerClass="carouselClass"
+          customLeftArrow={<CustomLeftArrow />}
+          customRightArrow={<CustomRightArrow />}
+        >
           {mixedReviews.map((item) => (
             <SlideInner key={item.id}>
               <CardOpinion item={item} plLanguage={plLanguage} />
             </SlideInner>
           ))}
-        </Slider>
+        </Carousel>
       </div>
 
       <FooterNote>
@@ -211,7 +229,6 @@ const Card = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 2rem;
-
   margin: 15px 0;
   display: flex;
   flex-direction: column;
@@ -312,7 +329,6 @@ const ReviewTextContainer = styled.div`
   flex: 1;
   margin-bottom: 8px;
   margin-top: 10px;
-
   overflow-y: ${(props) => (props.$scrollable ? "auto" : "hidden")};
   padding-right: ${(props) => (props.$scrollable ? "6px" : "0px")};
 
@@ -363,7 +379,7 @@ const ExpandButton = styled.button`
 const FooterNote = styled.div`
   width: 90%;
   text-align: center;
-  margin-top: 4vh;
+  margin-top: 2vh;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.4);
   line-height: 1.5;
@@ -391,50 +407,10 @@ const Wrapper = styled.div`
   .slider-container {
     width: 100%;
     margin-top: 4vh;
-    @media screen and (max-width: 900px) {
-      margin-bottom: 60px;
-    }
-  }
+    position: relative;
 
-  .slick-prev:before,
-  .slick-next:before {
-    color: #fbbf24;
-    font-size: 28px;
-    opacity: 0.85;
-    transition: opacity 0.2s ease;
-  }
-
-  .slick-prev:hover:before,
-  .slick-next:hover:before {
-    opacity: 1;
-  }
-
-  .slick-prev,
-  .slick-next {
-    z-index: 10;
-    width: 35px;
-    height: 35px;
-
-    @media screen and (min-width: 901px) {
-      &.slick-prev {
-        left: -30px;
-      }
-      &.slick-next {
-        right: -30px;
-      }
-    }
-
-    @media screen and (max-width: 900px) {
-      top: auto;
-      bottom: -50px;
-      transform: none;
-
-      &.slick-prev {
-        left: 35%;
-      }
-      &.slick-next {
-        right: 35%;
-      }
+    .carousel-item-padding {
+      padding-bottom: 60px;
     }
   }
 
@@ -452,12 +428,66 @@ const Wrapper = styled.div`
     }
   }
 `;
+
 const TranslationNote = styled.span`
   display: block;
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.3);
   font-style: normal;
   margin-top: 6px;
+`;
+
+const ArrowButton = styled.button`
+  position: absolute;
+  bottom: 15px;
+  z-index: 20;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.45);
+
+  color: white;
+  font-size: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    opacity 0.2s ease;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: scale(1.08);
+  }
+
+  &.left {
+    left: calc(50% - 70px);
+  }
+
+  &.right {
+    right: calc(50% - 70px);
+  }
+
+  @media screen and (max-width: 900px) {
+    /* bottom: -65px; */
+
+    &.left {
+      left: calc(50% - 55px);
+    }
+
+    &.right {
+      right: calc(50% - 55px);
+    }
+  }
 `;
 
 export default Opinions;
