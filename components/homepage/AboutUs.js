@@ -126,7 +126,7 @@ const FeaturesGrid = styled.div`
     align-items: stretch;
     gap: 10px;
     background: rgba(255, 255, 255, 0.02); /* Delikatne wspólne tło dla paska */
-    padding: 20px 10px;
+    padding: 20px 3px;
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.05);
   }
@@ -213,8 +213,8 @@ const FeatureCard = styled.div`
       }
 
       p {
-        font-size: 0.85rem; /* Kompaktowy tekst główny */
-        white-space: normal; /* Pozwalamy na łamanie tekstu na bardzo małych ekranach */
+        font-size: 0.8rem; /* Kompaktowy tekst główny */
+        white-space: normal;
         word-break: break-word;
       }
     }
