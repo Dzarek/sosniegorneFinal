@@ -168,7 +168,12 @@ const Houses = ({ data: udogodnienia }) => {
               <h4>{plLanguage ? "klimatyzacja" : "air conditioning"}</h4>
             </section>
             <section data-aos="flip-left" data-aos-delay="1000">
-              <MdOutlineBathtub />
+              {/* <MdOutlineBathtub /> */}
+              <img
+                src="/images/home/jacuzzi.png"
+                alt="jacuzzi"
+                className="jacuzziImg"
+              />
               <h4>{plLanguage ? "wanna spa" : "spa tub"}</h4>
             </section>
             <section data-aos="flip-left" data-aos-delay="1200">
@@ -450,6 +455,9 @@ const Wrapper = styled.div`
       svg {
         font-size: 2.3rem;
         color: var(--thirdColor);
+      }
+      .jacuzziImg {
+        width: 45px;
       }
       h4 {
         font-size: 0.8rem;

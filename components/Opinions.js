@@ -144,6 +144,7 @@ const CardOpinion = ({ item, plLanguage }) => {
 // Główny komponent karuzeli
 const Opinions = ({ dataOpinionsDate, dataOpinions }) => {
   const { plLanguage } = useGlobalContext();
+  const [isHovered, setIsHovered] = useState(false);
 
   const mixedReviews = useMemo(
     () => shuffleArray(dataOpinions),
@@ -177,8 +178,8 @@ const Opinions = ({ dataOpinionsDate, dataOpinions }) => {
         <Carousel
           responsive={responsive}
           infinite={true}
-          autoPlay={true}
-          autoPlaySpeed={4000}
+          autoPlay={!isHovered}
+          autoPlaySpeed={3000}
           keyBoardControl={true}
           pauseOnHover={true}
           slidesToSlide={1}
@@ -188,7 +189,11 @@ const Opinions = ({ dataOpinionsDate, dataOpinions }) => {
           customRightArrow={<CustomRightArrow />}
         >
           {mixedReviews.map((item) => (
-            <SlideInner key={item.id}>
+            <SlideInner
+              key={item.id}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
               <CardOpinion item={item} plLanguage={plLanguage} />
             </SlideInner>
           ))}

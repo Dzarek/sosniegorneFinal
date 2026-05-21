@@ -145,13 +145,6 @@ const FeatureCard = styled.div`
   width: 290px;
   box-sizing: border-box;
 
-  /* EFEKT SCALE - Teraz zaimplementowany w sposób nie do zablokowania */
-  &:hover {
-    transform: scale(1.06);
-    /* border-color: var(--thirdColor); */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
-  }
-
   svg {
     font-size: 2rem;
     color: var(--thirdColor);
@@ -168,7 +161,7 @@ const FeatureCard = styled.div`
     flex-direction: column;
     text-align: left;
     justify-content: center;
-    /* height: 100%; */
+
     h3 {
       font-size: 0.85rem;
       text-transform: uppercase;
@@ -185,9 +178,12 @@ const FeatureCard = styled.div`
       margin: 0;
       line-height: 1.2;
       white-space: nowrap;
+      transition: 0.5s;
     }
   }
-
+  &:hover .info p {
+    color: var(--thirdColor);
+  }
   /* NOWY, LEPSZY WYGLĄD NA MOBILCE */
   @media screen and (max-width: 800px) {
     flex-direction: column; /* Ikona nad tekstem */
