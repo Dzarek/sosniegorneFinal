@@ -34,10 +34,11 @@ const ShortHouses = () => {
       {plLanguage ? (
         <p>
           Do dyspozycji gości mamy 5 nowoczesnych, w pełni ogrodzonych domków 70
-          m<sup>2</sup> przystosowane dla max 6 osób każdy. Domki są identycznie
-          zbudowane i posiadają: dwie przytulne sypialnie, komfortowy salon z
-          aneksem kuchennym, stylową łazienkę oraz taras z wanna spa, placem
-          zabaw i grilem. Jeden domek dodatkowo posiada saune.
+          m<sup>2</sup> przystosowanych dla maks. 6 osób każdy. Domki są
+          identycznie zbudowane i posiadają: dwie przytulne sypialnie,
+          komfortowy salon z aneksem kuchennym, stylową łazienkę oraz taras z
+          wanną SPA, placem zabaw i grillem. Jeden domek dodatkowo posiada
+          saunę.
           <br /> <br />
           <span>
             Odpocznij dłużej! Minimalna rezerwacja to <strong>2 doby </strong>

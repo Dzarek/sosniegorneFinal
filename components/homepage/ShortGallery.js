@@ -71,7 +71,7 @@ const ShortGallery = () => {
 
         <Link href="/zdjecia" passHref legacyBehavior>
           <p className="linkToGallery">
-            {plLanguage ? "Zobacz galerie zdjęć" : "View photo gallery"}
+            {plLanguage ? "Zobacz galerię zdjęć" : "View photo gallery"}
           </p>
         </Link>
       </div>

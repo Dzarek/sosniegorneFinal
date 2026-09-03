@@ -202,11 +202,11 @@ const Houses = ({ data: udogodnienia }) => {
               {" "}
               70 m<sup>2</sup>
             </span>{" "}
-            przystosowane dla max <span> 6</span> osób każdy. Domki są
+            przystosowanych dla maks. <span> 6</span> osób każdy. Domki są
             identycznie zbudowane i posiadają: dwie przytulne sypialnie,
             komfortowy salon z aneksem kuchennym, stylową łazienkę oraz taras z
-            wanna spa, placem zabaw i grilem. Jeden domek dodatkowo posiada
-            saune. <br />
+            wanną SPA, placem zabaw i grillem. Jeden domek dodatkowo posiada
+            saunę. <br />
             Budynki są w pełni klimatyzowane, zarówno do chłodzenia jak i
             ogrzewania. W domkach zainstalowane zostały szybkie połączenia
             internetu bezprzewodowego WIFI. Dla komfortu gości w salonie
