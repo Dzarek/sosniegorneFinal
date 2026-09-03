@@ -1,7 +1,7 @@
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-  // swcMinify: false,
+  // swcMinify: true,
+  swcMinify: false,
   trailingSlash: true,
   compiler: {
     styledComponents: true,
