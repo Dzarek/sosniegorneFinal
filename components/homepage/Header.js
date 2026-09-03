@@ -365,6 +365,7 @@ const Wrapper = styled.div`
         transform: translate(-50%, 0%);
         width: 100vw;
         height: 10vh;
+        height: 10dvh;
         background: rgba(255, 255, 255, 1);
         border-radius: 0 0 5px 5px;
 
