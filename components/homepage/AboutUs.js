@@ -30,6 +30,7 @@ const AboutUs = ({ price }) => {
               className="homeImg"
               width={500}
               height={800}
+              unoptimized
             />
             <Image
               src={homeUndraw1}
@@ -38,6 +39,7 @@ const AboutUs = ({ price }) => {
               className="homeImg"
               width={500}
               height={800}
+              unoptimized
             />
           </div>
           <section>
