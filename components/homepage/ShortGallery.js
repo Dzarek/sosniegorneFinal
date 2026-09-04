@@ -1,17 +1,15 @@
 import styled from "styled-components";
 import Carousel from "react-multi-carousel";
 import Link from "next/link";
+import Image from "next/image";
 import { gallery } from "../../data";
 import { useGlobalContext } from "../context";
 
-// Import CSS nowej biblioteki w miejsce stylów Slicka
 import "react-multi-carousel/lib/styles.css";
-import Image from "next/image";
 
 const ShortGallery = () => {
   const { plLanguage } = useGlobalContext();
 
-  // Konfiguracja responsywności dopasowana do Twoich punktów breakpointów (900px)
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 901 },
@@ -26,7 +24,7 @@ const ShortGallery = () => {
   return (
     <Wrapper>
       <div className="carouselContainer">
-        {/* PIERWSZY RZĄD (Standardowy) */}
+        {/* PIERWSZY RZĄD */}
         <div className="carousel-wrapper">
           <Carousel
             responsive={responsive}
@@ -39,19 +37,22 @@ const ShortGallery = () => {
             ssr={true}
           >
             {gallery.map((item, index) => (
-              <div key={index} className="slide-item">
-                <Image
-                  src={item}
-                  alt={`zdjęcie ${index + 1}`}
-                  width={300}
-                  height={300}
-                />
+              <div key={item} className="slide-item">
+                <div className="image-wrapper">
+                  <Image
+                    src={item}
+                    alt={`zdjęcie ${index + 1}`}
+                    layout="fill"
+                    objectFit="cover"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             ))}
           </Carousel>
         </div>
 
-        {/* DRUGI RZĄD (Odwrócony) */}
+        {/* DRUGI RZĄD - ODWRÓCONY */}
         <div className="carousel-wrapper">
           <Carousel
             responsive={responsive}
@@ -62,21 +63,21 @@ const ShortGallery = () => {
             draggable={false}
             swipe={false}
             ssr={true}
-            rtl={true} // Odwrócony kierunek wbudowany w nową bibliotekę
+            rtl={true}
           >
-            {gallery
-              .slice(0)
-              .reverse()
-              .map((item, index) => (
-                <div key={index} className="slide-item">
+            {[...gallery].reverse().map((item, index) => (
+              <div key={item} className="slide-item">
+                <div className="image-wrapper">
                   <Image
                     src={item}
                     alt={`zdjęcie ${index + 1}`}
-                    width={300}
-                    height={300}
+                    layout="fill"
+                    objectFit="cover"
+                    loading="lazy"
                   />
                 </div>
-              ))}
+              </div>
+            ))}
           </Carousel>
         </div>
 
@@ -99,7 +100,7 @@ const Wrapper = styled.div`
 
   @media screen and (max-width: 800px) {
     width: 100vw;
-    margin-left: 0vw;
+    margin-left: 0;
     padding: 2vh 2vw;
   }
 
@@ -108,7 +109,7 @@ const Wrapper = styled.div`
     margin-top: -5vh;
 
     @media screen and (max-width: 800px) {
-      margin-top: 0vh;
+      margin-top: 0;
     }
 
     .carousel-wrapper {
@@ -121,16 +122,19 @@ const Wrapper = styled.div`
       box-sizing: border-box;
     }
 
-    img {
+    .image-wrapper {
+      position: relative;
       width: 100%;
-      height: 15vw;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       opacity: 0.5;
       display: block;
-
-      @media screen and (max-width: 800px) {
-        height: 35vw;
-      }
     }
 
     .linkToGallery {

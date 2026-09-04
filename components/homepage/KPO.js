@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useGlobalContext } from "../context";
-import Image from "next/image";
 
 const KPOImagePLHorizont = "/images/home/KPO-PL-Horizont.jpg";
 const KPOImageENHorizont = "/images/home/KPO-EN-Horizont.jpg";
@@ -12,19 +11,15 @@ const KPO = () => {
 
   return (
     <Wrapper>
-      <Image
+      <img
         src={plLanguage ? KPOImagePLHorizont : KPOImageENHorizont}
         className="KPO-PL-Horizont"
         alt="KPO-PL-Horizont"
-        width={1000}
-        height={500}
       />
-      <Image
+      <img
         src={plLanguage ? KPOImagePLVertical : KPOImageENVertical}
         className="KPO-PL-Vertical"
         alt="KPO-PL-Vertical"
-        width={500}
-        height={800}
       />
       {plLanguage ? (
         <div className="KPOText">
