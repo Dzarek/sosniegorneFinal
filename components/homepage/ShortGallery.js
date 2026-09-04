@@ -45,6 +45,7 @@ const ShortGallery = () => {
                     layout="fill"
                     objectFit="cover"
                     loading="lazy"
+                    unoptimized
                   />
                 </div>
               </div>
@@ -74,6 +75,7 @@ const ShortGallery = () => {
                     layout="fill"
                     objectFit="cover"
                     loading="lazy"
+                    unoptimized
                   />
                 </div>
               </div>
