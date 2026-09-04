@@ -6,6 +6,7 @@ import { useGlobalContext } from "../context";
 
 // Import CSS nowej biblioteki w miejsce stylów Slicka
 import "react-multi-carousel/lib/styles.css";
+import Image from "next/image";
 
 const ShortGallery = () => {
   const { plLanguage } = useGlobalContext();
@@ -39,7 +40,12 @@ const ShortGallery = () => {
           >
             {gallery.map((item, index) => (
               <div key={index} className="slide-item">
-                <img src={item} alt="" />
+                <Image
+                  src={item}
+                  alt={`zdjęcie ${index + 1}`}
+                  width={300}
+                  height={300}
+                />
               </div>
             ))}
           </Carousel>
@@ -63,7 +69,12 @@ const ShortGallery = () => {
               .reverse()
               .map((item, index) => (
                 <div key={index} className="slide-item">
-                  <img src={item} alt="" />
+                  <Image
+                    src={item}
+                    alt={`zdjęcie ${index + 1}`}
+                    width={300}
+                    height={300}
+                  />
                 </div>
               ))}
           </Carousel>

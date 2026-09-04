@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useGlobalContext } from "../context";
 import { MdOutlinePets, MdOutlineAccessTimeFilled } from "react-icons/md";
 import { ImPriceTag } from "react-icons/im";
+import Image from "next/image";
 
 // const homeUndraw1 = "/images/home/homeUndraw5.jpg";
 const homeUndraw1 = "/images/home/w-07.jpg";
@@ -22,17 +23,21 @@ const AboutUs = ({ price }) => {
         <div className="bg"></div>
         <div className="firstPart">
           <div className="homeImgs">
-            <img
+            <Image
               src={homeUndraw2}
-              alt=""
+              alt="homeImg1"
               data-aos="fade-left"
               className="homeImg"
+              width={500}
+              height={800}
             />
-            <img
+            <Image
               src={homeUndraw1}
-              alt=""
+              alt="homeImg2"
               data-aos="fade-right"
               className="homeImg"
+              width={500}
+              height={800}
             />
           </div>
           <section>
