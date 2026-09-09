@@ -22,8 +22,7 @@ import { TbAirConditioning } from "react-icons/tb";
 import { GiBarbecue, GiTreeSwing } from "react-icons/gi";
 import HousesMap from "../components/HousesMap";
 
-// const housesUndraw = "/images/houses/06-1.jpg";
-const housesUndraw = "/images/houses/w-05.jpg";
+const housesUndraw = "/images/houses/w-05.webp";
 
 const houseFeatures = [
   "70 m2",

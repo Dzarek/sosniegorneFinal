@@ -6,17 +6,17 @@ import Image from "next/image";
 import { useGlobalContext } from "../context";
 
 const desktopImages = [
-  "/images/header/w-01.jpg",
-  "/images/header/01-1.jpg",
-  "/images/header/04-3.jpg",
-  "/images/header/04-2.jpg",
+  "/images/header/w-01.webp",
+  "/images/header/01-1.webp",
+  "/images/header/04-3.webp",
+  "/images/header/04-2.webp",
 ];
 
 const mobileImages = [
-  "/images/header/w-03.jpg",
-  "/images/header/01-1mobile.jpg",
-  "/images/header/m-2.jpg",
-  "/images/header/w-04.jpg",
+  "/images/header/w-03.webp",
+  "/images/header/01-1mobile.webp",
+  "/images/header/m-2.webp",
+  "/images/header/w-04.webp",
 ];
 
 const logo = "/images/logo.png";

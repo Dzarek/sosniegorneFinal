@@ -152,8 +152,8 @@ const BookingHouse = () => {
             </div>
           </div>
           <img
-            src="/images/reservation/rezerwacja-img.jpg"
-            alt=""
+            src="/images/reservation/rezerwacja-img.webp"
+            alt="rezerwacja"
             className="rezerwacjaImg"
           />
         </div>

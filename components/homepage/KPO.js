@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { useGlobalContext } from "../context";
 
-const KPOImagePLHorizont = "/images/home/KPO-PL-Horizont.jpg";
-const KPOImageENHorizont = "/images/home/KPO-EN-Horizont.jpg";
-const KPOImagePLVertical = "/images/home/KPO-PL-Vertical.jpg";
-const KPOImageENVertical = "/images/home/KPO-EN-Vertical.jpg";
+const KPOImagePLHorizont = "/images/home/KPO-PL-Horizont.webp";
+const KPOImageENHorizont = "/images/home/KPO-EN-Horizont.webp";
+const KPOImagePLVertical = "/images/home/KPO-PL-Vertical.webp";
+const KPOImageENVertical = "/images/home/KPO-EN-Vertical.webp";
 
 const KPO = () => {
   const { plLanguage } = useGlobalContext();

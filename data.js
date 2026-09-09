@@ -47,67 +47,55 @@ export const cennik = [
 
 // GALERIA
 export const gallery = [
-  "/images/gallery/out5.jpg",
-  "/images/gallery/out6.jpg",
-  "/images/gallery/out7.jpg",
-  "/images/gallery/out8.jpg",
-  "/images/gallery/out1.jpg",
-  "/images/gallery/out2.jpg",
-  "/images/gallery/out3.jpg",
-  "/images/gallery/out4.jpg",
-
-  "/images/gallery/salon1.jpg",
-  "/images/gallery/salon2.jpg",
-  // "/images/gallery/aneks1.jpg",
-
-  "/images/gallery/room1.jpg",
-  "/images/gallery/room2.jpg",
-
-  "/images/gallery/sauna1.jpg",
-  "/images/gallery/sauna2.jpg",
-  // "/images/gallery/sauna3.jpg",
-  "/images/gallery/sauna4.jpg",
-  // "/images/gallery/sauna5.jpg",
-  // "/images/gallery/sauna6.jpg",
-  // "/images/gallery/sauna7.jpg",
-
-  // "/images/gallery/all1.jpg",
-  "/images/gallery/all2.jpg",
-  "/images/gallery/all3.jpg",
-  "/images/gallery/all4.jpg",
-  "/images/gallery/all5.jpg",
-  "/images/gallery/all6.jpg",
-
-  "/images/gallery/w-04.jpg",
-  "/images/gallery/w-05.jpg",
-  "/images/gallery/w-09.jpg",
-  "/images/gallery/w-11.jpg",
-  "/images/gallery/05.jpg",
-  "/images/gallery/06.jpg",
-  "/images/gallery/07.jpg",
-  "/images/gallery/10.jpg",
-  "/images/gallery/14.jpg",
-  "/images/gallery/13.jpg",
-  "/images/gallery/15.jpg",
-  "/images/gallery/17.jpg",
-  "/images/gallery/22.jpg",
-  "/images/gallery/27.jpg",
-  "/images/gallery/29.jpg",
-  "/images/gallery/32.jpg",
-  "/images/gallery/31.jpg",
-  "/images/gallery/33.jpg",
-  "/images/gallery/01-2.jpg",
-  "/images/gallery/01-6.jpg",
-  "/images/gallery/01-8.jpg",
-  "/images/gallery/02-2.jpg",
-  "/images/gallery/02-3.jpg",
-  "/images/gallery/05-1.jpg",
-  "/images/gallery/05-2.jpg",
-  "/images/gallery/03-2.jpg",
-  // "/images/gallery/03-6.jpg",
-  "/images/gallery/03-4.jpg",
-  "/images/gallery/04-6.jpg",
-  "/images/gallery/04-7.jpg",
+  "/images/gallery/out5.webp",
+  "/images/gallery/out6.webp",
+  "/images/gallery/out7.webp",
+  "/images/gallery/out8.webp",
+  "/images/gallery/out1.webp",
+  "/images/gallery/out2.webp",
+  "/images/gallery/out3.webp",
+  "/images/gallery/out4.webp",
+  "/images/gallery/salon1.webp",
+  "/images/gallery/salon2.webp",
+  "/images/gallery/room1.webp",
+  "/images/gallery/room2.webp",
+  "/images/gallery/sauna1.webp",
+  "/images/gallery/sauna2.webp",
+  "/images/gallery/sauna4.webp",
+  "/images/gallery/all2.webp",
+  "/images/gallery/all3.webp",
+  "/images/gallery/all4.webp",
+  "/images/gallery/all5.webp",
+  "/images/gallery/all6.webp",
+  "/images/gallery/w-04.webp",
+  "/images/gallery/w-05.webp",
+  "/images/gallery/w-09.webp",
+  "/images/gallery/w-11.webp",
+  "/images/gallery/05.webp",
+  "/images/gallery/06.webp",
+  "/images/gallery/07.webp",
+  "/images/gallery/10.webp",
+  "/images/gallery/14.webp",
+  "/images/gallery/13.webp",
+  "/images/gallery/15.webp",
+  "/images/gallery/17.webp",
+  "/images/gallery/22.webp",
+  "/images/gallery/27.webp",
+  "/images/gallery/29.webp",
+  "/images/gallery/32.webp",
+  "/images/gallery/31.webp",
+  "/images/gallery/33.webp",
+  "/images/gallery/01-2.webp",
+  "/images/gallery/01-6.webp",
+  "/images/gallery/01-8.webp",
+  "/images/gallery/02-2.webp",
+  "/images/gallery/02-3.webp",
+  "/images/gallery/05-1.webp",
+  "/images/gallery/05-2.webp",
+  "/images/gallery/03-2.webp",
+  "/images/gallery/03-4.webp",
+  "/images/gallery/04-6.webp",
+  "/images/gallery/04-7.webp",
 ];
 // GALERIA KONIEC
 
@@ -210,7 +198,7 @@ export const gallery = [
 //   {
 //     name: "pokoje",
 //     nameEN: "bedrooms",
-//     img: "/images/gallery/03-4.jpg",
+//     img: "/images/gallery/03-4.webp",
 //     details: [
 //       "2 łóżka pojedyncze",
 //       "pościel",
@@ -229,7 +217,7 @@ export const gallery = [
 //   {
 //     name: "aneks kuchenny",
 //     nameEN: "kitchenette",
-//     img: "/images/gallery/01-6.jpg",
+//     img: "/images/gallery/01-6.webp",
 //     details: [
 //       "Lodówka z zamrażarką",
 //       "Przybory kuchenne",
@@ -252,7 +240,7 @@ export const gallery = [
 //   {
 //     name: "łazienka",
 //     nameEN: "bathroom",
-//     img: "/images/gallery/bathroom.jpg",
+//     img: "/images/gallery/bathroom.webp",
 //     details: [
 //       "Ręczniki",
 //       "ogrzewanie podłogowe",
@@ -269,7 +257,7 @@ export const gallery = [
 //   {
 //     name: "salon",
 //     nameEN: "living room",
-//     img: "/images/gallery/01-1.jpg",
+//     img: "/images/gallery/01-1.webp",
 //     details: [
 //       "smart TV",
 //       "stolik kawowy",
@@ -288,7 +276,7 @@ export const gallery = [
 //   {
 //     name: "taras",
 //     nameEN: "terrace",
-//     img: "/images/gallery/06-1.jpg",
+//     img: "/images/gallery/06-1.webp",
 //     details: [
 //       "wanna spa",
 //       "meble ogrodowe",
@@ -547,7 +535,7 @@ export const atractionsData = [
   {
     category: "gastronomia",
     categoryEN: "gastronomy",
-    image: "/images/attractions/gastronomy.jpg",
+    image: "/images/attractions/gastronomy.webp",
     places: [
       {
         name: "Proste Bistro",
@@ -618,7 +606,7 @@ export const atractionsData = [
   {
     category: "sport",
     categoryEN: "sport",
-    image: "/images/attractions/sport.jpg",
+    image: "/images/attractions/sport.webp",
     places: [
       {
         name: "Centrum Sportów Zimowych Ptaszkowa",
@@ -681,7 +669,7 @@ export const atractionsData = [
   {
     category: "historia",
     categoryEN: "history",
-    image: "/images/attractions/history.jpg",
+    image: "/images/attractions/history.webp",
     places: [
       {
         name: "Muzeum Parafialne",
@@ -761,7 +749,7 @@ export const atractionsData = [
   {
     category: "inne",
     categoryEN: "others",
-    image: "/images/attractions/inne.jpg",
+    image: "/images/attractions/inne.webp",
     places: [
       {
         name: "Mini Zoo Hacjenda Alpaka",

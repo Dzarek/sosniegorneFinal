@@ -278,7 +278,7 @@ const HousesMap = ({ plLanguage }) => {
 
   const activeId = hoveredId || selectedId;
   const isGlobalActive = isHoveringMap || selectedId !== null;
-  const imageSrc = "/images/houses/housesmap.jpg";
+  const imageSrc = "/images/houses/housesmap.webp";
 
   return (
     <Wrapper>

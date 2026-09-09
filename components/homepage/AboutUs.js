@@ -5,12 +5,10 @@ import { useEffect } from "react";
 import { useGlobalContext } from "../context";
 import { MdOutlinePets, MdOutlineAccessTimeFilled } from "react-icons/md";
 import { ImPriceTag } from "react-icons/im";
-import Image from "next/image";
 
-// const homeUndraw1 = "/images/home/homeUndraw5.jpg";
-const homeUndraw1 = "/images/home/w-07.jpg";
-const homeUndraw2 = "/images/gallery/out1.jpg";
-const mobileBg = "/images/home/mobileAboutBg.png";
+const homeUndraw1 = "/images/home/w-07.webp";
+const homeUndraw2 = "/images/gallery/out1.webp";
+const mobileBg = "/images/home/mobileAboutBg.webp";
 
 const AboutUs = ({ price }) => {
   const { plLanguage } = useGlobalContext();
@@ -23,23 +21,17 @@ const AboutUs = ({ price }) => {
         <div className="bg"></div>
         <div className="firstPart">
           <div className="homeImgs">
-            <Image
+            <img
               src={homeUndraw2}
               alt="homeImg1"
               data-aos="fade-left"
               className="homeImg"
-              width={500}
-              height={800}
-              unoptimized
             />
-            <Image
+            <img
               src={homeUndraw1}
               alt="homeImg2"
               data-aos="fade-right"
               className="homeImg"
-              width={500}
-              height={800}
-              unoptimized
             />
           </div>
           <section>
