@@ -112,6 +112,7 @@ const Navbar = () => {
         </nav>
         <button
           className={offset > 200 ? "upBtn" : "upBtn upBtnNone"}
+          aria-label="scroll up"
           onClick={() => {
             scroll.scrollToTop();
           }}

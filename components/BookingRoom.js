@@ -69,6 +69,7 @@ const BookingRoom = () => {
                     href="https://www.facebook.com/SosnieGorne/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Sosnie Górne na Facebooku"
                   >
                     <MdFacebook />
                   </a>
@@ -76,6 +77,7 @@ const BookingRoom = () => {
                     href="https://www.instagram.com/sosniegorne/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Sosnie Górne na Instagramie"
                   >
                     <AiFillInstagram />
                   </a>

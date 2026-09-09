@@ -191,7 +191,7 @@ const Wrapper = styled.footer`
   .allRights {
     margin-top: 5vh;
     font-family: var(--textFont);
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 12pt;
     font-weight: 400;
     text-align: center;
@@ -241,7 +241,7 @@ const Wrapper = styled.footer`
           margin-right: 10px;
         }
         a {
-          color: rgba(255, 255, 255, 0.4);
+          color: rgba(255, 255, 255, 0.7);
           font-size: 14pt;
           text-decoration: none;
           transition: 0.5s;
@@ -361,7 +361,7 @@ const Wrapper = styled.footer`
       font-size: 12pt;
       align-self: center;
       text-align: center;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.7);
       @media screen and (max-width: 800px) {
         font-size: 1rem;
       }

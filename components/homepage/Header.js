@@ -4,7 +4,6 @@ import { MdFacebook } from "react-icons/md";
 import Link from "next/link";
 import Image from "next/image";
 import { useGlobalContext } from "../context";
-import Head from "next/head";
 
 const desktopImages = [
   "/images/header/w-01.webp",
@@ -27,23 +26,6 @@ const Header = () => {
 
   return (
     <>
-      <Head>
-        <link
-          rel="preload"
-          as="image"
-          href="/images/header/w-01.jpg"
-          media="(min-width: 801px)"
-          fetchpriority="high"
-        />
-
-        <link
-          rel="preload"
-          as="image"
-          href="/images/header/w-03.jpg"
-          media="(max-width: 800px)"
-          fetchpriority="high"
-        />
-      </Head>
       <Wrapper>
         <section>
           <div className="headerContact">
@@ -89,11 +71,13 @@ const Header = () => {
                     priority={index === 0}
                     loading={index === 0 ? undefined : "lazy"}
                     unoptimized
+                    fetchpriority={
+                      image === "/images/header/w-01.webp" && "high"
+                    }
                   />
                 </div>
               ))}
             </div>
-
             {/* =========================
                 MOBILE
                 ========================= */}
@@ -108,6 +92,9 @@ const Header = () => {
                     priority={index === 0}
                     loading={index === 0 ? undefined : "lazy"}
                     unoptimized
+                    fetchpriority={
+                      image === "/images/header/w-03.webp" && "high"
+                    }
                   />
                 </div>
               ))}

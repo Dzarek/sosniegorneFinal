@@ -230,8 +230,8 @@ const SlideInner = styled.div`
 `;
 
 const Card = styled.div`
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgb(18, 35, 55);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
   padding: 2rem;
   margin: 15px 0;
@@ -267,7 +267,7 @@ const AuthorInfo = styled.div`
 
   .date {
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgb(196, 196, 196);
     margin-top: 4px;
   }
 `;
@@ -386,7 +386,7 @@ const FooterNote = styled.div`
   text-align: center;
   margin-top: 2vh;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgb(199, 199, 199);
   line-height: 1.5;
   max-width: 800px;
 `;
