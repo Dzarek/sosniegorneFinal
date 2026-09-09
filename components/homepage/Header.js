@@ -4,6 +4,7 @@ import { MdFacebook } from "react-icons/md";
 import Link from "next/link";
 import Image from "next/image";
 import { useGlobalContext } from "../context";
+import Head from "next/head";
 
 const desktopImages = [
   "/images/header/w-01.webp",
@@ -26,6 +27,23 @@ const Header = () => {
 
   return (
     <>
+      <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/header/w-01.jpg"
+          media="(min-width: 801px)"
+          fetchpriority="high"
+        />
+
+        <link
+          rel="preload"
+          as="image"
+          href="/images/header/w-03.jpg"
+          media="(max-width: 800px)"
+          fetchpriority="high"
+        />
+      </Head>
       <Wrapper>
         <section>
           <div className="headerContact">
@@ -41,6 +59,7 @@ const Header = () => {
               href="https://www.facebook.com/SosnieGorne/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Sosnie Górne na Facebooku"
             >
               <MdFacebook />
             </a>
@@ -49,6 +68,7 @@ const Header = () => {
               href="https://www.instagram.com/sosniegorne/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Sosnie Górne na Instagramie"
             >
               <AiFillInstagram />
             </a>
@@ -63,7 +83,7 @@ const Header = () => {
                 <div key={image} className={`heroImage heroImage-${index + 1}`}>
                   <Image
                     src={image}
-                    alt=""
+                    alt={`background-hero-desktop-${index + 1}`}
                     layout="fill"
                     objectFit="cover"
                     priority={index === 0}
@@ -82,7 +102,7 @@ const Header = () => {
                 <div key={image} className={`heroImage heroImage-${index + 1}`}>
                   <Image
                     src={image}
-                    alt=""
+                    alt={`background-hero-mobile-${index + 1}`}
                     layout="fill"
                     objectFit="cover"
                     priority={index === 0}

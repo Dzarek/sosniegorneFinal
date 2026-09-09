@@ -36,11 +36,11 @@ const AboutUs = ({ price }) => {
           </div>
           <section>
             <h2>{plLanguage ? "O nas" : "About Us"}</h2>
-            <h1 className="aboutUsSubtitle">
+            <h3 className="aboutUsSubtitle">
               {plLanguage
                 ? "Domki z jacuzzi do wynajęcia."
                 : "Houses with jacuzzi for rent."}
-            </h1>
+            </h3>
             {plLanguage ? (
               <p>
                 Sośnie Górne Resort &amp; Spa to jest to czego szukasz aby pobyć

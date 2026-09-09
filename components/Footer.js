@@ -46,9 +46,9 @@ const Footer = () => {
             )}
           </div>
           <div className="usefulLinks">
-            <h5 className="footerColTitle">
+            <h2 className="footerColTitle">
               {plLanguage ? "Przydatne linki:" : "Useful links:"}
-            </h5>
+            </h2>
             <ul>
               <li>
                 <FaCircle />
@@ -91,24 +91,25 @@ const Footer = () => {
             </ul>
           </div>
           <div className="socialMediaWrapper">
-            <h5 className="footerColTitle">
+            <h2 className="footerColTitle">
               {plLanguage ? "Szybki kontakt:" : "Contact:"}
-            </h5>
+            </h2>
             <a href="tel:+48793373246">
               <MdPhoneAndroid /> <span>+48 793 373 246</span>
             </a>
             <a href="mailto:rezerwacja@sosniegorne.pl">
               <MdEmail /> <span>rezerwacja@sosniegorne.pl</span>
             </a>
-            <h4>
+            <p className="address">
               <MdLocationOn />
               <span>Sośnie Górne 37, 33-330 Grybów</span>
-            </h4>
+            </p>
             <div className="fbInWrapper">
               <a
                 href="https://www.facebook.com/SosnieGorne/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Sosnie Górne na Facebooku"
               >
                 <MdFacebook />
               </a>
@@ -116,6 +117,7 @@ const Footer = () => {
                 href="https://www.instagram.com/sosniegorne/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Sosnie Górne na Instagramie"
               >
                 <AiFillInstagram />
               </a>
@@ -268,7 +270,7 @@ const Wrapper = styled.footer`
     margin-top: 3vh;
 
     a,
-    h4 {
+    .address {
       margin-bottom: 3vh;
       text-decoration: none;
       color: white;
@@ -291,7 +293,7 @@ const Wrapper = styled.footer`
         font-size: 1.8rem;
       }
     }
-    h4 {
+    .address {
       font-size: 12pt;
       font-weight: 400;
     }

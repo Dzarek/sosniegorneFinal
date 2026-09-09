@@ -1,8 +1,6 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { useGlobalContext } from "./context";
-
 import styled from "styled-components";
 import {
   FaUniversalAccess,
@@ -16,7 +14,6 @@ import { MdNightlightRound } from "react-icons/md";
 import { HiOutlineSpeakerWave } from "react-icons/hi2";
 import { MdOutlineFormatLineSpacing } from "react-icons/md";
 import { TbLetterCaseUpper } from "react-icons/tb";
-
 export default function AccessibilityWidget() {
   const [open, setOpen] = useState(false);
   const [contrast, setContrast] = useState(false);
@@ -28,9 +25,7 @@ export default function AccessibilityWidget() {
   const [lineSpacing, setLineSpacing] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [reading, setReading] = useState(false);
-
   const { plLanguage, setLogoInvert, logoInvert } = useGlobalContext();
-
   useEffect(() => {
     document.body.classList.toggle("a11y-contrast", contrast);
     document.body.classList.toggle("a11y-big-text", bigText);
@@ -50,7 +45,6 @@ export default function AccessibilityWidget() {
     lineSpacing,
     darkMode,
   ]);
-
   const handleRead = () => {
     const selection = window.getSelection()?.toString();
     const text = selection || document.body.innerText.slice(0, 500);
@@ -60,110 +54,221 @@ export default function AccessibilityWidget() {
     setReading(true);
     utterance.onend = () => setReading(false);
   };
-
   return (
     <Container>
-      <FloatingButton onClick={() => setOpen(!open)}>
-        <FaUniversalAccess />
-      </FloatingButton>
-
+      {" "}
+      {/* Przycisk otwierający menu */}{" "}
+      <FloatingButton
+        type="button"
+        aria-label={
+          plLanguage ? "Otwórz menu dostępności" : "Open accessibility menu"
+        }
+        aria-expanded={open}
+        aria-controls="accessibility-panel"
+        onClick={() => setOpen(!open)}
+      >
+        {" "}
+        <FaUniversalAccess aria-hidden="true" />{" "}
+      </FloatingButton>{" "}
       {open && (
-        <Panel className="a11y-widget">
+        <Panel id="accessibility-panel" className="a11y-widget">
+          {" "}
           <Header>
+            {" "}
             <h3>
-              {plLanguage ? "Menu Dostępności WWW" : "Web Accessibility Menu"}
-            </h3>
-            <Close onClick={() => setOpen(false)}>×</Close>
-          </Header>
-
+              {" "}
+              {plLanguage
+                ? "Menu Dostępności WWW"
+                : "Web Accessibility Menu"}{" "}
+            </h3>{" "}
+            {/* Przycisk zamykania */}{" "}
+            <Close
+              type="button"
+              aria-label={
+                plLanguage
+                  ? "Zamknij menu dostępności"
+                  : "Close accessibility menu"
+              }
+              onClick={() => setOpen(false)}
+            >
+              {" "}
+              <span aria-hidden="true">×</span>{" "}
+            </Close>{" "}
+          </Header>{" "}
           <Grid>
+            {" "}
+            {/* KONTRAST */}{" "}
             <Button
+              type="button"
               className={contrast ? "activeWidget" : ""}
               active={contrast}
+              aria-label={
+                plLanguage
+                  ? "Włącz lub wyłącz wysoki kontrast"
+                  : "Toggle high contrast"
+              }
+              aria-pressed={contrast}
               onClick={() => {
                 setLogoInvert(!logoInvert);
                 setContrast(!contrast);
               }}
             >
-              <MdContrast />
-              {plLanguage ? "Kontrast +" : "Contrast +"}
-            </Button>
+              {" "}
+              <MdContrast aria-hidden="true" />{" "}
+              {plLanguage ? "Kontrast +" : "Contrast +"}{" "}
+            </Button>{" "}
+            {/* CZYTANIE */}{" "}
             {reading ? (
               <Button
+                type="button"
                 onClick={() => {
                   speechSynthesis.cancel();
                   setReading(false);
                 }}
                 className="activeWidget"
+                aria-label={
+                  plLanguage
+                    ? "Zatrzymaj czytanie strony"
+                    : "Stop reading the page"
+                }
+                aria-pressed="true"
               >
-                <HiOutlineSpeakerWave />
-                {plLanguage ? "Zatrzymaj czytanie" : "Stop reading"}
+                {" "}
+                <HiOutlineSpeakerWave aria-hidden="true" />{" "}
+                {plLanguage ? "Zatrzymaj czytanie" : "Stop reading"}{" "}
               </Button>
             ) : (
-              <Button onClick={handleRead}>
-                <HiOutlineSpeakerWave />
-                {plLanguage ? "Czytaj stronę" : "Read the page"}
+              <Button
+                type="button"
+                onClick={handleRead}
+                aria-label={
+                  plLanguage ? "Czytaj stronę na głos" : "Read the page aloud"
+                }
+                aria-pressed="false"
+              >
+                {" "}
+                <HiOutlineSpeakerWave aria-hidden="true" />{" "}
+                {plLanguage ? "Czytaj stronę" : "Read the page"}{" "}
               </Button>
-            )}
+            )}{" "}
+            {/* TRYB NOCNY */}{" "}
             <Button
+              type="button"
               className={darkMode ? "activeWidget" : ""}
               active={darkMode}
+              aria-label={
+                plLanguage ? "Włącz lub wyłącz tryb nocny" : "Toggle dark mode"
+              }
+              aria-pressed={darkMode}
               onClick={() => setDarkMode(!darkMode)}
             >
-              <MdNightlightRound />
-              {plLanguage ? "Tryb nocny" : "Dark mode"}
-            </Button>
+              {" "}
+              <MdNightlightRound aria-hidden="true" />{" "}
+              {plLanguage ? "Tryb nocny" : "Dark mode"}{" "}
+            </Button>{" "}
+            {/* PODŚWIETLENIE LINKÓW */}{" "}
             <Button
+              type="button"
               active={highlightLinks}
               className={highlightLinks ? "activeWidget" : ""}
+              aria-label={
+                plLanguage
+                  ? "Włącz lub wyłącz podświetlenie linków"
+                  : "Toggle link highlighting"
+              }
+              aria-pressed={highlightLinks}
               onClick={() => setHighlightLinks(!highlightLinks)}
             >
-              <FaLink />
-              {plLanguage ? "Podświetlenie linków" : "Link highlighting"}
-            </Button>
+              {" "}
+              <FaLink aria-hidden="true" />{" "}
+              {plLanguage ? "Podświetlenie linków" : "Link highlighting"}{" "}
+            </Button>{" "}
+            {/* DUŻY TEKST */}{" "}
             <Button
+              type="button"
               className={bigText ? "activeWidget" : ""}
               active={bigText}
+              aria-label={
+                plLanguage ? "Włącz lub wyłącz duży tekst" : "Toggle large text"
+              }
+              aria-pressed={bigText}
               onClick={() => setBigText(!bigText)}
             >
-              <FaTextHeight />
-              {plLanguage ? "Duży tekst" : "Large text"}
-            </Button>
+              {" "}
+              <FaTextHeight aria-hidden="true" />{" "}
+              {plLanguage ? "Duży tekst" : "Large text"}{" "}
+            </Button>{" "}
+            {/* ODSTĘPY TEKSTU */}{" "}
             <Button
+              type="button"
               active={lineSpacing}
               className={lineSpacing ? "activeWidget" : ""}
+              aria-label={
+                plLanguage
+                  ? "Włącz lub wyłącz większe odstępy tekstu"
+                  : "Toggle text spacing"
+              }
+              aria-pressed={lineSpacing}
               onClick={() => setLineSpacing(!lineSpacing)}
             >
-              <MdOutlineFormatLineSpacing />
-              {plLanguage ? "Odstępy tekstu" : "Text spacing"}
-            </Button>
+              {" "}
+              <MdOutlineFormatLineSpacing aria-hidden="true" />{" "}
+              {plLanguage ? "Odstępy tekstu" : "Text spacing"}{" "}
+            </Button>{" "}
+            {/* ANIMACJE */}{" "}
             <Button
+              type="button"
               className={pauseAnimations ? "activeWidget" : ""}
               active={pauseAnimations}
+              aria-label={
+                plLanguage
+                  ? "Włącz lub wyłącz zatrzymanie animacji"
+                  : "Toggle animation pause"
+              }
+              aria-pressed={pauseAnimations}
               onClick={() => setPauseAnimations(!pauseAnimations)}
             >
-              <FaPauseCircle />
-              {plLanguage ? "Zatrzymaj animacje" : "Stop animations"}
-            </Button>
+              {" "}
+              <FaPauseCircle aria-hidden="true" />{" "}
+              {plLanguage ? "Zatrzymaj animacje" : "Stop animations"}{" "}
+            </Button>{" "}
+            {/* OBRAZY */}{" "}
             <Button
+              type="button"
               className={hideImages ? "activeWidget" : ""}
               active={hideImages}
+              aria-label={
+                plLanguage
+                  ? "Włącz lub wyłącz ukrywanie obrazów"
+                  : "Toggle image hiding"
+              }
+              aria-pressed={hideImages}
               onClick={() => setHideImages(!hideImages)}
             >
-              <FaImage />
-              {plLanguage ? "Ukryj obrazy" : "Hide images"}
-            </Button>
+              {" "}
+              <FaImage aria-hidden="true" />{" "}
+              {plLanguage ? "Ukryj obrazy" : "Hide images"}{" "}
+            </Button>{" "}
+            {/* DYSLEKSJA */}{" "}
             <Button
+              type="button"
               className={dyslexia ? "activeWidget" : ""}
               active={dyslexia}
+              aria-label={
+                plLanguage
+                  ? "Włącz lub wyłącz czcionkę dla dysleksji"
+                  : "Toggle dyslexia-friendly font"
+              }
+              aria-pressed={dyslexia}
               onClick={() => setDyslexia(!dyslexia)}
             >
-              <TbLetterCaseUpper />
-              {plLanguage ? "Dysleksja" : "Dyslexia"}
-            </Button>
-          </Grid>
+              {" "}
+              <TbLetterCaseUpper aria-hidden="true" />{" "}
+              {plLanguage ? "Dysleksja" : "Dyslexia"}{" "}
+            </Button>{" "}
+          </Grid>{" "}
         </Panel>
-      )}
+      )}{" "}
     </Container>
   );
 }
