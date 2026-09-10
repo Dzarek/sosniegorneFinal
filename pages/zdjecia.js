@@ -79,15 +79,10 @@ const Gallery = () => {
                   data-aos="fade-down"
                   src={item}
                   alt={`zdjęcie-${index + 1}`}
-                  layout="fill"
-                  objectFit="cover"
-                  priority={image === "/images/gallery/out7.webp"}
                   className="oneImg"
                   key={index}
                   onClick={() => setIndex(index)}
-                  fetchPriority={
-                    image === "/images/gallery/out7.webp" && "high"
-                  }
+                  fetchPriority={item === "/images/gallery/out7.webp" && "high"}
                 />
               );
             })}
