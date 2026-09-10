@@ -76,6 +76,7 @@ const Attractions = () => {
             return (
               <Link
                 to="content"
+                href="#content"
                 spy={true}
                 smooth={true}
                 duration={1000}
@@ -225,6 +226,8 @@ const Wrapper = styled.div`
       align-items: center;
       justify-content: space-between;
       transition: 0.5s;
+      text-decoration: none;
+      color: #222;
       @media screen and (max-width: 800px) {
         width: 38vw;
         height: 38vw;

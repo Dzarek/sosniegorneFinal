@@ -74,8 +74,11 @@ const Gallery = () => {
                   className="oneImg"
                   key={index}
                   src={item}
-                  alt={index + 1}
+                  alt={`zdjęcie ${index + 1}`}
                   onClick={() => setIndex(index)}
+                  fetchPriority={
+                    image === "/images/gallery/out7.webp" && "high"
+                  }
                 />
               );
             })}

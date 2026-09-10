@@ -99,9 +99,9 @@ const Houses = ({ data: udogodnienia }) => {
             <div className="halfFeatures" data-aos="fade-left">
               {houseFeatures.map((item, index) => {
                 return (
-                  <h4 key={index}>
+                  <h3 key={index}>
                     {item} <VscDebugBreakpointLog />
-                  </h4>
+                  </h3>
                 );
               })}
             </div>
@@ -109,9 +109,9 @@ const Houses = ({ data: udogodnienia }) => {
             <div className="halfFeatures" data-aos="fade-left">
               {houseFeaturesEN.map((item, index) => {
                 return (
-                  <h4 key={index}>
+                  <h3 key={index}>
                     {item} <VscDebugBreakpointLog />
-                  </h4>
+                  </h3>
                 );
               })}
             </div>
@@ -121,10 +121,10 @@ const Houses = ({ data: udogodnienia }) => {
             <div className="halfFeatures" data-aos="fade-right">
               {houseFeatures2.map((item, index) => {
                 return (
-                  <h4 key={index}>
+                  <h3 key={index}>
                     <VscDebugBreakpointLog />
                     {item}
-                  </h4>
+                  </h3>
                 );
               })}
             </div>
@@ -132,10 +132,10 @@ const Houses = ({ data: udogodnienia }) => {
             <div className="halfFeatures" data-aos="fade-right">
               {houseFeatures2EN.map((item, index) => {
                 return (
-                  <h4 key={index}>
+                  <h3 key={index}>
                     <VscDebugBreakpointLog />
                     {item}
-                  </h4>
+                  </h3>
                 );
               })}
             </div>
@@ -146,25 +146,25 @@ const Houses = ({ data: udogodnienia }) => {
           <div className="iconContent">
             <section data-aos="flip-right">
               <IoIosResize />
-              <h4>
+              <h3>
                 70 m<sup>2</sup>
-              </h4>
+              </h3>
             </section>
             <section data-aos="flip-right" data-aos-delay="200">
               <MdBed />
-              <h4>2 {plLanguage ? "sypialnie" : "bedrooms"}</h4>
+              <h3>2 {plLanguage ? "sypialnie" : "bedrooms"}</h3>
             </section>
             <section data-aos="flip-right" data-aos-delay="400">
               <MdOutlineKitchen />
-              <h4>{plLanguage ? "aneks kuchenny" : "kitchen"}</h4>
+              <h3>{plLanguage ? "aneks kuchenny" : "kitchen"}</h3>
             </section>
             <section data-aos="flip-right" data-aos-delay="600">
               <FaShower />
-              <h4>{plLanguage ? "nowoczesna łazienka" : "modern bathroom"}</h4>
+              <h3>{plLanguage ? "nowoczesna łazienka" : "modern bathroom"}</h3>
             </section>
             <section data-aos="flip-right" data-aos-delay="800">
               <TbAirConditioning />
-              <h4>{plLanguage ? "klimatyzacja" : "air conditioning"}</h4>
+              <h3>{plLanguage ? "klimatyzacja" : "air conditioning"}</h3>
             </section>
             <section data-aos="flip-left" data-aos-delay="1000">
               {/* <MdOutlineBathtub /> */}
@@ -173,23 +173,23 @@ const Houses = ({ data: udogodnienia }) => {
                 alt="jacuzzi"
                 className="jacuzziImg"
               />
-              <h4>{plLanguage ? "wanna spa" : "spa tub"}</h4>
+              <h3>{plLanguage ? "wanna spa" : "spa tub"}</h3>
             </section>
             <section data-aos="flip-left" data-aos-delay="1200">
               <MdOutlineWifi />
-              <h4>wifi</h4>
+              <h3>wifi</h3>
             </section>
             <section data-aos="flip-left" data-aos-delay="1400">
               <FaParking />
-              <h4>parking</h4>
+              <h3>parking</h3>
             </section>
             <section data-aos="flip-left" data-aos-delay="1600">
               <GiBarbecue />
-              <h4>grill</h4>
+              <h3>grill</h3>
             </section>
             <section data-aos="flip-left" data-aos-delay="1800">
               <GiTreeSwing />
-              <h4>{plLanguage ? "plac zabaw" : "playground"}</h4>
+              <h3>{plLanguage ? "plac zabaw" : "playground"}</h3>
             </section>
           </div>
         </header>
@@ -261,7 +261,7 @@ const Houses = ({ data: udogodnienia }) => {
           {udogodnienia.map((item, index) => {
             return (
               <section key={index} data-aos="fade-up">
-                <img src={item.img} alt="" />
+                <img src={item.img} alt={`zdjęcie udogodnienia ${index + 1}`} />
                 <article>
                   <h3>{plLanguage ? item.name : item.nameEN}</h3>
                   {plLanguage ? (
@@ -389,7 +389,7 @@ const Wrapper = styled.div`
         }
         @media screen and (max-width: 800px) {
           align-items: flex-start;
-          h4 {
+          h3 {
             flex-direction: row-reverse;
             justify-content: flex-end;
           }
@@ -411,7 +411,7 @@ const Wrapper = styled.div`
       margin: 0 auto 5vh;
     }
   }
-  h4 {
+  h3 {
     text-transform: uppercase;
     font-size: 1.1rem;
     font-family: var(--textFont);
@@ -458,7 +458,7 @@ const Wrapper = styled.div`
       .jacuzziImg {
         width: 45px;
       }
-      h4 {
+      h3 {
         font-size: 0.8rem;
         text-align: center;
         width: 100%;
