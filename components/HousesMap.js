@@ -318,6 +318,7 @@ const HousesMap = ({ plLanguage }) => {
             >
               <img
                 src={imageSrc}
+                alt="selected house"
                 onMouseEnter={() => setHoveredId(house.id)}
                 onClick={() =>
                   setSelectedId(selectedId === house.id ? null : house.id)

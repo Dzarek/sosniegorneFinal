@@ -116,7 +116,12 @@ const Houses = ({ data: udogodnienia }) => {
               })}
             </div>
           )}
-          <img src={housesUndraw} alt="" className="headerImg" />
+          <img
+            src={housesUndraw}
+            alt="zdjęcie główne domków"
+            className="headerImg"
+            fetchPriority="high"
+          />
           {plLanguage ? (
             <div className="halfFeatures" data-aos="fade-right">
               {houseFeatures2.map((item, index) => {
@@ -142,7 +147,12 @@ const Houses = ({ data: udogodnienia }) => {
           )}
         </header>
         <header className="mobileHeader">
-          <img src={housesUndraw} alt="" className="headerImg" />
+          <img
+            src={housesUndraw}
+            alt="zdjęcie główne domków"
+            className="headerImg"
+            fetchPriority="high"
+          />
           <div className="iconContent">
             <section data-aos="flip-right">
               <IoIosResize />

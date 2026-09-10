@@ -57,7 +57,7 @@ const Gallery = () => {
         <link
           rel="preload"
           as="image"
-          href="/images/gallery/out7.webp"
+          href="/images/gallery/out5.webp"
           fetchPriority="high"
         />
       </Head>
@@ -82,7 +82,13 @@ const Gallery = () => {
                   className="oneImg"
                   key={index}
                   onClick={() => setIndex(index)}
-                  fetchPriority={item === "/images/gallery/out7.webp" && "high"}
+                  fetchPriority={
+                    item === "/images/gallery/out5.webp" &&
+                    item === "/images/gallery/out6.webp" &&
+                    item === "/images/gallery/out7.webp" &&
+                    item === "/images/gallery/out8.webp" &&
+                    "high"
+                  }
                 />
               );
             })}
