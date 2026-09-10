@@ -8,14 +8,14 @@ import { useEffect } from "react";
 const ReservationInfoMobile = ({ setOpenModal }) => {
   const { plLanguage } = useGlobalContext();
   useEffect(() => {
-    Aos.init({ duration: 1000, disable: "false" });
+    Aos.init({ duration: 1000, disable: false });
   }, []);
   return (
     <Wrapper>
       <button onClick={() => setOpenModal(false)}>
         <TbArrowBackUp />
       </button>
-      <div className="fourInfo">
+      <div className="fourInfoMobile">
         <article data-aos="fade-down">
           <img src="/images/reservation/szybko.png" alt="szybko-ikona" />
           <div className="fourInfo-text">
@@ -60,11 +60,13 @@ const ReservationInfoMobile = ({ setOpenModal }) => {
             alt="anulowanie-ikona"
           />
           <div className="fourInfo-text">
-            <h4>{plLanguage ? "Bezpłatne anulowanie" : "Free cancellation"}</h4>
+            <h4>
+              {plLanguage ? "Bezpłatna zmiana terminu" : "Free date change"}
+            </h4>
             <p>
               {plLanguage
-                ? "Nagła zmiana planów? Twoja rezerwacja jest bezpieczna! Zadzwoń i poinformuj nas o sytuacji do 48h przed przyjazdem. Bezpłatnie zmienimy termin na inny!"
-                : "Change of plans? Your reservation is safe! Call and inform us about the situation up to 48 hours before arrival. We will change the date to another one free of charge!"}
+                ? "Nagła zmiana planów? Twoja rezerwacja jest bezpieczna! Zadzwoń i poinformuj nas o sytuacji do 72 godzin przed przyjazdem. Bezpłatnie zmienimy termin na inny!"
+                : "Change of plans? Your reservation is safe! Call and inform us about the situation up to 72 hours before arrival. We will change the date to another one free of charge!"}
             </p>
           </div>
         </article>
@@ -100,7 +102,7 @@ const Wrapper = styled.div`
     transition: 0.3s;
     cursor: pointer;
   }
-  .fourInfo {
+  .fourInfoMobile {
     position: relative;
     margin: 12vh auto 5vh;
     width: 90%;
@@ -125,7 +127,7 @@ const Wrapper = styled.div`
           font-family: var(--navFont);
           text-transform: uppercase;
           color: var(--secondaryColor);
-          font-size: 1.1rem;
+          font-size: 1rem;
           font-weight: 800;
           margin-bottom: 1vh;
         }

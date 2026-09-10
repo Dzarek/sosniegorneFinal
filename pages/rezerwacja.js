@@ -134,13 +134,13 @@ const BookingHouse = () => {
 
               <div className="fourInfo-text">
                 <h4>
-                  {plLanguage ? "Bezpłatne anulowanie" : "Free cancellation"}
+                  {plLanguage ? "Bezpłatna zmiana terminu" : "Free date change"}
                 </h4>
 
                 <p>
                   {plLanguage
-                    ? "Nagła zmiana planów? Twoja rezerwacja jest bezpieczna! Zadzwoń i poinformuj nas o sytuacji do 48h przed przyjazdem. Bezpłatnie zmienimy termin na inny!"
-                    : "Change of plans? Your reservation is safe! Call and inform us about the situation up to 48 hours before arrival. We will change the date to another one free of charge!"}
+                    ? "Nagła zmiana planów? Twoja rezerwacja jest bezpieczna! Zadzwoń i poinformuj nas o sytuacji do 72 godzin przed przyjazdem. Bezpłatnie zmienimy termin na inny!"
+                    : "Change of plans? Your reservation is safe! Call and inform us about the situation up to 72 hours before arrival. We will change the date to another one free of charge!"}
                 </p>
               </div>
             </article>

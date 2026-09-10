@@ -1,6 +1,3 @@
-import fsPromises from "fs/promises";
-import path from "path";
-
 import styled from "styled-components";
 import Head from "next/head";
 import Aos from "aos";
@@ -9,101 +6,218 @@ import { useEffect } from "react";
 import { useGlobalContext } from "../components/context";
 import { GiReceiveMoney } from "react-icons/gi";
 
-const Pricing = ({ data }) => {
-  const { sezonNiski, sezonWysoki } = data;
+// =========================================================
+// MOCK DATA
+// =========================================================
+
+const pricingData = {
+  sezonNiski: {
+    dates: ["1 styczeń - 20 czerwiec", "1 wrzesień - 22 grudzień"],
+    datesEN: ["January 1 - June 20", "September 1 - December 22"],
+    name: "sezon niski",
+    nameEN: "low season",
+
+    price1: 650,
+    priceExtra: 75,
+
+    saunaPrice1: 750,
+    saunaPriceExtra: 75,
+  },
+
+  sezonWysoki: {
+    dates: [
+      "21 czerwiec - 31 sierpień",
+      "Sylwester, Święta Wielkanocne, Święta Bożego Narodzenia, Weekend Majowy, Boże Ciało",
+    ],
+    datesEN: [
+      "June 21 - August 31",
+      "New Year's Eve, Easter, Christmas, May Weekend, Corpus Christi",
+    ],
+    name: "sezon wysoki",
+    nameEN: "high season",
+
+    price1: 900,
+    priceExtra: 100,
+
+    saunaPrice1: 1000,
+    saunaPriceExtra: 100,
+  },
+};
+
+const getPrice = (basePrice, extraPrice, people) => {
+  if (people <= 2) {
+    return basePrice;
+  }
+
+  return basePrice + (people - 2) * extraPrice;
+};
+
+const PriceOption = ({
+  title,
+  basePrice,
+  extraPrice,
+  isHighSeason,
+  plLanguage,
+}) => {
+  return (
+    <PriceOptionWrapper $isHighSeason={isHighSeason}>
+      <h4>{title}</h4>
+
+      <div className="basePrice">
+        <span className="price">{basePrice} zł</span>
+        <span className="perNight">{plLanguage ? "/ doba" : "/ night"}</span>
+      </div>
+
+      <p className="baseInfo">
+        {plLanguage ? "dla 1–2 osób" : "for 1–2 people"}
+      </p>
+
+      <div className="extraInfo">
+        <strong>+{extraPrice} zł</strong>{" "}
+        {plLanguage ? "za każdą kolejną osobę" : "for each additional person"}
+      </div>
+
+      <div className="pricesTable">
+        <h5>
+          {plLanguage
+            ? "Cena w zależności od liczby osób"
+            : "Price depending on number of people"}
+        </h5>
+
+        {[3, 4, 5, 6].map((people) => (
+          <div className="priceRow" key={people}>
+            <span>
+              {people}{" "}
+              {plLanguage
+                ? people === 1
+                  ? "osoba"
+                  : "osoby"
+                : people === 1
+                  ? "person"
+                  : "people"}
+            </span>
+
+            <strong>{getPrice(basePrice, extraPrice, people)} zł</strong>
+          </div>
+        ))}
+      </div>
+
+      <div className="maxPeople">
+        {plLanguage ? "Maksymalnie 6 osób" : "Maximum 6 people"}
+      </div>
+    </PriceOptionWrapper>
+  );
+};
+
+const Pricing = () => {
   const { plLanguage } = useGlobalContext();
 
+  const { sezonNiski, sezonWysoki } = pricingData;
+
   useEffect(() => {
-    Aos.init({ duration: 1000, disable: false });
+    Aos.init({
+      duration: 1000,
+      disable: false,
+    });
   }, []);
 
   return (
     <>
       <Head>
         <title>Cennik domków do wynajęcia | Sośnie Górne Resort & SPA</title>
+
         <meta
           name="description"
           content="Aktualny cennik wynajmu naszych domków. Wejdź i sprawdź dostępne terminy. Zaplanuj swój pobyt z wyprzedzeniem."
         />
+
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="shortcut icon" href="/logo192.png" />
       </Head>
+
       <Wrapper className="mainPage">
         <div className="title">
           <div className="titleLine5"></div>
+
           <h2>{plLanguage ? "Cennik" : "Pricing"}</h2>
+
           <div className="titleLine5"></div>
         </div>
 
-        <div className="pricesGrid">
-          {/* Sezon Niski - Jasna karta */}
-          <PriceCard data-aos="fade-left" $isHighSeason={false}>
+        <Season>
+          <SeasonHeader>
             <h3>{plLanguage ? sezonNiski.name : sezonNiski.nameEN}</h3>
 
-            <div className="datesBlock">
-              <h5>{plLanguage ? "Termin" : "Dates"}</h5>
+            <div className="dates">
               <p>{plLanguage ? sezonNiski.dates[0] : sezonNiski.datesEN[0]}</p>
+
               <p>{plLanguage ? sezonNiski.dates[1] : sezonNiski.datesEN[1]}</p>
             </div>
+          </SeasonHeader>
 
-            <div className="priceBlock">
-              <h5>{plLanguage ? "Cena" : "Price"}</h5>
-              <p>
-                {plLanguage ? "Domek dla 1-4 osób =" : "House for 1-4 people ="}
-                <span className="amount">
-                  {" "}
-                  {sezonNiski.price1} {plLanguage ? "zł/doba" : "pln/night"}
-                </span>
-              </p>
-              <p>
-                {plLanguage ? "Domek dla 5-6 osób =" : "House for 5-6 people ="}
-                <span className="amount">
-                  {" "}
-                  {sezonNiski.price2} {plLanguage ? "zł/doba" : "pln/night"}
-                </span>
-              </p>
-            </div>
-          </PriceCard>
+          <div className="options">
+            <PriceOption
+              title={plLanguage ? "Domek" : "House"}
+              basePrice={sezonNiski.price1}
+              extraPrice={sezonNiski.priceExtra}
+              isHighSeason={false}
+              plLanguage={plLanguage}
+            />
 
-          <IconDivider>
-            <GiReceiveMoney />
-          </IconDivider>
+            <IconDivider>
+              <GiReceiveMoney />
+            </IconDivider>
 
-          {/* Sezon Wysoki - Ciemna karta */}
-          <PriceCard data-aos="fade-right" $isHighSeason={true}>
+            <PriceOption
+              title={plLanguage ? "Domek z sauną" : "House with sauna"}
+              basePrice={sezonNiski.saunaPrice1}
+              extraPrice={sezonNiski.saunaPriceExtra}
+              isHighSeason={false}
+              plLanguage={plLanguage}
+            />
+          </div>
+        </Season>
+
+        <Season>
+          <SeasonHeader>
             <h3>{plLanguage ? sezonWysoki.name : sezonWysoki.nameEN}</h3>
 
-            <div className="datesBlock">
-              <h5>{plLanguage ? "Termin" : "Dates"}</h5>
+            <div className="dates">
               <p>
                 {plLanguage ? sezonWysoki.dates[0] : sezonWysoki.datesEN[0]}
               </p>
+
               <p>
                 {plLanguage ? sezonWysoki.dates[1] : sezonWysoki.datesEN[1]}
               </p>
             </div>
+          </SeasonHeader>
 
-            <div className="priceBlock">
-              <h5>{plLanguage ? "Cena" : "Price"}</h5>
-              <p>
-                {plLanguage ? "Domek dla 1-4 osób =" : "House for 1-4 people ="}
-                <span className="amount">
-                  {" "}
-                  {sezonWysoki.price1} {plLanguage ? "zł/doba" : "pln/night"}
-                </span>
-              </p>
-              <p>
-                {plLanguage ? "Domek dla 5-6 osób =" : "House for 5-6 people ="}
-                <span className="amount">
-                  {" "}
-                  {sezonWysoki.price2} {plLanguage ? "zł/doba" : "pln/night"}
-                </span>
-              </p>
-            </div>
-          </PriceCard>
-        </div>
+          <div className="options">
+            <PriceOption
+              title={plLanguage ? "Domek" : "House"}
+              basePrice={sezonWysoki.price1}
+              extraPrice={sezonWysoki.priceExtra}
+              isHighSeason={true}
+              plLanguage={plLanguage}
+            />
+
+            <IconDivider>
+              <GiReceiveMoney />
+            </IconDivider>
+
+            <PriceOption
+              title={plLanguage ? "Domek z sauną" : "House with sauna"}
+              basePrice={sezonWysoki.saunaPrice1}
+              extraPrice={sezonWysoki.saunaPriceExtra}
+              isHighSeason={true}
+              plLanguage={plLanguage}
+            />
+          </div>
+        </Season>
 
         <h3 className="lengthInfo">
           {plLanguage ? (
@@ -113,8 +227,8 @@ const Pricing = ({ data }) => {
             </>
           ) : (
             <>
-              Relax longer! Minimum booking is <span>2 days </span>(long
-              weekends: <span>3 days</span> minimum)
+              Relax longer! Minimum booking is <span>2 days </span>
+              (long weekends: <span>3 days</span> minimum)
             </>
           )}
         </h3>
@@ -123,13 +237,11 @@ const Pricing = ({ data }) => {
   );
 };
 
-// --- STYLED COMPONENTS ---
-
 const Wrapper = styled.div`
   padding-bottom: 6vh;
 
   .title {
-    margin: 10vh auto 5vh;
+    margin: 10vh auto 7vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -168,6 +280,7 @@ const Wrapper = styled.div`
           width: 26vw;
         }
       }
+
       @media screen and (max-width: 800px) {
         @keyframes growLine5 {
           100% {
@@ -178,25 +291,15 @@ const Wrapper = styled.div`
     }
   }
 
-  .pricesGrid {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 7vh auto;
-
-    @media screen and (max-width: 950px) {
-      flex-direction: column;
-      gap: 4vh;
-    }
-  }
-
   .lengthInfo {
     margin: 8vh auto 10vh;
     text-align: center;
     font-weight: 500;
     font-size: 1.2rem;
-    color: #222; /* Domyślny ciemny tekst dla sekcji dolnej */
+    color: #222;
+    padding-top: 5vh;
+    border-top: var(--secondaryColor) 2px solid;
+    width: 70%;
 
     span {
       font-weight: 700;
@@ -204,102 +307,230 @@ const Wrapper = styled.div`
     }
 
     @media screen and (max-width: 800px) {
-      width: 90%;
+      width: 80%;
       line-height: 1.5;
     }
   }
 `;
 
-const PriceCard = styled.section`
-  width: 30vw;
-  min-height: 55vh;
+const Season = styled.section`
+  width: 100%;
+  margin: 0 auto 10vh;
+
+  .options {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+
+    @media screen and (max-width: 950px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 3vh;
+    }
+  }
+`;
+
+const SeasonHeader = styled.div`
+  text-align: center;
+  margin-bottom: 4vh;
+
+  h3 {
+    display: inline-block;
+    padding: 1vh 3vw;
+    /* background: var(--secondaryColor); */
+    color: var(--secondaryColor);
+    font-family: var(--titleFont);
+    font-size: 2.3rem;
+    text-transform: uppercase;
+  }
+
+  .dates {
+    margin-top: 2vh;
+
+    p {
+      font-size: 1.1rem;
+      margin: 0.5vh auto;
+      font-weight: 500;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    h3 {
+      font-size: 1.8rem;
+    }
+
+    .dates {
+      width: 90%;
+      margin: 2vh auto 0;
+    }
+  }
+`;
+
+const PriceOptionWrapper = styled.div`
+  width: 31vw;
+  min-height: 54vh;
+  padding: 4vh 3vw;
+  position: relative;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  padding: 2.5vw 2vw;
-  box-sizing: border-box;
-  overflow: hidden;
+  background: ${(props) => (props.$isHighSeason ? "#2b2b2b" : "#ffffff")};
+  color: ${(props) => (props.$isHighSeason ? "#ffffff" : "#222222")};
+  border: 1px solid
+    ${(props) =>
+      props.$isHighSeason ? "var(--thirdColor)" : "rgba(37, 58, 77, 0.25)"};
+  box-shadow: ${(props) =>
+    props.$isHighSeason
+      ? "0 8px 30px rgba(0, 0, 0, 0.18)"
+      : "0 8px 30px rgba(0, 0, 0, 0.08)"};
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-
-  /* Stylizacja warunkowa na podstawie sezonu */
-  background: ${(props) => (props.$isHighSeason ? "#333333" : "#ffffff")};
-  color: ${(props) => (props.$isHighSeason ? "#ffffff" : "#222222")};
-  border: 5px solid
-    ${(props) =>
-      props.$isHighSeason ? "var(--thirdColor)" : "var(--secondaryColor)"};
-
-  /* Układ obramowań stykających się na desktopie */
-  border-right: ${(props) =>
-    !props.$isHighSeason ? "none" : "5px solid var(--thirdColor)"};
-  border-left: ${(props) =>
-    props.$isHighSeason ? "none" : "5px solid var(--secondaryColor)"};
-
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    z-index: 2; /* Sprawia, że najechana karta lekko nachodzi na sąsiada bez ucinania cienia */
+    transform: translateY(-5px);
+    box-shadow: ${(props) =>
+      props.$isHighSeason
+        ? "0 15px 35px rgba(0, 0, 0, 0.25)"
+        : "0 15px 35px rgba(0, 0, 0, 0.12)"};
+  } /* Delikatny akcent u góry karty */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 3px;
+    background: ${(props) =>
+      props.$isHighSeason ? "var(--thirdColor)" : "var(--secondaryColor)"};
   }
-
-  h3 {
+  h4 {
+    margin: 0 0 2.5vh;
     font-family: var(--navFont);
-    margin-bottom: 2vh;
+    font-size: 1.35rem;
+    font-weight: 600;
     text-transform: uppercase;
-    font-size: 1.4rem;
+    letter-spacing: 1.5px;
     color: ${(props) =>
       props.$isHighSeason ? "var(--thirdColor)" : "var(--secondaryColor)"};
   }
-
-  h5 {
-    text-transform: uppercase;
-    font-size: 1.15rem;
-    margin: 1.5vh auto 1vh;
-    font-family: var(--navFont);
+  .basePrice {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.4vw;
+    margin-top: 0.5vh;
+  }
+  .price {
+    font-size: 2.6rem;
+    line-height: 1;
+    font-weight: 700;
+    color: ${(props) =>
+      props.$isHighSeason ? "var(--thirdColor)" : "var(--secondaryColor)"};
+  }
+  .perNight {
+    font-size: 0.95rem;
+    font-weight: 500;
     opacity: 0.8;
   }
-
-  .datesBlock,
-  .priceBlock {
-    width: 100%;
-  }
-
-  p {
-    font-size: 1.05rem;
-    margin-bottom: 1vh;
-    line-height: 1.5;
+  .baseInfo {
+    margin: 1vh 0 2.5vh;
+    font-size: 1rem;
     font-weight: 500;
-    @media screen and (max-width: 950px) {
-      font-size: 1rem;
-    }
+    opacity: 0.8;
   }
-
-  .amount {
-    font-weight: 700;
-    font-size: 1.2rem;
-    /* dynamiczny kolor wyróżnionej kwoty */
-    color: ${(props) =>
-      props.$isHighSeason ? "var(--thirdColor)" : "var(--secondaryColor)"};
-    @media screen and (max-width: 950px) {
-      font-size: 1.1rem;
-    }
-  }
-
-  @media screen and (max-width: 950px) {
-    width: 90%;
-    height: auto;
-    min-height: auto;
-    padding: 4vh 4vw;
-    border: 5px solid
+  .extraInfo {
+    width: 100%;
+    margin: 0 0 3vh;
+    padding: 1.5vh 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5vh;
+    border-top: 1px solid
       ${(props) =>
         props.$isHighSeason
-          ? "var(--thirdColor)"
-          : "var(--secondaryColor)"} !important;
-
-    p {
-      font-weight: 400;
+          ? "rgba(238, 207, 81, 0.35)"
+          : "rgba(37, 58, 77, 0.18)"};
+    border-bottom: 1px solid
+      ${(props) =>
+        props.$isHighSeason
+          ? "rgba(238, 207, 81, 0.35)"
+          : "rgba(37, 58, 77, 0.18)"};
+    span {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    strong {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: ${(props) =>
+        props.$isHighSeason ? "var(--thirdColor)" : "var(--secondaryColor)"};
+    }
+  }
+  .pricesTable {
+    width: 100%;
+    margin-top: 0.5vh;
+    h5 {
+      margin-bottom: 1.5vh;
+      font-family: var(--navFont);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.65;
+    }
+  }
+  .priceRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8vh 0.5vw;
+    font-size: 0.95rem;
+    border-bottom: 1px solid
+      ${(props) =>
+        props.$isHighSeason
+          ? "rgba(255, 255, 255, 0.1)"
+          : "rgba(0, 0, 0, 0.08)"};
+    &:last-child {
+      border-bottom: none;
+    }
+    span {
+      opacity: 0.85;
+    }
+    strong {
+      font-size: 1rem;
+      font-weight: 700;
+      color: ${(props) =>
+        props.$isHighSeason ? "var(--thirdColor)" : "var(--secondaryColor)"};
+    }
+  }
+  .maxPeople {
+    margin-top: auto;
+    padding-top: 2.5vh;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    opacity: 0.55;
+  }
+  @media screen and (max-width: 950px) {
+    width: 90%;
+    min-height: auto;
+    padding: 4vh 7vw;
+  }
+  @media screen and (max-width: 500px) {
+    width: 92%;
+    padding: 4vh 6vw;
+    h4 {
+      font-size: 1.2rem;
+    }
+    .price {
+      font-size: 2.3rem;
+    }
+    .priceRow {
+      padding: 1vh 1vw;
+      font-size: 0.95rem;
     }
   }
 `;
@@ -317,31 +548,8 @@ const IconDivider = styled.div`
   }
 
   @media screen and (max-width: 950px) {
-    margin: 2vh auto;
+    margin: 0 auto;
   }
 `;
-
-export async function getStaticProps() {
-  let data;
-  const filePath = path.join(process.cwd(), "data.json");
-  const jsonData = await fsPromises.readFile(filePath);
-  const localData = JSON.parse(jsonData);
-
-  try {
-    const res = await fetch(
-      "https://sosniegornedata-fee8c-default-rtdb.europe-west1.firebasedatabase.app/price.json",
-    );
-    data = await res.json();
-  } catch (error) {
-    data = localData.price;
-  }
-
-  return {
-    props: {
-      data,
-    },
-    revalidate: 60,
-  };
-}
 
 export default Pricing;

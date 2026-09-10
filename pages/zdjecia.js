@@ -54,6 +54,12 @@ const Gallery = () => {
           property="og:image"
           content="https://sosniegorne.pl/logo192.png"
         />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/gallery/out7.webp"
+          fetchPriority="high"
+        />
       </Head>
       <Wrapper className="mainPage">
         <div className="title">
@@ -71,10 +77,13 @@ const Gallery = () => {
               return (
                 <img
                   data-aos="fade-down"
+                  src={item}
+                  alt={`zdjęcie-${index + 1}`}
+                  layout="fill"
+                  objectFit="cover"
+                  priority={image === "/images/gallery/out7.webp"}
                   className="oneImg"
                   key={index}
-                  src={item}
-                  alt={`zdjęcie ${index + 1}`}
                   onClick={() => setIndex(index)}
                   fetchPriority={
                     image === "/images/gallery/out7.webp" && "high"
