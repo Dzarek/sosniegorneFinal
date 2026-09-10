@@ -123,6 +123,7 @@ const Navbar = () => {
       <Wrapper2>
         {!showMenu && (
           <button
+            aria-label="nav hamburger"
             onClick={() => setShowMenu(!showMenu)}
             className={
               (offset > windowHeight && router.pathname == "/") ||
@@ -136,6 +137,7 @@ const Navbar = () => {
         )}
         <div className={showMenu ? "navbar" : "navbar none"}>
           <button
+            aria-label="nav hamburger2"
             onClick={() => setShowMenu(!showMenu)}
             className="navHamburger2"
           >
@@ -250,19 +252,24 @@ const Navbar = () => {
               href="https://goo.gl/maps/x3d8HRsPK2MKyu6d8"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Sosnie Górne lokalizacja"
             >
               <MdLocationOn className="icon" />
             </a>
-            <a href="tel:+48793373246">
+            <a href="tel:+48793373246" aria-label="Sosnie Górne telefon">
               <MdPhoneAndroid className="icon" />
             </a>
-            <a href="mailto:rezerwacja@sosniegorne.pl">
+            <a
+              href="mailto:rezerwacja@sosniegorne.pl"
+              aria-label="Sosnie Górne adres email"
+            >
               <MdEmail className="icon" />
             </a>
             <a
               href="https://www.facebook.com/SosnieGorne/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Sosnie Górne na Facebooku"
             >
               <MdFacebook className="icon" />
             </a>
@@ -270,6 +277,7 @@ const Navbar = () => {
               href="https://www.instagram.com/sosniegorne/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Sosnie Górne na Instagramie"
             >
               <AiFillInstagram className="icon" />
             </a>

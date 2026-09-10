@@ -53,8 +53,10 @@ function MyApp({ Component, pageProps }) {
       <AppProvider>
         <AccessibilityWidget />
         <Navbar />
-        <BookingRoom />
-        <Component {...pageProps} />
+        <main>
+          <BookingRoom />
+          <Component {...pageProps} />
+        </main>
         <Footer />
         {/* <CookieAccept setVisibleCookie={setVisibleCookie} />
         {visibleCookie && <Cookie setVisibleCookie={setVisibleCookie} />} */}

@@ -127,7 +127,10 @@ const CardOpinion = ({ item, plLanguage }) => {
       </ReviewTextContainer>
 
       {isLongReview && (
-        <ExpandButton onClick={() => setIsExpanded(!isExpanded)}>
+        <ExpandButton
+          onClick={() => setIsExpanded(!isExpanded)}
+          aria-label="more/less"
+        >
           {isExpanded
             ? plLanguage
               ? "Zwiń tekst"

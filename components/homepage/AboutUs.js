@@ -8,7 +8,7 @@ import { ImPriceTag } from "react-icons/im";
 
 const homeUndraw1 = "/images/home/w-07.webp";
 const homeUndraw2 = "/images/gallery/out1.webp";
-const mobileBg = "/images/home/mobileAboutBg.webp";
+const mobileBg = "/images/home/mobileAboutBg.png";
 
 const AboutUs = ({ price }) => {
   const { plLanguage } = useGlobalContext();
