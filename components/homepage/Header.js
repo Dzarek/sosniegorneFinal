@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { AiFillInstagram } from "react-icons/ai";
 import { MdFacebook } from "react-icons/md";
 import Link from "next/link";
-import Image from "next/image";
+import Head from "next/head";
+
 import { useGlobalContext } from "../context";
 
 const desktopImages = [
@@ -26,6 +27,23 @@ const Header = () => {
 
   return (
     <>
+      <Head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/header/w-03.webp"
+          media="(max-width: 800px)"
+          fetchPriority="high"
+        />
+
+        <link
+          rel="preload"
+          as="image"
+          href="/images/header/w-01.webp"
+          media="(min-width: 801px)"
+          fetchPriority="high"
+        />
+      </Head>
       <Wrapper>
         <section>
           <div className="headerContact">
@@ -63,14 +81,13 @@ const Header = () => {
             <div className="hero desktopHero">
               {desktopImages.map((image, index) => (
                 <div key={image} className={`heroImage heroImage-${index + 1}`}>
-                  <Image
+                  <img
                     src={image}
                     alt={`background-hero-desktop-${index + 1}`}
                     layout="fill"
                     objectFit="cover"
                     priority={index === 0}
                     loading={index === 0 ? undefined : "lazy"}
-                    unoptimized
                     fetchPriority={
                       image === "/images/header/w-01.webp" && "high"
                     }
@@ -84,14 +101,13 @@ const Header = () => {
             <div className="hero mobileHero">
               {mobileImages.map((image, index) => (
                 <div key={image} className={`heroImage heroImage-${index + 1}`}>
-                  <Image
+                  <img
                     src={image}
                     alt={`background-hero-mobile-${index + 1}`}
                     layout="fill"
                     objectFit="cover"
                     priority={index === 0}
                     loading={index === 0 ? undefined : "lazy"}
-                    unoptimized
                     fetchPriority={
                       image === "/images/header/w-03.webp" && "high"
                     }

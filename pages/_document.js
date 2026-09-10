@@ -31,10 +31,6 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
 
-          <link
-            href="https://cdn.jsdelivr.net/npm/open-dyslexic@0.1.1/open-dyslexic.css"
-            rel="stylesheet"
-          />
           <meta name="theme-color" content="#253a4d" />
           <Script
             strategy="afterInteractive"

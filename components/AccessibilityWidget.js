@@ -14,6 +14,7 @@ import { MdNightlightRound } from "react-icons/md";
 import { HiOutlineSpeakerWave } from "react-icons/hi2";
 import { MdOutlineFormatLineSpacing } from "react-icons/md";
 import { TbLetterCaseUpper } from "react-icons/tb";
+
 export default function AccessibilityWidget() {
   const [open, setOpen] = useState(false);
   const [contrast, setContrast] = useState(false);
@@ -26,6 +27,21 @@ export default function AccessibilityWidget() {
   const [darkMode, setDarkMode] = useState(false);
   const [reading, setReading] = useState(false);
   const { plLanguage, setLogoInvert, logoInvert } = useGlobalContext();
+
+  const loadDyslexiaFont = () => {
+    if (document.getElementById("open-dyslexic-font")) {
+      return;
+    }
+
+    const link = document.createElement("link");
+    link.id = "open-dyslexic-font";
+    link.rel = "stylesheet";
+    link.href =
+      "https://cdn.jsdelivr.net/npm/open-dyslexic@0.1.1/open-dyslexic.css";
+
+    document.head.appendChild(link);
+  };
+
   useEffect(() => {
     document.body.classList.toggle("a11y-contrast", contrast);
     document.body.classList.toggle("a11y-big-text", bigText);
@@ -260,9 +276,14 @@ export default function AccessibilityWidget() {
                   : "Toggle dyslexia-friendly font"
               }
               aria-pressed={dyslexia}
-              onClick={() => setDyslexia(!dyslexia)}
+              onClick={() => {
+                if (!dyslexia) {
+                  loadDyslexiaFont();
+                }
+
+                setDyslexia(!dyslexia);
+              }}
             >
-              {" "}
               <TbLetterCaseUpper aria-hidden="true" />{" "}
               {plLanguage ? "Dysleksja" : "Dyslexia"}{" "}
             </Button>{" "}

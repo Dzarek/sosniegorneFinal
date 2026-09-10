@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import styled from "styled-components";
 import Carousel from "react-multi-carousel";
 import { useGlobalContext } from "./context";
@@ -153,6 +153,50 @@ const Opinions = ({ dataOpinionsDate, dataOpinions }) => {
     () => shuffleArray(dataOpinions),
     [dataOpinions],
   );
+
+  useEffect(() => {
+    const updateHiddenSlides = () => {
+      const hiddenSlides = document.querySelectorAll(
+        '.carouselClass li[aria-hidden="true"]',
+      );
+
+      hiddenSlides.forEach((slide) => {
+        const buttons = slide.querySelectorAll("button");
+
+        buttons.forEach((button) => {
+          button.setAttribute("tabindex", "-1");
+        });
+      });
+
+      const visibleSlides = document.querySelectorAll(
+        '.carouselClass li[aria-hidden="false"]',
+      );
+
+      visibleSlides.forEach((slide) => {
+        const buttons = slide.querySelectorAll("button");
+
+        buttons.forEach((button) => {
+          button.removeAttribute("tabindex");
+        });
+      });
+    };
+
+    updateHiddenSlides();
+
+    const observer = new MutationObserver(updateHiddenSlides);
+
+    const carousel = document.querySelector(".carouselClass");
+
+    if (carousel) {
+      observer.observe(carousel, {
+        attributes: true,
+        subtree: true,
+        attributeFilter: ["aria-hidden"],
+      });
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const responsive = {
     desktop: {
