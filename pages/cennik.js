@@ -148,7 +148,7 @@ const Pricing = () => {
         </div>
 
         <Season>
-          <SeasonHeader>
+          {/* <SeasonHeader>
             <h3>{plLanguage ? sezonNiski.name : sezonNiski.nameEN}</h3>
 
             <div className="dates">
@@ -156,7 +156,7 @@ const Pricing = () => {
 
               <p>{plLanguage ? sezonNiski.dates[1] : sezonNiski.datesEN[1]}</p>
             </div>
-          </SeasonHeader>
+          </SeasonHeader> */}
 
           <div className="options">
             <PriceOption
@@ -180,15 +180,15 @@ const Pricing = () => {
             />
           </div>
         </Season>
-
+        <div className="line-separator"></div>
         <Season>
           <SeasonHeader>
-            <h3>{plLanguage ? sezonWysoki.name : sezonWysoki.nameEN}</h3>
+            {/* <h3>{plLanguage ? sezonWysoki.name : sezonWysoki.nameEN}</h3> */}
 
             <div className="dates">
-              <p>
+              {/* <p>
                 {plLanguage ? sezonWysoki.dates[0] : sezonWysoki.datesEN[0]}
-              </p>
+              </p> */}
 
               <p>
                 {plLanguage ? sezonWysoki.dates[1] : sezonWysoki.datesEN[1]}
@@ -311,6 +311,16 @@ const Wrapper = styled.div`
       line-height: 1.5;
     }
   }
+  .line-separator {
+    /* display: none; */
+    /* @media screen and (max-width: 800px) { */
+    width: 50%;
+    height: 2px;
+    background-color: #222;
+    display: block;
+    margin: 2vh auto 7vh;
+    /* } */
+  }
 `;
 
 const Season = styled.section`
@@ -326,7 +336,7 @@ const Season = styled.section`
     @media screen and (max-width: 950px) {
       flex-direction: column;
       align-items: center;
-      gap: 3vh;
+      gap: 7vh;
     }
   }
 `;
@@ -549,6 +559,7 @@ const IconDivider = styled.div`
 
   @media screen and (max-width: 950px) {
     margin: 0 auto;
+    display: none;
   }
 `;
 
