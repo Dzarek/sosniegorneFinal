@@ -116,8 +116,7 @@ const Header = ({ price }) => {
               ))}
             </div>
             {/* Gradient */}
-            <div className="heroGradient" />
-            ```jsx
+            {/* <div className="heroGradient" /> */}
             {/* Tekst */}
             <div className="headerText">
               <h1>
@@ -160,7 +159,6 @@ const Header = ({ price }) => {
                 </Link>
               </div>
             </div>
-            ```
           </div>
 
           {/* Logo mobilne */}
