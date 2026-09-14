@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useGlobalContext } from "../context";
 import { MdOutlinePets, MdOutlineAccessTimeFilled } from "react-icons/md";
 import { ImPriceTag } from "react-icons/im";
+import Link from "next/link";
 
 const homeUndraw1 = "/images/home/w-07.webp";
 const homeUndraw2 = "/images/gallery/out1.webp";
@@ -93,11 +94,20 @@ const AboutUs = ({ price }) => {
               <ImPriceTag />
               <div className="info">
                 <h3>{plLanguage ? "Najlepsza cena" : "Best Price"}</h3>
-                <p>
-                  {plLanguage
-                    ? `od ${price} PLN / noc`
-                    : `from ${price} PLN / night`}
+
+                <p className="price">
+                  {plLanguage ? `od ${price} PLN` : `from ${price} PLN`}
                 </p>
+
+                <span className="priceDescription">
+                  {plLanguage
+                    ? "za domek dla 1-2 osób / noc"
+                    : "per house for 1-2 people / night"}
+                </span>
+
+                <Link href="/cennik">
+                  {plLanguage ? "Sprawdź cennik" : "Check prices"}
+                </Link>
               </div>
             </FeatureCard>
           </FeaturesGrid>
@@ -121,8 +131,9 @@ const FeaturesGrid = styled.div`
     width: 100%;
     margin: 4vh auto 0;
     flex-direction: row; /* Zmieniamy układ na poziomy na telefonach! */
-    justify-content: space-around;
+    justify-content: center;
     align-items: stretch;
+    flex-wrap: wrap;
     gap: 10px;
     background: rgba(255, 255, 255, 0.02); /* Delikatne wspólne tło dla paska */
     padding: 20px 3px;
@@ -138,10 +149,10 @@ const FeatureCard = styled.div`
   background: var(--opinionBgColor);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
-  padding: 16px 24px;
+  padding: 20px 24px;
   /* backdrop-filter: blur(5px); */
   transition: 0.5s;
-  width: 290px;
+  width: 310px;
   box-sizing: border-box;
 
   svg {
@@ -179,6 +190,35 @@ const FeatureCard = styled.div`
       white-space: nowrap;
       transition: 0.5s;
     }
+    .priceDescription {
+      display: block;
+      margin-top: 4px;
+
+      font-size: 0.7rem;
+      font-weight: 500;
+      line-height: 1.3;
+      color: rgba(255, 255, 255, 0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 8px;
+
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--thirdColor);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+
+      transition: 0.3s ease;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
   }
   &:hover .info p {
     color: var(--thirdColor);
@@ -191,12 +231,14 @@ const FeatureCard = styled.div`
     /* background: transparent; Usuwamy osobne tła, bo mają wspólny pasek wyżej */
     border: none;
     padding: 20px 5px;
-    width: 33%; /* Trzy równe kolumny obok siebie */
+    width: 40%; /* Trzy równe kolumny obok siebie */
     box-shadow: none;
     &:hover {
       transform: none; /* Na dotyk i tak nie ma klasycznego hovera */
     }
-
+    &:nth-last-child(1) {
+      width: 80%;
+    }
     svg {
       font-size: 1.7rem; /* Nieco mniejsze ikony na smartfonie */
       margin-bottom: 10px;
@@ -208,13 +250,22 @@ const FeatureCard = styled.div`
       h3 {
         font-size: 0.7rem; /* Mniejszy, schludny podpis */
         letter-spacing: 0.5px;
-        margin-bottom: 15px;
+        margin-bottom: 6px;
       }
 
       p {
         font-size: 0.8rem; /* Kompaktowy tekst główny */
         white-space: normal;
         word-break: break-word;
+      }
+      .priceDescription {
+        font-size: 0.65rem;
+        line-height: 1.25;
+      }
+
+      a {
+        margin-top: 6px;
+        font-size: 0.65rem;
       }
     }
   }

@@ -27,11 +27,11 @@ const pricingData = {
   sezonWysoki: {
     dates: [
       "21 czerwiec - 31 sierpień",
-      "Sylwester, Święta Wielkanocne, Święta Bożego Narodzenia, Weekend Majowy, Boże Ciało",
+      "Sylwester, Święta Wielkanocne, Święta Bożego Narodzenia, Weekend Majowy, Boże Ciało, Długie Weekendy",
     ],
     datesEN: [
       "June 21 - August 31",
-      "New Year's Eve, Easter, Christmas, May Weekend, Corpus Christi",
+      "New Year's Eve, Easter, Christmas, May Long Weekend, Corpus Christi, Long Weekends",
     ],
     name: "sezon wysoki",
     nameEN: "high season",
@@ -89,9 +89,9 @@ const PriceOption = ({
             <span>
               {people}{" "}
               {plLanguage
-                ? people === 1
-                  ? "osoba"
-                  : "osoby"
+                ? people === 3 || people === 4
+                  ? "osoby"
+                  : "osób"
                 : people === 1
                   ? "person"
                   : "people"}
@@ -160,7 +160,7 @@ const Pricing = () => {
 
           <div className="options">
             <PriceOption
-              title={plLanguage ? "Domek" : "House"}
+              title={plLanguage ? "Domek z Jacuzzi" : "House with a Jacuzzi"}
               basePrice={sezonNiski.price1}
               extraPrice={sezonNiski.priceExtra}
               isHighSeason={false}
@@ -172,7 +172,11 @@ const Pricing = () => {
             </IconDivider>
 
             <PriceOption
-              title={plLanguage ? "Domek z sauną" : "House with sauna"}
+              title={
+                plLanguage
+                  ? "Domek z jacuzzi i sauną"
+                  : "House with jacuzzi and sauna"
+              }
               basePrice={sezonNiski.saunaPrice1}
               extraPrice={sezonNiski.saunaPriceExtra}
               isHighSeason={false}
@@ -198,7 +202,7 @@ const Pricing = () => {
 
           <div className="options">
             <PriceOption
-              title={plLanguage ? "Domek" : "House"}
+              title={plLanguage ? "Domek z Jacuzzi" : "House with a Jacuzzi"}
               basePrice={sezonWysoki.price1}
               extraPrice={sezonWysoki.priceExtra}
               isHighSeason={true}
@@ -210,7 +214,11 @@ const Pricing = () => {
             </IconDivider>
 
             <PriceOption
-              title={plLanguage ? "Domek z sauną" : "House with sauna"}
+              title={
+                plLanguage
+                  ? "Domek z jacuzzi i sauną"
+                  : "House with jacuzzi and sauna"
+              }
               basePrice={sezonWysoki.saunaPrice1}
               extraPrice={sezonWysoki.saunaPriceExtra}
               isHighSeason={true}
@@ -420,6 +428,7 @@ const PriceOptionWrapper = styled.div`
     font-family: var(--navFont);
     font-size: 1.35rem;
     font-weight: 600;
+    text-align: center;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: ${(props) =>
@@ -533,10 +542,10 @@ const PriceOptionWrapper = styled.div`
     width: 92%;
     padding: 4vh 6vw;
     h4 {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
     .price {
-      font-size: 2.3rem;
+      font-size: 2rem;
     }
     .priceRow {
       padding: 1vh 1vw;

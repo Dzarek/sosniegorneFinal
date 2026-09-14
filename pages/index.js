@@ -41,7 +41,7 @@ export default function Home({ dataPrice, dataOpinions, dataOpinionsDate }) {
         <meta property="og:type" content="website" />
       </Head>
       <div>
-        <Header />
+        <Header price={sezonNiski.price1 || 650} />
         <AboutUs price={sezonNiski.price1 || 650} />
         <ShortHouses />
         <ShortGallery />

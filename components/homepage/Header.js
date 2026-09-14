@@ -22,7 +22,7 @@ const mobileImages = [
 
 const logo = "/images/logo.png";
 
-const Header = () => {
+const Header = ({ price }) => {
   const { plLanguage } = useGlobalContext();
 
   return (
@@ -115,18 +115,52 @@ const Header = () => {
                 </div>
               ))}
             </div>
-
             {/* Gradient */}
             <div className="heroGradient" />
-
+            ```jsx
             {/* Tekst */}
             <div className="headerText">
-              <h1>5 całorocznych domków z prywatnym jacuzzi</h1>
+              <h1>
+                {plLanguage
+                  ? "5 całorocznych domków z prywatnym jacuzzi"
+                  : "5 year-round houses with private jacuzzi"}
+              </h1>
 
-              <p>ogrodzone działki · widok na góry · pobyt z psem</p>
+              <p>
+                {plLanguage
+                  ? "ogrodzone działki · widok na góry · pobyt z psem"
+                  : "fenced plots · mountain views · stay with a dog"}
+              </p>
 
-              <span>OD 650 ZŁ / NOC</span>
+              <div className="headerTextPrice">
+                <span className="priceMobile">
+                  {plLanguage ? (
+                    <>
+                      <strong>OD {price} ZŁ</strong>
+                      <br />
+                      ZA DOMEK DLA 1-2 OSÓB / NOC
+                    </>
+                  ) : (
+                    <>
+                      <strong>FROM {price} PLN</strong>
+                      <br />
+                      PER HOUSE FOR 1-2 PEOPLE / NIGHT
+                    </>
+                  )}
+                </span>
+
+                <span className="priceDesktop">
+                  {plLanguage
+                    ? `OD ${price} ZŁ ZA DOMEK DLA 1-2 OSÓB / NOC`
+                    : `FROM ${price} PLN PER HOUSE FOR 1-2 PEOPLE / NIGHT`}
+                </span>
+
+                <Link href="/cennik">
+                  {plLanguage ? "Sprawdź Cennik" : "Check Prices"}
+                </Link>
+              </div>
             </div>
+            ```
           </div>
 
           {/* Logo mobilne */}
@@ -500,21 +534,62 @@ const Wrapper = styled.div`
 
           letter-spacing: 0.02em;
         }
-
-        span {
-          display: inline-block;
-
-          font-size: 0.95rem;
-
-          font-weight: 600;
-
-          letter-spacing: 0.12em;
-
-          text-transform: uppercase;
-
-          padding-top: 12px;
+        .headerTextPrice {
+          display: flex;
+          flex-direction: column;
 
           border-top: 1px solid rgba(255, 255, 255, 0.6);
+
+          width: 400px;
+          max-width: 100%;
+
+          margin-left: auto;
+          margin-right: 0;
+          span {
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding-top: 12px;
+          }
+
+          a {
+            color: white;
+            margin-top: 6px;
+          }
+
+          .priceMobile {
+            display: none;
+            font-size: 0.8rem;
+            strong {
+              font-size: 1.1rem;
+              font-weight: 700;
+            }
+          }
+
+          .priceDesktop {
+            display: block;
+          }
+
+          @media screen and (max-width: 800px) {
+            width: 100%;
+            margin: 0 auto;
+
+            align-items: center;
+            text-align: center;
+
+            .priceMobile {
+              display: block;
+            }
+
+            .priceDesktop {
+              display: none;
+            }
+
+            a {
+              text-align: center;
+            }
+          }
         }
       }
 
@@ -664,7 +739,7 @@ const Wrapper = styled.div`
           top: auto;
 
           right: 0;
-          bottom: 10%;
+          bottom: 6%;
           left: 0;
 
           transform: none;
