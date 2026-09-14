@@ -6,43 +6,46 @@ import { useEffect } from "react";
 import { useGlobalContext } from "../components/context";
 import { GiReceiveMoney } from "react-icons/gi";
 
+import fsPromises from "fs/promises";
+import path from "path";
+
 // =========================================================
 // MOCK DATA
 // =========================================================
 
-const pricingData = {
-  sezonNiski: {
-    dates: ["1 styczeń - 20 czerwiec", "1 wrzesień - 22 grudzień"],
-    datesEN: ["January 1 - June 20", "September 1 - December 22"],
-    name: "sezon niski",
-    nameEN: "low season",
+// const pricingData = {
+//   sezonNiski: {
+//     dates: ["1 styczeń - 20 czerwiec", "1 wrzesień - 22 grudzień"],
+//     datesEN: ["January 1 - June 20", "September 1 - December 22"],
+//     name: "sezon niski",
+//     nameEN: "low season",
 
-    price1: 650,
-    priceExtra: 75,
+//     price1: 650,
+//     priceExtra: 75,
 
-    saunaPrice1: 750,
-    saunaPriceExtra: 75,
-  },
+//     saunaPrice1: 750,
+//     saunaPriceExtra: 75,
+//   },
 
-  sezonWysoki: {
-    dates: [
-      "21 czerwiec - 31 sierpień",
-      "Sylwester, Święta Wielkanocne, Święta Bożego Narodzenia, Weekend Majowy, Boże Ciało, Długie Weekendy",
-    ],
-    datesEN: [
-      "June 21 - August 31",
-      "New Year's Eve, Easter, Christmas, May Long Weekend, Corpus Christi, Long Weekends",
-    ],
-    name: "sezon wysoki",
-    nameEN: "high season",
+//   sezonWysoki: {
+//     dates: [
+//       "21 czerwiec - 31 sierpień",
+//       "Sylwester, Święta Wielkanocne, Święta Bożego Narodzenia, Weekend Majowy, Boże Ciało, Długie Weekendy",
+//     ],
+//     datesEN: [
+//       "June 21 - August 31",
+//       "New Year's Eve, Easter, Christmas, May Long Weekend, Corpus Christi, Long Weekends",
+//     ],
+//     name: "sezon wysoki",
+//     nameEN: "high season",
 
-    price1: 900,
-    priceExtra: 100,
+//     price1: 900,
+//     priceExtra: 100,
 
-    saunaPrice1: 1000,
-    saunaPriceExtra: 100,
-  },
-};
+//     saunaPrice1: 1000,
+//     saunaPriceExtra: 100,
+//   },
+// };
 
 const getPrice = (basePrice, extraPrice, people) => {
   if (people <= 2) {
@@ -109,10 +112,10 @@ const PriceOption = ({
   );
 };
 
-const Pricing = () => {
+const Pricing = ({ data: price }) => {
   const { plLanguage } = useGlobalContext();
 
-  const { sezonNiski, sezonWysoki } = pricingData;
+  const { sezonNiski, sezonWysoki } = price;
 
   useEffect(() => {
     Aos.init({
@@ -571,5 +574,28 @@ const IconDivider = styled.div`
     display: none;
   }
 `;
+
+export async function getStaticProps() {
+  let data;
+  const filePath = path.join(process.cwd(), "data.json");
+  const jsonData = await fsPromises.readFile(filePath);
+  const localData = JSON.parse(jsonData);
+
+  try {
+    const res = await fetch(
+      "https://sosniegornedata-fee8c-default-rtdb.europe-west1.firebasedatabase.app/price.json",
+    );
+    data = await res.json();
+  } catch (error) {
+    data = localData.price;
+  }
+
+  return {
+    props: {
+      data,
+    },
+    revalidate: 60,
+  };
+}
 
 export default Pricing;
